@@ -37,7 +37,7 @@ editions:
   # (GDELT searches translated text), always written in English.
   IN:
     name: press.autos India
-    url: https://in.press.autos
+    url: https://india.press.autos
     enabled: true
     daily_max_articles: 6
     source_language: english
@@ -76,7 +76,7 @@ editions:
 
   AU:
     name: press.autos Australia
-    url: https://au.press.autos
+    url: https://australia.press.autos
     enabled: false
     daily_max_articles: 3
     source_language: english
@@ -86,7 +86,7 @@ editions:
 
   CA:
     name: press.autos Canada
-    url: https://ca.press.autos
+    url: https://canada.press.autos
     enabled: false
     daily_max_articles: 3
     source_language: english
@@ -96,7 +96,7 @@ editions:
 
   MY:
     name: press.autos Malaysia
-    url: https://my.press.autos
+    url: https://malaysia.press.autos
     enabled: false
     daily_max_articles: 3
     source_language: any
@@ -106,7 +106,7 @@ editions:
 
   SG:
     name: press.autos Singapore
-    url: https://sg.press.autos
+    url: https://singapore.press.autos
     enabled: false
     daily_max_articles: 3
     source_language: english
@@ -116,7 +116,7 @@ editions:
 
   PH:
     name: press.autos Philippines
-    url: https://ph.press.autos
+    url: https://philippines.press.autos
     enabled: false
     daily_max_articles: 3
     source_language: english
@@ -126,7 +126,7 @@ editions:
 
   AE:
     name: press.autos UAE
-    url: https://ae.press.autos
+    url: https://uae.press.autos
     enabled: false
     daily_max_articles: 3
     source_language: english
@@ -136,7 +136,7 @@ editions:
 
   ZA:
     name: press.autos South Africa
-    url: https://za.press.autos
+    url: https://southafrica.press.autos
     enabled: false
     daily_max_articles: 3
     source_language: english
@@ -146,7 +146,7 @@ editions:
 
   NZ:
     name: press.autos New Zealand
-    url: https://nz.press.autos
+    url: https://newzealand.press.autos
     enabled: false
     daily_max_articles: 3
     source_language: english
@@ -156,7 +156,7 @@ editions:
 
   TH:
     name: press.autos Thailand
-    url: https://th.press.autos
+    url: https://thailand.press.autos
     enabled: false
     daily_max_articles: 3
     source_language: any
@@ -166,7 +166,7 @@ editions:
 
   ID:
     name: press.autos Indonesia
-    url: https://id.press.autos
+    url: https://indonesia.press.autos
     enabled: false
     daily_max_articles: 3
     source_language: any
@@ -176,7 +176,7 @@ editions:
 
   IT:
     name: press.autos Italy
-    url: https://it.press.autos
+    url: https://italy.press.autos
     enabled: false
     daily_max_articles: 3
     source_language: any
@@ -186,7 +186,7 @@ editions:
 
   DE:
     name: press.autos Germany
-    url: https://de.press.autos
+    url: https://germany.press.autos
     enabled: false
     daily_max_articles: 3
     source_language: any
@@ -196,7 +196,7 @@ editions:
 
   FR:
     name: press.autos France
-    url: https://fr.press.autos
+    url: https://france.press.autos
     enabled: false
     daily_max_articles: 3
     source_language: any
