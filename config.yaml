@@ -17,6 +17,7 @@ limits:
   min_score: 0.45             # skip weak stories rather than publish filler
   lookback_hours: 36          # only consider items this recent
   max_category_share: 0.5     # within an edition, no category gets more than half of its daily drafts
+  max_candidates_per_source: 4  # at most this many candidate stories led by one website per run (stops one blog dominating)
 
 # Where stories go. Each story's country decides its edition.
 # - "global" is the main site (WP_URL secret).
@@ -45,6 +46,13 @@ editions:
       - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:india sourcelang:english'
       - '(Maruti OR Tata OR Mahindra OR Hyundai OR Kia OR Toyota OR "Royal Enfield" OR "Hero MotoCorp" OR Bajaj OR TVS OR Ather OR Ola) (launch OR price OR sales OR recall) sourcecountry:india sourcelang:english'
       - '(Vahan OR FADA OR SIAM) (sales OR registrations) sourcecountry:india sourcelang:english'
+    feeds:   # Indian car and bike news (read only while this edition is enabled)
+      - {name: RushLane, url: "https://www.rushlane.com/feed"}
+      - {name: GaadiWaadi, url: "https://gaadiwaadi.com/feed/"}
+      - {name: MotorBeam, url: "https://www.motorbeam.com/feed/"}
+      - {name: Motoroids, url: "https://www.motoroids.com/feed/"}
+      - {name: Autocar Professional, url: "https://www.autocarpro.in/rss"}
+      - {name: ET Auto, url: "https://auto.economictimes.indiatimes.com/rss/topstories"}
 
   GB:
     name: press.autos UK
@@ -282,6 +290,20 @@ source_authority:
   autocarindia.com: 0.75
   autocar.co.uk: 0.75
   electrek.co: 0.7
+  motor1.com: 0.7
+  carscoops.com: 0.65
+  drive.com.au: 0.7
+  paultan.org: 0.7
+  rideapart.com: 0.65
+  asphaltandrubber.com: 0.65
+  visordown.com: 0.65
+  motorsport.com: 0.75
+  autosport.com: 0.75
+  rushlane.com: 0.65
+  gaadiwaadi.com: 0.6
+  motorbeam.com: 0.6
+  motoroids.com: 0.6
+  auto.economictimes.indiatimes.com: 0.7
   insideevs.com: 0.7
   greencarreports.com: 0.7
   carscoops.com: 0.65
@@ -295,6 +317,21 @@ feeds:
   - {name: Green Car Reports news, url: "https://feeds.highgearmedia.com/?sites=GreenCarReports&tags=news"}
   - {name: Electrek, url: "https://electrek.co/feed/"}
   - {name: InsideEVs, url: "https://insideevs.com/rss/news/all/"}
+  # All car news (launches, SUVs, used market, industry)
+  - {name: Motor1, url: "https://www.motor1.com/rss/news/all/"}
+  - {name: Carscoops, url: "https://www.carscoops.com/feed/"}
+  - {name: Autocar UK, url: "https://www.autocar.co.uk/rss"}
+  - {name: Drive Australia, url: "https://www.drive.com.au/feed/"}
+  - {name: Paul Tan Malaysia, url: "https://paultan.org/feed/"}
+  # Motorcycles
+  - {name: RideApart, url: "https://www.rideapart.com/rss/news/all/"}
+  - {name: Asphalt & Rubber, url: "https://www.asphaltandrubber.com/feed/"}
+  - {name: Visordown, url: "https://www.visordown.com/rss.xml"}
+  # Motorsport
+  - {name: Motorsport.com, url: "https://www.motorsport.com/rss/all/news/"}
+  - {name: Autosport, url: "https://www.autosport.com/rss/all/news/"}
+  # Recalls (official)
+  - {name: NHTSA recalls, url: "https://www.nhtsa.gov/rss/recalls"}
 
 # GDELT global news search (free, 1 request per 5 seconds). One query per line.
 gdelt:
