@@ -301,6 +301,27 @@ def render_card(title: str, category: str, stats: list[str], edition_label: str 
     return out.getvalue()
 
 
+def optimise(data: bytes, mime: str, max_width: int = 1600) -> tuple[bytes, str]:
+    """Resize large photos and save as progressive JPEG (fast pages = better Core Web Vitals and Discover)."""
+    try:
+        from PIL import Image
+        with Image.open(io.BytesIO(data)) as im:
+            if im.mode in ("RGBA", "LA", "P"):
+                if mime == "image/png" and im.mode in ("RGBA", "LA") and im.getextrema()[-1][0] < 255:
+                    return data, mime  # real transparency: keep the PNG
+                im = im.convert("RGB")
+            elif im.mode != "RGB":
+                im = im.convert("RGB")
+            if im.width > max_width:
+                im = im.resize((max_width, round(im.height * max_width / im.width)), Image.LANCZOS)
+            out = io.BytesIO()
+            im.save(out, "JPEG", quality=84, optimize=True, progressive=True)
+        new = out.getvalue()
+        return (new, "image/jpeg") if len(new) < len(data) or mime != "image/jpeg" else (data, mime)
+    except Exception:  # noqa: BLE001
+        return data, mime
+
+
 # ------------------------------------------------------------------ main entry
 def choose_images(cfg: dict, srcs: list[dict], facts: dict, draft: dict, edition: dict, edition_key: str,
                   notes: list | None = None) -> dict:
@@ -319,6 +340,7 @@ def choose_images(cfg: dict, srcs: list[dict], facts: dict, draft: dict, edition
             got = download_image(url, ua)
             if got:
                 data, mime, _ = got
+                data, mime = optimise(data, mime)
                 ext = {"image/jpeg": "jpg", "image/png": "png", "image/webp": "webp"}[mime]
                 found.append((data, mime, f"{slug}-{len(found) + 1}.{ext}", alt, credit, "official"))
             if len(found) >= 2:

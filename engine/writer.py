@@ -11,6 +11,9 @@ Rules you must never break:
 - Plain, clear English. Short paragraphs (max 3 sentences). Sentences under 25 words. No hype, no clickbait, no emoji.
 - Give metric units first; add miles or US units in brackets where the story is US/UK.
 - The first sentence states the news and its key number.
+- State dates explicitly ("on 21 November 2026", "from January 2027"), never only "today" or "last week".
+- On first mention use full names: maker + model + variant ("Bajaj Pulsar RS200"), and spell out an abbreviation once.
+- Every paragraph must make sense on its own (search and AI engines quote single paragraphs).
 - The title and meta description may only contain numbers, prices and claims that are in the article body.
   No superlatives ("cheapest", "fastest", "first") unless a source states it, and then the body must say who claims it.
 - On the global edition: if the story is only about one country, say so in the first sentence and add the country in brackets at the end of the title, e.g. "(US)", "(India)", "(UK)". On a country edition, never add the country to the title.
@@ -88,13 +91,17 @@ Write the news article from the fact table only. 350-700 words.
 Structure: opening paragraph with the news; then sections with "## " headings (e.g. key details, prices/specs,
 what it means for buyers/owners).{local_section} Use a "| table |" only when there are 3+ comparable numbers. Bullet lists with "- ".
 Do not add a Sources section (the site adds it automatically). Do not add a conclusion that repeats the article.
+ANSWER ENGINES: phrase one or two "## " headings as the question a buyer would search, and answer it in the first
+sentence under it (e.g. "## How much does the Pulsar RS200 cost?" then "It costs Rs 1,98,441 ex-showroom, Delhi.").
+If the fact table supports it, end with "## Frequently asked questions" containing 2-4 "### Question?" sub-headings,
+each followed by a one-to-three-sentence answer from the fact table only. Skip the FAQ if the facts are too thin.
 SEO (do this naturally, never stuff keywords): choose a focus keyword people would search (usually brand + model +
 the news, e.g. "Pulsar RS200 price"); put it near the start of the title, in the excerpt, in the first sentence and in
 one "## " heading. Link the most authoritative source once in the body text as a Markdown link, e.g.
 "[according to Bajaj](https://...)", using a URL from SOURCES only.
 
 Return JSON:
-{{"title": "accurate headline, max 75 characters, no clickbait",
+{{"title": "accurate headline, max 65 characters so it is not cut off in search results, no clickbait",
   "excerpt": "meta description, 140-160 characters",
   "focus_keyword": "2-5 word search phrase, lowercase, that appears in the title, excerpt, first sentence and one heading",
   "slug": "short URL slug, 3-7 lowercase words joined by hyphens, starting with the focus keyword, no dates or filler words",

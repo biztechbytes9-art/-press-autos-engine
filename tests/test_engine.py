@@ -667,3 +667,15 @@ def test_also_read_block():
     from engine import blocks
     h = blocks.also_read([{"title": "EV charging explained", "link": "https://press.autos/ev/ev-charging-levels-explained/"}])
     assert "Also read" in h and 'href="https://press.autos/ev/ev-charging-levels-explained/"' in h
+
+
+def test_photos_are_resized_and_compressed():
+    import io
+    from PIL import Image
+    from engine import images
+    buf = io.BytesIO()
+    Image.new("RGB", (4000, 2250), (90, 120, 160)).save(buf, "PNG")
+    data, mime = images.optimise(buf.getvalue(), "image/png")
+    assert mime == "image/jpeg"
+    with Image.open(io.BytesIO(data)) as im:
+        assert im.width == 1600 and im.height == 900
