@@ -1,0 +1,353 @@
+# press.autos content engine settings.
+# Edit this file on GitHub to change behaviour; no code changes needed.
+
+site:
+  # Secrets (WP_URL, WP_USER, WP_APP_PASSWORD, ANTHROPIC_API_KEY) are set in
+  # GitHub > Settings > Secrets and variables > Actions, never in this file.
+  user_agent: "press.autos-engine/1.0 (+https://press.autos/editorial-policy/)"
+  post_status: pending        # pending = goes to the review queue. Never "publish".
+  editor_name: Karim
+
+limits:
+  per_run_max_articles: 3     # across all editions; the workflow runs every 2 hours
+  daily_max_total_articles: 20  # all editions together: keep this to what you can review in a day
+  daily_max_usd: 3.50         # hard stop on PAID AI spend per day (free models cost $0)
+  max_sources: 2              # source pages read per story (kept small for free per-minute limits)
+  source_chars: 6000          # characters read from each source page
+  min_score: 0.45             # skip weak stories rather than publish filler
+  lookback_hours: 36          # only consider items this recent
+  max_category_share: 0.5     # within an edition, no category gets more than half of its daily drafts
+  max_candidates_per_source: 4  # at most this many candidate stories led by one website per run (stops one blog dominating)
+
+# Where stories go. Each story's country decides its edition.
+# - "global" is the main site (WP_URL secret).
+# - A country edition is used only when enabled: true. Its site must exist in WordPress
+#   with the same categories/tags imported and the pipeline user added to it.
+# - Local stories for a country without an enabled edition follow local_without_edition.
+local_without_edition: global   # "global" = post on the main site with the country in the title; "skip" = ignore
+editions:
+  global:
+    name: press.autos
+    url: secret                   # uses the WP_URL secret
+    daily_max_articles: 10
+    style: "Global audience. Metric units first; add US units in brackets for US/UK stories. Prices in the source currency, with USD in brackets if the source gives it."
+
+  # Country editions. To switch one on: create the site in WordPress (see README), then set enabled: true.
+  # source_language: english = only English-language local news; any = also read local-language news
+  # (GDELT searches translated text), always written in English.
+  IN:
+    name: press.autos India
+    url: https://in.press.autos
+    enabled: true
+    daily_max_articles: 6
+    source_language: english
+    style: "India edition for local buyers. Prices in rupees using lakh/crore (e.g. Rs 12.5 lakh, ex-showroom) exactly as the source states. Mention variants, ex-showroom vs on-road, bookings and deliveries when the source gives them. Do not add the country to the title."
+    gdelt_queries:
+      - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:india sourcelang:english'
+      - '(Maruti OR Tata OR Mahindra OR Hyundai OR Kia OR Toyota OR "Royal Enfield" OR "Hero MotoCorp" OR Bajaj OR TVS OR Ather OR Ola) (launch OR price OR sales OR recall) sourcecountry:india sourcelang:english'
+      - '(Vahan OR FADA OR SIAM) (sales OR registrations) sourcecountry:india sourcelang:english'
+    feeds:   # Indian car and bike news (read only while this edition is enabled)
+      - {name: RushLane, url: "https://www.rushlane.com/feed"}
+      - {name: GaadiWaadi, url: "https://gaadiwaadi.com/feed/"}
+      - {name: MotorBeam, url: "https://www.motorbeam.com/feed/"}
+      - {name: Motoroids, url: "https://www.motoroids.com/feed/"}
+      - {name: Autocar Professional, url: "https://www.autocarpro.in/rss"}
+      - {name: ET Auto, url: "https://auto.economictimes.indiatimes.com/rss/topstories"}
+
+  GB:
+    name: press.autos UK
+    url: https://uk.press.autos
+    enabled: false
+    daily_max_articles: 3
+    source_language: english
+    style: "UK edition for local buyers. Miles and mpg first with km in brackets. Prices in pounds (on-the-road where stated). Do not add the country to the title."
+    gdelt_queries:
+      - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:unitedkingdom sourcelang:english'
+
+  US:
+    name: press.autos US
+    url: https://us.press.autos
+    enabled: false
+    daily_max_articles: 3
+    source_language: english
+    style: "US edition for local buyers. Miles and mpg first with km in brackets. Prices in US dollars as MSRP, as stated by the source. Do not add the country to the title."
+    gdelt_queries:
+      - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:unitedstates sourcelang:english'
+
+  AU:
+    name: press.autos Australia
+    url: https://au.press.autos
+    enabled: false
+    daily_max_articles: 3
+    source_language: english
+    style: "Australia edition for local buyers. Metric units. Prices in Australian dollars, before or drive-away exactly as stated. Do not add the country to the title."
+    gdelt_queries:
+      - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:australia sourcelang:english'
+
+  CA:
+    name: press.autos Canada
+    url: https://ca.press.autos
+    enabled: false
+    daily_max_articles: 3
+    source_language: english
+    style: "Canada edition for local buyers. Metric units first. Prices in Canadian dollars (MSRP) as stated. Do not add the country to the title."
+    gdelt_queries:
+      - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:canada sourcelang:english'
+
+  MY:
+    name: press.autos Malaysia
+    url: https://my.press.autos
+    enabled: false
+    daily_max_articles: 3
+    source_language: any
+    style: "Malaysia edition for local buyers. Metric units. Prices in ringgit (RM), on-the-road with or without insurance exactly as stated. Mention CKD/CBU when the source does. Do not add the country to the title."
+    gdelt_queries:
+      - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:malaysia'
+
+  SG:
+    name: press.autos Singapore
+    url: https://sg.press.autos
+    enabled: false
+    daily_max_articles: 3
+    source_language: english
+    style: "Singapore edition for local buyers. Metric units. Prices in Singapore dollars, noting whether COE is included, exactly as stated. Mention COE category when relevant. Do not add the country to the title."
+    gdelt_queries:
+      - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:singapore sourcelang:english'
+
+  PH:
+    name: press.autos Philippines
+    url: https://ph.press.autos
+    enabled: false
+    daily_max_articles: 3
+    source_language: english
+    style: "Philippines edition for local buyers. Metric units. Prices in pesos (PHP) as stated. Do not add the country to the title."
+    gdelt_queries:
+      - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:philippines sourcelang:english'
+
+  AE:
+    name: press.autos UAE
+    url: https://ae.press.autos
+    enabled: false
+    daily_max_articles: 3
+    source_language: english
+    style: "UAE edition for local buyers. Metric units. Prices in dirhams (AED) as stated. Do not add the country to the title."
+    gdelt_queries:
+      - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:unitedarabemirates sourcelang:english'
+
+  ZA:
+    name: press.autos South Africa
+    url: https://za.press.autos
+    enabled: false
+    daily_max_articles: 3
+    source_language: english
+    style: "South Africa edition for local buyers. Metric units. Prices in rand (R) as stated. Do not add the country to the title."
+    gdelt_queries:
+      - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:southafrica sourcelang:english'
+
+  NZ:
+    name: press.autos New Zealand
+    url: https://nz.press.autos
+    enabled: false
+    daily_max_articles: 3
+    source_language: english
+    style: "New Zealand edition for local buyers. Metric units. Prices in New Zealand dollars as stated. Do not add the country to the title."
+    gdelt_queries:
+      - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:newzealand sourcelang:english'
+
+  TH:
+    name: press.autos Thailand
+    url: https://th.press.autos
+    enabled: false
+    daily_max_articles: 3
+    source_language: any
+    style: "Thailand edition for local buyers. Metric units. Prices in baht (THB) as stated. Thailand Motor Expo and BOI/EV incentive context when the source gives it. Do not add the country to the title."
+    gdelt_queries:
+      - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:thailand'
+
+  ID:
+    name: press.autos Indonesia
+    url: https://id.press.autos
+    enabled: false
+    daily_max_articles: 3
+    source_language: any
+    style: "Indonesia edition for local buyers. Metric units. Prices in rupiah (Rp) as stated, on-the-road where stated. Do not add the country to the title."
+    gdelt_queries:
+      - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:indonesia'
+
+  IT:
+    name: press.autos Italy
+    url: https://it.press.autos
+    enabled: false
+    daily_max_articles: 3
+    source_language: any
+    style: "Italy edition for local buyers. Metric units. Prices in euros as stated (list price; mention incentives such as Ecobonus when the source does). Do not add the country to the title."
+    gdelt_queries:
+      - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:italy'
+
+  DE:
+    name: press.autos Germany
+    url: https://de.press.autos
+    enabled: false
+    daily_max_articles: 3
+    source_language: any
+    style: "Germany edition for local buyers. Metric units. Prices in euros as stated (list price). Mention KBA registration data when relevant. Do not add the country to the title."
+    gdelt_queries:
+      - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:germany'
+
+  FR:
+    name: press.autos France
+    url: https://fr.press.autos
+    enabled: false
+    daily_max_articles: 3
+    source_language: any
+    style: "France edition for local buyers. Metric units. Prices in euros as stated; mention bonus/malus ecologique when the source does. Do not add the country to the title."
+    gdelt_queries:
+      - '(car OR SUV OR EV OR "electric vehicle" OR motorcycle OR scooter) (launch OR launched OR price OR unveiled OR recall OR sales) sourcecountry:france'
+
+# AI models. FREE providers first; the engine falls back down each list when a model is
+# rate-limited or has no key. Add keys as GitHub secrets: GROQ_API_KEY (main, free),
+# GEMINI_API_KEY (free, optional), OPENROUTER_API_KEY (free, optional), ANTHROPIC_API_KEY (paid, optional).
+# Free limits change: check each provider's console and adjust rpm/tpm/rpd/tpd below.
+# If a model name stops working, replace it with a current free model from that provider's model list.
+llm:
+  providers:
+    groq:       {type: openai, base_url: "https://api.groq.com/openai/v1", key_env: GROQ_API_KEY}
+    gemini:     {type: gemini, base_url: "https://generativelanguage.googleapis.com/v1beta", key_env: GEMINI_API_KEY}   # works with new AQ. keys
+    openrouter: {type: openai, base_url: "https://openrouter.ai/api/v1", key_env: OPENROUTER_API_KEY}
+    anthropic:  {type: anthropic, key_env: ANTHROPIC_API_KEY}
+  models:
+    groq-gpt-oss:      {provider: groq, model: "openai/gpt-oss-120b", rpm: 28, tpm: 7500, rpd: 950, tpd: 190000, extra: {reasoning_effort: low}}
+    groq-qwen:         {provider: groq, model: "qwen/qwen3.8-27b", rpm: 28, tpm: 7500, rpd: 950, tpd: 190000}
+    gemini-flash-lite: {provider: gemini, model: "gemini-3.5-flash-lite", rpm: 10, rpd: 450}
+    gemini-flash:      {provider: gemini, model: "gemini-3.8-flash", rpm: 5, rpd: 18}
+    openrouter-gemma:  {provider: openrouter, model: "google/gemma-4-31b-it:free", rpm: 18, rpd: 45}
+    claude-haiku:      {provider: anthropic, model: claude-haiku-5-5, price_in: 0.10, price_out: 0.50}
+    claude-sonnet:     {provider: anthropic, model: claude-sonnet-5-5, price_in: 2.00, price_out: 10.00}
+  roles:   # tried in this order
+    triage: [gemini-flash-lite, groq-qwen, openrouter-gemma, claude-haiku]
+    writer: [groq-gpt-oss, gemini-flash, groq-qwen, openrouter-gemma, claude-sonnet]
+    verify: [groq-qwen, gemini-flash-lite, groq-gpt-oss, openrouter-gemma, claude-sonnet]   # a different model checks the writer's work
+
+# Our category slugs (must exist in WordPress) and what belongs in each.
+categories:
+  ev: "Electric cars and electric bikes: launches, range, charging, prices, incentives"
+  motorcycles: "Motorcycles and scooters (non-electric or general two-wheeler news)"
+  used-cars: "Used-car market, values, buying advice"
+  suvs: "SUV and crossover launches and news (non-EV focus)"
+  commercial: "Pickups, vans, trucks, fleets"
+  tech: "Car technology: ADAS, software, batteries, infotainment, safety tech"
+  motorsport: "Racing series and motorsport business"
+  reviews: "Reviews (only if the source is an official spec release we can summarise)"
+  compare: "Comparisons (rarely from news)"
+  trends: "Sales figures, registrations, market data, industry reports"
+
+# Words that make a story more relevant (weights add up, capped at 1.0).
+relevance_keywords:
+  launch: 0.35
+  unveil: 0.3
+  reveal: 0.25
+  price: 0.3
+  recall: 0.4
+  sales: 0.3
+  registrations: 0.3
+  electric: 0.25
+  ev: 0.25
+  battery: 0.2
+  charging: 0.2
+  range: 0.15
+  motorcycle: 0.25
+  scooter: 0.2
+  suv: 0.2
+  facelift: 0.25
+  specs: 0.2
+  booking: 0.2
+
+# How much we trust a source domain (0-1). Official and data sources score highest.
+# Unknown domains get 0.4. News sites are used to discover stories; facts must come
+# from the text we fetch, and we always credit the source.
+source_authority:
+  nhtsa.gov: 1.0
+  gov.uk: 1.0
+  europa.eu: 1.0
+  pressroom.toyota.com: 1.0
+  pib.gov.in: 1.0
+  marutisuzuki.com: 1.0
+  mahindra.com: 1.0
+  autocarpro.in: 0.75
+  economictimes.indiatimes.com: 0.7
+  business-standard.com: 0.7
+  livemint.com: 0.7
+  newsroom.bmwgroup.com: 1.0
+  media.ford.com: 1.0
+  news.gm.com: 1.0
+  hyundainews.com: 1.0
+  kianewscenter.com: 1.0
+  volkswagen-newsroom.com: 1.0
+  group.mercedes-benz.com: 1.0
+  tatamotors.com: 1.0
+  reuters.com: 0.85
+  apnews.com: 0.85
+  autocarindia.com: 0.75
+  autocar.co.uk: 0.75
+  electrek.co: 0.7
+  motor1.com: 0.7
+  carscoops.com: 0.65
+  drive.com.au: 0.7
+  paultan.org: 0.7
+  rideapart.com: 0.65
+  asphaltandrubber.com: 0.65
+  visordown.com: 0.65
+  motorsport.com: 0.75
+  autosport.com: 0.75
+  rushlane.com: 0.65
+  gaadiwaadi.com: 0.6
+  motorbeam.com: 0.6
+  motoroids.com: 0.6
+  auto.economictimes.indiatimes.com: 0.7
+  insideevs.com: 0.7
+  greencarreports.com: 0.7
+  carscoops.com: 0.65
+  motor1.com: 0.65
+
+# Discovery sources. Feeds that fail are logged and skipped, never fatal.
+feeds:
+  - {name: Toyota USA pressroom, url: "https://pressroom.toyota.com/feed/atom/"}
+  - {name: Toyota product news, url: "https://pressroom.toyota.com/product/feed/atom/"}
+  - {name: Green Car Reports EVs, url: "https://feeds.highgearmedia.com/?sites=GreenCarReports&tags=electric-cars"}
+  - {name: Green Car Reports news, url: "https://feeds.highgearmedia.com/?sites=GreenCarReports&tags=news"}
+  - {name: Electrek, url: "https://electrek.co/feed/"}
+  - {name: InsideEVs, url: "https://insideevs.com/rss/news/all/"}
+  # All car news (launches, SUVs, used market, industry)
+  - {name: Motor1, url: "https://www.motor1.com/rss/news/all/"}
+  - {name: Carscoops, url: "https://www.carscoops.com/feed/"}
+  - {name: Autocar UK, url: "https://www.autocar.co.uk/rss"}
+  - {name: Drive Australia, url: "https://www.drive.com.au/feed/"}
+  - {name: Paul Tan Malaysia, url: "https://paultan.org/feed/"}
+  # Motorcycles
+  - {name: RideApart, url: "https://www.rideapart.com/rss/news/all/"}
+  - {name: Asphalt & Rubber, url: "https://www.asphaltandrubber.com/feed/"}
+  - {name: Visordown, url: "https://www.visordown.com/rss.xml"}
+  # Motorsport
+  - {name: Motorsport.com, url: "https://www.motorsport.com/rss/all/news/"}
+  - {name: Autosport, url: "https://www.autosport.com/rss/all/news/"}
+  # Recalls (official)
+  - {name: NHTSA recalls, url: "https://www.nhtsa.gov/rss/recalls"}
+
+# GDELT global news search (free, 1 request per 5 seconds). One query per line.
+gdelt:
+  enabled: true
+  timespan: "12h"
+  max_records: 75
+  queries:
+    - '("electric car" OR "electric vehicle" OR EV) (launch OR unveils OR price) sourcelang:english'
+    - '(recall) (vehicles OR cars OR SUVs OR motorcycles) sourcelang:english'
+    - '("car sales" OR registrations OR "EV sales") (October OR November OR December OR monthly) sourcelang:english'
+    - '(motorcycle OR scooter) (launch OR unveils OR price) sourcelang:english'
+
+# Brands we tag (must match terms in WordPress Brands taxonomy).
+brands: [Audi, BMW, BYD, Chevrolet, Citroen, Ford, Honda, Hyundai, Jeep, Kia, Land Rover, Lexus, Mahindra,
+  Maruti Suzuki, Mercedes-Benz, MG, Mini, Nissan, Porsche, Renault, Skoda, Suzuki, Tata Motors, Tesla, Toyota,
+  Volkswagen, Volvo, Rivian, Lucid, Polestar, Xiaomi, Zeekr, Geely, Nio, Xpeng, Ather, Bajaj, Ducati,
+  Harley-Davidson, Hero MotoCorp, Honda Motorcycle, Kawasaki, KTM, Ola Electric, Royal Enfield, Triumph, TVS, Yamaha]
+powertrains: [Petrol, Diesel, Electric (BEV), Plug-in hybrid, Hybrid, Mild hybrid, CNG, Hydrogen]
+bodies: [Hatchback, Sedan, SUV, Crossover, MPV, Pickup, Coupe, Convertible, Estate, Van, Motorcycle, Scooter]

@@ -9,11 +9,11 @@ import logging
 import os
 from collections import Counter
 
-from . import blocks, checks, cluster, extract, sources, writer
+from . import blocks, checks, cluster, extract, images, sources, writer
 from .config import ROOT, load_config, load_secrets
 from .llm import BudgetExceeded, NoModelAvailable, Router
 from .store import Store
-from .wordpress import SiteNotReady, WordPress, build_payload
+from .wordpress import SiteNotReady, WordPress, build_payload, upload_media
 
 log = logging.getLogger("engine")
 
@@ -199,13 +199,35 @@ def write_story(ai: Router, cfg: dict, facts: dict, srcs: list[dict], edition: d
         notes.append("Numbers not found in sources (may be calculations): " + ", ".join(odd[:10]))
     if not facts.get("is_confirmed", True):
         notes.append("Story is not officially confirmed; check the wording says so.")
-    hint = draft.get("image_hint")
-    if hint and official_domain(cfg, hint):
-        notes.append(f"Add a featured image (official press image: {hint}).")
-    else:
-        notes.append("Add a featured image: use the maker's official press/media site or your own image. "
-                     "Never use photos from news sites (copyright).")
     return draft, notes
+
+
+def attach_images(cfg: dict, wp: WordPress, srcs: list[dict], facts: dict, draft: dict,
+                  edition: dict, ed_key: str, html: str) -> tuple[str, int | None, list[str]]:
+    """Official press photo (credited) or a generated news card. Returns (html, featured media id, notes)."""
+    if not (cfg.get("images") or {}).get("enabled", True):
+        return html, None, ["Add a featured image: the maker's official press/media site or your own photo."]
+    try:
+        pick = images.choose_images(cfg, srcs, facts, draft, edition, ed_key)
+        feat = pick.get("featured")
+        if not feat:
+            return html, None, ["Add a featured image: the maker's official press/media site or your own photo."]
+        data, mime, name, alt, caption, kind = feat
+        media = upload_media(wp, data, mime, name, alt, caption)
+        notes = []
+        if kind == "official":
+            notes.append(f"Featured image: official press photo ({caption}). Check it shows the right model.")
+        else:
+            notes.append("Featured image: generated news card. For a big story, replace it with an official press "
+                         "photo or your own (never a news site's photo).")
+        inl = pick.get("inline")
+        if inl:
+            m2 = upload_media(wp, inl[0], inl[1], inl[2], inl[3], inl[4])
+            html = images.insert_after_paragraph(html, images.image_block(m2, inl[4]), 2)
+        return html, media.get("id"), notes
+    except Exception as exc:  # noqa: BLE001  (an image problem must never lose the article)
+        log.warning("image step failed: %s", exc)
+        return html, None, ["Add a featured image: the maker's official press/media site or your own photo."]
 
 
 # ------------------------------------------------------------------ main
@@ -337,7 +359,11 @@ def main() -> None:
                     continue
                 draft, notes = write_story(ai, cfg, facts, srcs, eds[ed_key])
                 html = blocks.to_blocks(draft["body_markdown"])
+                html, media_id, img_notes = attach_images(cfg, wp, srcs, facts, draft, eds[ed_key], ed_key, html)
+                notes += img_notes
                 payload, extra = build_payload(wp, draft, facts, html, srcs, c["key"], notes, cfg["site"]["post_status"])
+                if media_id:
+                    payload["featured_media"] = media_id
                 payload["meta"]["pa_edition"] = "global" if ed_key == "global" else ed_key
                 post = wp.create_post(payload)
             except (BudgetExceeded, NoModelAvailable):

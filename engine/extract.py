@@ -22,6 +22,16 @@ def extract_text(html: str) -> dict:
     ogi = soup.find("meta", property="og:image")
     if ogi and ogi.get("content"):
         image = ogi["content"].strip()
+    images = [image] if image else []
+    tw = soup.find("meta", attrs={"name": "twitter:image"})
+    if tw and tw.get("content") and tw["content"].strip() not in images:
+        images.append(tw["content"].strip())
+    for img in soup.select("article figure img, main figure img, figure img")[:6]:
+        src = img.get("data-src") or img.get("src") or ""
+        if src.startswith(("http", "/")) and not src.endswith(".svg") and src not in images:
+            images.append(src)
+    site = soup.find("meta", property="og:site_name")
+    site_name = site["content"].strip() if site and site.get("content") else ""
     for tag in soup(DROP):
         tag.decompose()
     container = soup.find("article") or soup.find("main") or soup.body or soup
@@ -38,7 +48,7 @@ def extract_text(html: str) -> dict:
             parts.append(t)
     text = "\n".join(parts)
     text = re.sub(r"\n{3,}", "\n\n", text)
-    return {"title": title, "text": text[:20000], "image": image}
+    return {"title": title, "text": text[:20000], "image": image, "images": images[:5], "site_name": site_name}
 
 
 def fetch_article(url: str, user_agent: str, timeout: int = 25) -> dict | None:

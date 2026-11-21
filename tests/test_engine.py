@@ -175,7 +175,12 @@ def fake_net(monkeypatch, tmp_path):
                 return Resp(js=[{"id": ids[tax][slug], "slug": slug, "name": slug}])
             return Resp(js=[])
 
-        def post(self, url, json=None, timeout=None, allow_redirects=True):
+        def post(self, url, json=None, timeout=None, allow_redirects=True, data=None, headers=None):
+            if "/media" in url:
+                calls.setdefault("media", []).append({"url": url, "headers": headers, "json": json, "size": len(data or b"")})
+                mid = int(url.rsplit("/", 1)[-1]) if url.rsplit("/", 1)[-1].isdigit() else 900 + len([m for m in calls["media"] if m["headers"]])
+                return Resp(status=201, js={"id": mid, "source_url": "https://press.autos/wp-content/uploads/x.jpg",
+                                            "alt_text": (json or {}).get("alt_text", "")})
             json = dict(json, _url=url)
             calls["wp_posts"].append(json)
             return Resp(status=201, js={"id": 501})
@@ -225,7 +230,7 @@ def test_full_run_posts_pending_draft(fake_net, monkeypatch):
     assert p["meta"]["pa_ai_assisted"] is True
     assert json.loads(p["meta"]["pa_sources_json"])[0]["url"].startswith("https://")
     assert "<!-- wp:heading -->" in p["content"]
-    assert "featured image" in p["meta"]["pa_review_notes"]
+    assert "featured image" in p["meta"]["pa_review_notes"].lower()
     summary = (tmp / "summary.md").read_text()
     assert "drafted for **press.autos**: Toyota Reveals" in summary
     assert p["_url"] == "https://press.autos/wp-json/wp/v2/posts" and p["meta"]["pa_edition"] == "global"
@@ -274,7 +279,7 @@ def test_india_story_goes_to_india_edition(fake_net, monkeypatch):
     engine.run.main()
     assert len(calls["wp_posts"]) == 1
     p = calls["wp_posts"][0]
-    assert p["_url"] == "https://in.press.autos/wp-json/wp/v2/posts"
+    assert p["_url"] == "https://india.press.autos/wp-json/wp/v2/posts"
     assert p["meta"]["pa_edition"] == "IN"
     assert any("press.autos India edition" in sy and "lakh" in sy for sy in calls["systems"])
 
@@ -441,7 +446,7 @@ def test_gemini_native_call_with_aq_key(monkeypatch):
 
 
 def test_edition_site_not_set_up_keeps_story(fake_net, monkeypatch):
-    """in.press.autos without a site redirects to the main site: never post there, keep the story for later."""
+    """india.press.autos without a site redirects to the main site: never post there, keep the story for later."""
     calls, tmp = fake_net
     import engine.run, engine.wordpress
     calls["facts"] = dict(FACTS, country="IN")
@@ -449,7 +454,7 @@ def test_edition_site_not_set_up_keeps_story(fake_net, monkeypatch):
 
     class Redirecting(Orig):
         def get(self, url, params=None, timeout=None, allow_redirects=True):
-            if "in.press.autos" in url and url.endswith("/users/me"):
+            if "india.press.autos" in url and url.endswith("/users/me"):
                 assert allow_redirects is False
                 return Resp(status=302, js={})
             return super().get(url, params, timeout, allow_redirects)
@@ -481,3 +486,63 @@ def test_source_cap_and_short_notes():
     assert len(r.short_note(long)) <= 260 and r.short_note(long).startswith("The date is wrong")
     assert r.official_domain(cfg, "https://pressroom.toyota.com/img.jpg")
     assert not r.official_domain(cfg, "https://electrek.co/wp-content/x.jpg")
+
+
+
+def test_news_card_attached_when_no_official_photo(fake_net, monkeypatch):
+    calls, tmp = fake_net
+    import engine.run, engine.images
+    monkeypatch.setattr(engine.images, "official_candidates", lambda *a, **k: [])
+    monkeypatch.setattr(sys, "argv", ["engine.run"])
+    engine.run.main()
+    p = calls["wp_posts"][0]
+    uploads = [m for m in calls["media"] if m["headers"]]
+    assert len(uploads) == 1 and uploads[0]["headers"]["Content-Type"] == "image/jpeg"
+    assert "card.jpg" in uploads[0]["headers"]["Content-Disposition"] and uploads[0]["size"] > 10000
+    assert p["featured_media"] == 901
+    assert "generated news card" in p["meta"]["pa_review_notes"]
+
+
+def test_official_photo_used_with_credit_and_inline(fake_net, monkeypatch):
+    calls, tmp = fake_net
+    import io, engine.run, engine.images
+    from PIL import Image
+    buf = io.BytesIO()
+    Image.new("RGB", (1600, 900), (200, 30, 30)).save(buf, "JPEG", quality=95)
+    photo = buf.getvalue() + b"\0" * 30000
+    monkeypatch.setattr(engine.images, "official_candidates",
+                        lambda *a, **k: [("https://pressroom.toyota.com/a.jpg", "Image: Toyota"),
+                                         ("https://pressroom.toyota.com/b.jpg", "Image: Toyota")])
+    monkeypatch.setattr(engine.images, "download_image", lambda url, ua: (photo, "image/jpeg", (1600, 900)))
+    monkeypatch.setattr(sys, "argv", ["engine.run"])
+    engine.run.main()
+    p = calls["wp_posts"][0]
+    captions = [m["json"].get("caption") for m in calls["media"] if m["json"]]
+    assert captions == ["Image: Toyota", "Image: Toyota"]
+    assert p["featured_media"] == 901
+    assert "<!-- wp:image" in p["content"] and "Image: Toyota" in p["content"]
+    assert "official press photo (Image: Toyota)" in p["meta"]["pa_review_notes"]
+
+
+def test_images_only_from_official_sites():
+    from engine import images
+    cfg = {"source_authority": {"pressroom.toyota.com": 1.0, "electrek.co": 0.7}, "site": {"user_agent": "t"}}
+    srcs = [{"url": "https://electrek.co/x", "image": "https://electrek.co/p.jpg", "images": ["https://electrek.co/p.jpg"]},
+            {"url": "https://pressroom.toyota.com/y", "images": ["/img/hero.jpg"], "site_name": "Toyota USA Newsroom"}]
+    got = images.official_candidates(cfg, srcs, {}, {"image_hint": "https://electrek.co/q.jpg"})
+    assert got == [("https://pressroom.toyota.com/img/hero.jpg", "Image: Toyota USA Newsroom")]
+    card = images.render_card("A very long headline " * 8, "ev", ["Rs 12.5 lakh", "465 km range", "x" * 40], "India")
+    assert card[:2] == b"\xff\xd8" and len(card) > 10000
+
+
+
+def test_maker_marketing_pages_not_used_for_images():
+    from engine import images
+    cfg = {"source_authority": {"tatamotors.com": 1.0}, "site": {"user_agent": "t"}}
+    srcs = [{"url": "https://ev.tatamotors.com/harrier/ev.html", "images": ["https://ev.tatamotors.com/a.jpg"]},
+            {"url": "https://cars.tatamotors.com/article/press-release/harrier-ev-launch.html",
+             "images": ["https://cars.tatamotors.com/press/harrier.jpg"], "site_name": "Tata Motors"}]
+    got = images.official_candidates(cfg, srcs, {}, {})
+    assert got == [("https://cars.tatamotors.com/press/harrier.jpg", "Image: Tata Motors")]
+    assert images.is_press_page("https://pressroom.toyota.com/x") and images.is_press_page("https://www.nhtsa.gov/recalls")
+    assert not images.is_press_page("https://ev.tatamotors.com/harrier/ev.html")

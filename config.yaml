@@ -19,6 +19,14 @@ limits:
   max_category_share: 0.5     # within an edition, no category gets more than half of its daily drafts
   max_candidates_per_source: 4  # at most this many candidate stories led by one website per run (stops one blog dominating)
 
+# Images: only pictures we may publish. Official press photos (sites with source_authority 1.0), credited;
+# otherwise a generated press.autos news card. Photos from news sites are never used.
+images:
+  enabled: true
+  official_photos: true   # use the maker's/regulator's own press photos when the story has an official source
+  inline_photo: true      # also place a second official photo inside the article
+  news_card: true         # otherwise generate a branded card (headline, category, key figures)
+
 # Where stories go. Each story's country decides its edition.
 # - "global" is the main site (WP_URL secret).
 # - A country edition is used only when enabled: true. Its site must exist in WordPress

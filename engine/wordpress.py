@@ -58,6 +58,23 @@ class WordPress:
         return d
 
 
+def upload_media(wp: "WordPress", data: bytes, mime: str, filename: str, alt: str, caption: str) -> dict:
+    """Upload an image to the media library (the Pipeline role may upload files)."""
+    r = wp.s.post(wp.base + "/media", data=data, timeout=120, allow_redirects=False, headers={
+        "Content-Type": mime, "Content-Disposition": f'attachment; filename="{filename}"'})
+    if r.status_code >= 300:
+        raise RuntimeError(f"media upload {r.status_code}: {r.text[:300]}")
+    media = r.json()
+    meta = {"alt_text": alt[:200]}
+    if caption:
+        meta["caption"] = caption
+    r2 = wp.s.post(f"{wp.base}/media/{media['id']}", json=meta, timeout=60, allow_redirects=False)
+    if r2.status_code < 300:
+        media = r2.json()
+    media.setdefault("alt_text", alt)
+    return media
+
+
 def slugify(s: str) -> str:
     import re
     s = s.lower().replace("&", "and")

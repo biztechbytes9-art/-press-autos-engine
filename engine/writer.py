@@ -83,7 +83,8 @@ Return JSON:
   "excerpt": "meta description, 140-160 characters",
   "focus_keyword": "2-5 word search phrase",
   "body_markdown": "the article",
-  "image_hint": "best URL for an official press image or press release (from the sources), or empty"}}"""
+  "image_hint": "best URL for an official press image or press release (from the sources), or empty",
+  "card_stats": ["up to 3 very short key figures from the fact table for the image card, max 22 characters each, e.g. \"Rs 12.5 lakh\", \"465 km range\", \"19,000 cars\"; empty list if none"]}}"""
     return system, user
 
 
