@@ -55,6 +55,24 @@ class WordPress:
         self._term_cache[key] = found
         return found
 
+    def related(self, category_id: int | None, exclude_words: set[str] | None = None, n: int = 3) -> list[dict]:
+        """Recent published posts in the same category, for "Also read" internal links."""
+        if not category_id:
+            return []
+        try:
+            r = self.s.get(self.base + "/posts", params={"categories": category_id, "per_page": 8, "status": "publish",
+                                                         "_fields": "id,link,title"}, timeout=30, allow_redirects=False)
+            if r.status_code != 200:
+                return []
+            out = []
+            for p in r.json():
+                title = ((p.get("title") or {}).get("rendered") or "").strip()
+                if title and p.get("link"):
+                    out.append({"title": __import__("html").unescape(title), "link": p["link"]})
+            return out[:n]
+        except Exception:  # noqa: BLE001
+            return []
+
     def create_post(self, payload: dict) -> dict:
         r = self.s.post(self.base + "/posts", json=payload, timeout=60, allow_redirects=False)
         if r.status_code >= 300:
@@ -108,8 +126,12 @@ def build_payload(wp: WordPress, draft: dict, facts: dict, content_html: str, so
         if ids:
             tax[taxonomy] = ids
     src_meta = [{"title": s.get("title") or s["url"], "url": s["url"]} for s in sources]
+    kw = (draft.get("focus_keyword") or "").strip().lower()
+    slug = slugify(draft.get("slug") or kw or draft["title"])
+    slug = "-".join(slug.split("-")[:8])
     payload = {
         "title": draft["title"],
+        "slug": slug,
         "content": content_html,
         "excerpt": draft.get("excerpt", ""),
         "status": status,
@@ -122,6 +144,8 @@ def build_payload(wp: WordPress, draft: dict, facts: dict, content_html: str, so
             "pa_edition": facts.get("country") or "global",
             "pa_review_notes": "\n".join(notes + extra),
             "pa_image_hint": draft.get("image_hint") or "",
+            "rank_math_focus_keyword": kw,
+            "rank_math_description": (draft.get("excerpt") or "")[:160],
         },
         **tax,
     }

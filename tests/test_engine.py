@@ -650,3 +650,20 @@ def test_infographic_brief_uses_only_given_facts():
                                  {}, {"name": "press.autos India"}, "IN")
     assert "press.autos India" in b and "Rs 1,98,441" in b and "Do NOT add" in b and "not an official image" in b
     assert images.infographic_brief({"title": "x", "card_stats": [], "key_facts": ["one"]}, {}, {}, "global") == ""
+
+
+def test_rank_math_fields_and_slug(fake_net, monkeypatch):
+    calls, tmp = fake_net
+    import engine.run
+    monkeypatch.setattr(sys, "argv", ["engine.run"])
+    engine.run.main()
+    p = calls["wp_posts"][0]
+    assert p["meta"]["rank_math_focus_keyword"] == "toyota electric suv"
+    assert len(p["meta"]["rank_math_description"]) <= 160
+    assert p["slug"] == "toyota-electric-suv"
+
+
+def test_also_read_block():
+    from engine import blocks
+    h = blocks.also_read([{"title": "EV charging explained", "link": "https://press.autos/ev/ev-charging-levels-explained/"}])
+    assert "Also read" in h and 'href="https://press.autos/ev/ev-charging-levels-explained/"' in h

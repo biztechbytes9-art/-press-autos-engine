@@ -88,11 +88,16 @@ Write the news article from the fact table only. 350-700 words.
 Structure: opening paragraph with the news; then sections with "## " headings (e.g. key details, prices/specs,
 what it means for buyers/owners).{local_section} Use a "| table |" only when there are 3+ comparable numbers. Bullet lists with "- ".
 Do not add a Sources section (the site adds it automatically). Do not add a conclusion that repeats the article.
+SEO (do this naturally, never stuff keywords): choose a focus keyword people would search (usually brand + model +
+the news, e.g. "Pulsar RS200 price"); put it near the start of the title, in the excerpt, in the first sentence and in
+one "## " heading. Link the most authoritative source once in the body text as a Markdown link, e.g.
+"[according to Bajaj](https://...)", using a URL from SOURCES only.
 
 Return JSON:
 {{"title": "accurate headline, max 75 characters, no clickbait",
   "excerpt": "meta description, 140-160 characters",
-  "focus_keyword": "2-5 word search phrase",
+  "focus_keyword": "2-5 word search phrase, lowercase, that appears in the title, excerpt, first sentence and one heading",
+  "slug": "short URL slug, 3-7 lowercase words joined by hyphens, starting with the focus keyword, no dates or filler words",
   "body_markdown": "the article",
   "image_hint": "best URL for an official press image or press release (from the sources), or empty",
   "key_facts": ["3 to 5 short standalone sentences (max 25 words each) stating the most important facts, each with its number or date where there is one; they are shown in a Key facts box at the top and quoted by search engines, so each must make sense on its own"],

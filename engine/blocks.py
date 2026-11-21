@@ -95,3 +95,12 @@ def key_facts(facts: list) -> str:
             '<!-- wp:paragraph {"className":"pa-keyfacts__title"} -->\n<p class="pa-keyfacts__title"><strong>Key facts</strong></p>\n<!-- /wp:paragraph -->\n'
             f'<!-- wp:list -->\n<ul class="wp-block-list">{lis}</ul>\n<!-- /wp:list -->'
             '</div>\n<!-- /wp:group -->\n\n')
+
+
+def also_read(posts: list) -> str:
+    """'Also read' internal links to related published articles."""
+    items = "".join('<!-- wp:list-item -->\n<li><a href="%s">%s</a></li>\n<!-- /wp:list-item -->'
+                    % (html.escape(p["link"], quote=True), html.escape(p["title"], quote=False)) for p in posts[:3])
+    return ('<!-- wp:paragraph {"className":"pa-alsoread__title"} -->\n<p class="pa-alsoread__title"><strong>Also read</strong></p>\n'
+            '<!-- /wp:paragraph -->\n\n'
+            f'<!-- wp:list {{"className":"pa-alsoread"}} -->\n<ul class="wp-block-list pa-alsoread">{items}</ul>\n<!-- /wp:list -->')

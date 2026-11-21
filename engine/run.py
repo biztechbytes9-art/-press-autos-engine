@@ -416,6 +416,9 @@ def main() -> None:
                 html, media_id, img_notes = attach_images(cfg, wp, srcs, facts, draft, eds[ed_key], ed_key, html)
                 notes += img_notes
                 payload, extra = build_payload(wp, draft, facts, html, srcs, c["key"], notes, cfg["site"]["post_status"])
+                rel = wp.related((payload.get("categories") or [None])[0])
+                if rel:
+                    payload["content"] += "\n\n" + blocks.also_read(rel)
                 if media_id:
                     payload["featured_media"] = media_id
                 payload["meta"]["pa_edition"] = "global" if ed_key == "global" else ed_key
