@@ -546,3 +546,33 @@ def test_maker_marketing_pages_not_used_for_images():
     assert got == [("https://cars.tatamotors.com/press/harrier.jpg", "Image: Tata Motors")]
     assert images.is_press_page("https://pressroom.toyota.com/x") and images.is_press_page("https://www.nhtsa.gov/recalls")
     assert not images.is_press_page("https://ev.tatamotors.com/harrier/ev.html")
+
+
+def test_local_single_source_story_gets_a_slot(monkeypatch, tmp_path):
+    """A RushLane-only India story scores below the global bar but must still reach triage."""
+    import engine.run as r, engine.config
+    from engine.store import Store
+    cfg = engine.config.load_config()
+    now = datetime.now(timezone.utc)
+    def it(title, dom, ed=None, hours=6):
+        d = {"url": f"https://{dom}/{abs(hash(title))}", "title": title, "domain": dom, "source": dom,
+             "published": (now - timedelta(hours=hours)).isoformat(), "summary": ""}
+        if ed:
+            d["edition"] = ed
+        return d
+    items = [it("New Bajaj Pulsar RS200 launched at Rs 1.98 lakh", "rushlane.com", "IN", hours=16),
+             it("Opinion: why wagons deserve a comeback", "carscoops.com")]
+    st = Store(tmp_path / "e.db")
+    got = r.choose(cfg, st, items)
+    titles = [c["title"] for c in got]
+    assert any("Pulsar" in t for t in titles) and not any("wagons" in t for t in titles)
+    pulsar = next(c for c in got if "Pulsar" in c["title"])
+    assert pulsar["edition_hint"] == "IN" and pulsar["score"] < cfg["limits"]["min_score"]
+
+
+def test_interleave_editions():
+    import engine.run as r, engine.config
+    cfg = engine.config.load_config()
+    mk = lambda a, n: {"title": n, "triage": {"audience": a}}
+    out = r.interleave_editions(cfg, [mk("global", "g1"), mk("global", "g2"), mk("global", "g3"), mk("IN", "i1")])
+    assert [c["title"] for c in out][:2] in (["g1", "i1"], ["i1", "g1"])

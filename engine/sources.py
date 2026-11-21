@@ -104,6 +104,8 @@ def fetch_feeds(feeds: list[dict], user_agent: str, timeout: int = 20, health: d
             for it in got:
                 if f.get("country"):
                     it["country"] = f["country"]
+                if f.get("edition"):
+                    it["edition"] = f["edition"]
             log.info("feed ok: %s (%d items)", f["name"], len(got))
             out.extend(got)
             if health is not None:
@@ -137,19 +139,31 @@ def parse_gdelt(data: dict, query: str) -> list[dict]:
     return out
 
 
-def fetch_gdelt(cfg: dict, user_agent: str, timeout: int = 30, health: dict | None = None) -> list[dict]:
+def fetch_gdelt(cfg: dict, user_agent: str, timeout: int = 30, health: dict | None = None,
+                edition_queries: dict | None = None) -> list[dict]:
+    edition_queries = edition_queries or {}
     if not cfg.get("enabled"):
         return []
     out, ok, failed = [], 0, 0
     for i, q in enumerate(cfg.get("queries", [])):
         if i:
-            time.sleep(6)  # GDELT allows one request every 5 seconds
+            time.sleep(8)  # GDELT allows one request every 5 seconds; leave a margin
         params = {"query": q, "mode": "artlist", "format": "json",
                   "maxrecords": cfg.get("max_records", 75), "timespan": cfg.get("timespan", "12h"), "sort": "datedesc"}
         try:
-            r = requests.get(GDELT_URL, params=params, headers={"User-Agent": user_agent}, timeout=timeout)
+            r = None
+            for attempt in range(2):  # GDELT often refuses a request when busy: wait and try once more
+                r = requests.get(GDELT_URL, params=params, headers={"User-Agent": user_agent}, timeout=timeout)
+                if r.status_code == 429 or r.status_code >= 500 or not r.text.lstrip().startswith("{"):
+                    if attempt == 0:
+                        time.sleep(15)
+                        continue
+                break
             r.raise_for_status()
             got = parse_gdelt(r.json(), q)
+            for it in got:
+                if q in edition_queries:
+                    it["edition"] = edition_queries[q]
             log.info("gdelt ok: %d items for %s", len(got), q[:60])
             out.extend(got)
             ok += 1

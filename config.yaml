@@ -48,6 +48,8 @@ editions:
     url: https://india.press.autos
     enabled: true
     daily_max_articles: 6
+    min_score: 0.30          # local news is usually single-source, so it can't earn "coverage" points
+    candidate_slots: 8       # places reserved for this edition among each run's candidates
     source_language: english
     style: "India edition for local buyers. Prices in rupees using lakh/crore (e.g. Rs 12.5 lakh, ex-showroom) exactly as the source states. Mention variants, ex-showroom vs on-road, bookings and deliveries when the source gives them. Do not add the country to the title."
     gdelt_queries:
@@ -59,7 +61,6 @@ editions:
       - {name: GaadiWaadi, url: "https://gaadiwaadi.com/feed/"}
       - {name: MotorBeam, url: "https://www.motorbeam.com/feed/"}
       - {name: Motoroids, url: "https://www.motoroids.com/feed/"}
-      - {name: Autocar Professional, url: "https://www.autocarpro.in/rss"}
       - {name: ET Auto, url: "https://auto.economictimes.indiatimes.com/rss/topstories"}
 
   GB:
@@ -252,10 +253,21 @@ categories:
 # Words that make a story more relevant (weights add up, capped at 1.0).
 relevance_keywords:
   launch: 0.35
+  launched: 0.35
+  launches: 0.35
   unveil: 0.3
+  unveiled: 0.3
+  unveils: 0.3
   reveal: 0.25
+  revealed: 0.25
+  debut: 0.25
   price: 0.3
+  prices: 0.3
+  priced: 0.3
+  lakh: 0.2
   recall: 0.4
+  recalled: 0.4
+  recalls: 0.4
   sales: 0.3
   registrations: 0.3
   electric: 0.25
@@ -269,6 +281,9 @@ relevance_keywords:
   facelift: 0.25
   specs: 0.2
   booking: 0.2
+  bookings: 0.2
+  deliveries: 0.2
+  variant: 0.15
 
 # How much we trust a source domain (0-1). Official and data sources score highest.
 # Unknown domains get 0.4. News sites are used to discover stories; facts must come
@@ -321,25 +336,18 @@ source_authority:
 feeds:
   - {name: Toyota USA pressroom, url: "https://pressroom.toyota.com/feed/atom/"}
   - {name: Toyota product news, url: "https://pressroom.toyota.com/product/feed/atom/"}
-  - {name: Green Car Reports EVs, url: "https://feeds.highgearmedia.com/?sites=GreenCarReports&tags=electric-cars"}
-  - {name: Green Car Reports news, url: "https://feeds.highgearmedia.com/?sites=GreenCarReports&tags=news"}
   - {name: Electrek, url: "https://electrek.co/feed/"}
   - {name: InsideEVs, url: "https://insideevs.com/rss/news/all/"}
   # All car news (launches, SUVs, used market, industry)
   - {name: Motor1, url: "https://www.motor1.com/rss/news/all/"}
   - {name: Carscoops, url: "https://www.carscoops.com/feed/"}
-  - {name: Autocar UK, url: "https://www.autocar.co.uk/rss"}
-  - {name: Drive Australia, url: "https://www.drive.com.au/feed/"}
   - {name: Paul Tan Malaysia, url: "https://paultan.org/feed/"}
   # Motorcycles
   - {name: RideApart, url: "https://www.rideapart.com/rss/news/all/"}
   - {name: Asphalt & Rubber, url: "https://www.asphaltandrubber.com/feed/"}
-  - {name: Visordown, url: "https://www.visordown.com/rss.xml"}
   # Motorsport
   - {name: Motorsport.com, url: "https://www.motorsport.com/rss/all/news/"}
   - {name: Autosport, url: "https://www.autosport.com/rss/all/news/"}
-  # Recalls (official)
-  - {name: NHTSA recalls, url: "https://www.nhtsa.gov/rss/recalls"}
 
 # GDELT global news search (free, 1 request per 5 seconds). One query per line.
 gdelt:

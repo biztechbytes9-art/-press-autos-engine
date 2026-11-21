@@ -71,11 +71,17 @@ def discover(cfg: dict, store: Store, health: dict | None = None) -> list[dict]:
     feeds = list(cfg.get("feeds", []))
     gd = dict(cfg.get("gdelt", {}))
     queries = list(gd.get("queries", []))
+    ed_queries = {}
     for key, ed in enabled_editions(cfg).items():
-        feeds += ed.get("feeds", []) or []
-        queries += ed.get("gdelt_queries", []) or []
+        if key == "global":
+            continue
+        feeds += [dict(f, edition=key) for f in (ed.get("feeds") or [])]
+        for q in ed.get("gdelt_queries") or []:
+            queries.append(q)
+            ed_queries[q] = key
     gd["queries"] = queries
-    items = sources.fetch_feeds(feeds, ua, health=health) + sources.fetch_gdelt(gd, ua, health=health)
+    items = (sources.fetch_feeds(feeds, ua, health=health)
+             + sources.fetch_gdelt(gd, ua, health=health, edition_queries=ed_queries))
     items = sources.recent(items, cfg["limits"]["lookback_hours"])
     uniq = {}
     for it in items:
@@ -89,14 +95,28 @@ def choose(cfg: dict, store: Store, items: list[dict]) -> list[dict]:
     clusters = cluster.cluster_items(items)
     done = store.drafted_keys()
     recent_titles = store.recent_draft_titles()
-    fresh = []
+    eds = enabled_editions(cfg)
+    fresh, local = [], {}
     for c in clusters:
         if c["key"] in done or cluster.is_repeat(c, recent_titles):
             continue
         c["score"] = cluster.score_cluster(c, cfg)
+        ed = next((it.get("edition") for it in c["items"] if it.get("edition") in eds), None)
+        c["edition_hint"] = ed
         if c["score"] >= cfg["limits"]["min_score"]:
             fresh.append(c)
+        elif ed and c["score"] >= float(eds[ed].get("min_score", cfg["limits"]["min_score"])):
+            # Local news is usually reported by one outlet, so it can't earn "coverage" points:
+            # country editions use their own (lower) bar.
+            local.setdefault(ed, []).append(c)
     fresh.sort(key=lambda c: c["score"], reverse=True)
+    # Reserve places for each country edition so global stories can't crowd them out.
+    for ed, extra in local.items():
+        extra.sort(key=lambda c: c["score"], reverse=True)
+        have = sum(1 for c in fresh if c.get("edition_hint") == ed)
+        want = int(eds[ed].get("candidate_slots", 8))
+        fresh += extra[:max(0, want - have)]
+    fresh.sort(key=lambda c: c["score"] + (0.15 if c.get("edition_hint") else 0), reverse=True)
     # One busy site must not fill the queue: keep at most N candidates led by the same website.
     cap = int(cfg["limits"].get("max_candidates_per_source", 4))
     per, out = Counter(), []
@@ -107,6 +127,19 @@ def choose(cfg: dict, store: Store, items: list[dict]) -> list[dict]:
         per[d] += 1
         out.append(c)
     return out[:30]
+
+
+def interleave_editions(cfg: dict, picked: list[dict]) -> list[dict]:
+    """Best story of each edition first, then the second best of each, so one edition can't take every slot in a run."""
+    groups: dict[str, list[dict]] = {}
+    for c in picked:
+        groups.setdefault(str(route(cfg, (c.get("triage") or {}).get("audience"))), []).append(c)
+    out = []
+    while any(groups.values()):
+        for k in list(groups):
+            if groups[k]:
+                out.append(groups[k].pop(0))
+    return out
 
 
 def lead_domain(c: dict) -> str:
@@ -287,7 +320,7 @@ def main() -> None:
         if not ai.available("writer"):
             report.append("No AI key for writing is set; add GROQ_API_KEY (free) in GitHub secrets.")
             return
-        picked = triage(ai, cfg, cands)
+        picked = interleave_editions(cfg, triage(ai, cfg, cands))
         report += ["", "### Chosen by triage", "",
                    "| Score | Category | Country | Would go to | Story |", "| --- | --- | --- | --- | --- |"]
         by_site, by_cat = Counter(), Counter()

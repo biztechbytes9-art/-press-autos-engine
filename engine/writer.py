@@ -20,7 +20,8 @@ def triage_prompt(clusters: list[dict], categories: dict) -> tuple[str, str]:
     lines = []
     for i, c in enumerate(clusters):
         heads = " | ".join(x["title"] for x in c["items"][:4])
-        lines.append(f"{i}. [{', '.join(c['domains'][:5])}] {heads}")
+        local = f" (local source for our {c['edition_hint']} edition)" if c.get("edition_hint") else ""
+        lines.append(f"{i}. [{', '.join(c['domains'][:5])}]{local} {heads}")
     system = "You are the news editor of press.autos, a global automotive magazine. You choose which stories are worth covering."
     user = f"""Our categories:
 {cats}
@@ -35,6 +36,9 @@ For EACH candidate return an object:
 Keep only real automotive news useful to car/bike buyers or enthusiasts: launches, prices, recalls, sales data,
 specs, regulations, charging, major industry moves. Reject: stock-market chatter, opinion pieces, listicles, deals/discounts,
 celebrity, crime, accidents involving individuals, sponsored content, anything not automotive.
+We run country editions: local news (a launch, price, recall or sales figure for one country) is valuable even if
+only one outlet reports it, so keep good local stories and set "audience" to that country. Spy shots and rumours
+score low unless the source has strong details.
 Return a JSON array."""
     return system, user
 
