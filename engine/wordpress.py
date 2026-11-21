@@ -27,7 +27,14 @@ class WordPress:
             raise RuntimeError(f"{self.base}: WordPress rejected the login (401). Check WP_USER and WP_APP_PASSWORD, "
                              "that the pipeline user is added to this site, and that your host passes the Authorization header.")
         r.raise_for_status()
-        return r.json()
+        me = r.json()
+        caps = me.get("capabilities") or {}
+        if caps and not caps.get("edit_posts"):
+            site = self.base.split("/wp-json")[0]
+            raise SiteNotReady(f"the pipeline user can't create posts on {site} (role: "
+                               f"{', '.join(me.get('roles') or ['unknown'])}). In that site's Users screen, "
+                               "set pipeline's role to 'Pipeline (automation)'.")
+        return me
 
     def term_id(self, taxonomy: str, name_or_slug: str) -> int | None:
         key = (taxonomy, name_or_slug.lower())

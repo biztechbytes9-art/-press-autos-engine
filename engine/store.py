@@ -76,7 +76,11 @@ class Store:
 
     def drafted_keys(self) -> set[str]:
         keys = {r["cluster_key"] for r in self.db.execute("SELECT cluster_key FROM drafts")}
-        keys |= {r["cluster_key"] for r in self.db.execute("SELECT cluster_key FROM rejected")}
+        # Stories that failed only because a WordPress site refused or was down are tried again later.
+        keys |= {r["cluster_key"] for r in self.db.execute(
+            "SELECT cluster_key FROM rejected WHERE reason NOT LIKE 'error: WordPress 401%' "
+            "AND reason NOT LIKE 'error: WordPress 403%' AND reason NOT LIKE 'error: WordPress 5%' "
+            "AND reason NOT LIKE 'site not ready%'")}
         return keys
 
     def drafts_today(self, edition: str | None = None) -> list[sqlite3.Row]:

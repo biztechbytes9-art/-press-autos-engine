@@ -592,3 +592,29 @@ def test_key_facts_box():
     html = blocks.key_facts(["Price starts at Rs 1.98 lakh.", "Gets a TFT screen and ride modes.", "Bookings are open."])
     assert 'class="wp-block-group pa-keyfacts"' in html and html.count("<li>") == 3 and "Key facts" in html
     assert blocks.key_facts(["only one"]) == ""
+
+
+def test_refused_stories_are_retried(tmp_path):
+    from engine.store import Store
+    st = Store(tmp_path / "e.db")
+    st.reject("a", "error: WordPress 403: {\"code\":\"rest_cannot_create\"}")
+    st.reject("b", "triage")
+    st.reject("c", "error: something else")
+    keys = st.drafted_keys()
+    assert "a" not in keys and "b" in keys and "c" in keys
+
+
+def test_check_detects_missing_post_permission(monkeypatch):
+    import engine.wordpress as w
+
+    class S:
+        def __init__(self):
+            self.headers, self.auth = {}, None
+
+        def get(self, url, params=None, timeout=None, allow_redirects=True):
+            return Resp(js={"id": 7, "roles": ["subscriber"], "capabilities": {"read": True}})
+    monkeypatch.setattr(w.requests, "Session", S)
+    wp = w.WordPress("https://india.press.autos", "pipeline", "x", "ua")
+    with pytest.raises(w.SiteNotReady) as e:
+        wp.check()
+    assert "subscriber" in str(e.value) and "Pipeline (automation)" in str(e.value)

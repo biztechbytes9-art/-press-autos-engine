@@ -420,8 +420,14 @@ def main() -> None:
                 raise
             except Exception as exc:
                 log.exception("draft failed")
-                store.reject(c["key"], f"error: {exc}"[:200])
-                report.append(f"- failed: {c['title']}: {exc}")
+                msg = str(exc)
+                store.reject(c["key"], f"error: {msg}"[:200])
+                report.append(f"- failed: {c['title']}: {msg[:200]}")
+                if msg.startswith(("WordPress 401", "WordPress 403")):
+                    # The site refuses this user: stop sending it stories this run (they are retried next run).
+                    not_ready.add(ed_key)
+                    report.append(f"- waiting: {eds[ed_key].get('name', ed_key)} refused the post; check the pipeline "
+                                  "user's role on that site. Its stories will be retried.")
                 continue
             store.add_draft(c["key"], draft["title"], cat, post.get("id"), "posted", notes + extra, ed_key)
             store.commit()
