@@ -1,4 +1,31 @@
 <!-- run -->
+# Run 2026-11-21 21:48 UTC
+
+Discovered 173 recent items, 5 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
+GDELT: 3 items (1 searches ok, 3 failed, 3 skipped: time limit).
+Room left today: press.autos 4, press.autos India 6. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.55 | motorcycles | IN | press.autos India | New Bajaj Pulsar RS200 Launched at Rs 1.98 Lakh With TFT, Ride Modes and USD Forks |
+| 0.51 | ev | GB | press.autos (main) | BYD Ti7 Faces EU Ban Over Defender Design – Tata Owned JLR Secures Interim Court Order |
+| 0.51 | ev | IN | press.autos India | PM E-DRIVE records over 30 lakh EV sales till September 2026: Kumaraswamy |
+| 0.47 | trends | IN | press.autos India | BYD India Crosses 20,000 Sales Milestone |
+
+By site: press.autos India 3, press.autos (main) 1
+By category: ev 2, motorcycles 1, trends 1
+- failed: New Bajaj Pulsar RS200 Launched at Rs 1.98 Lakh With TFT, Ride Modes and USD Forks: WordPress 403: {"code":"rest_cannot_create","message":"Sorry, you are not allowed to create posts as this user.","data":{"status":403}}
+- drafted for **press.autos**: EU Court Issues Preliminary Injunction on BYD Ti7 SUV Over Defender Design Infringement (WordPress ID 3449, 1 review notes)
+- skipped (no readable source): PM E-DRIVE records over 30 lakh EV sales till September 2026: Kumaraswamy
+- failed: BYD India Crosses 20,000 Sales Milestone: WordPress 403: {"code":"rest_cannot_create","message":"Sorry, you are not allowed to create posts as this user.","data":{"status":403}}
+
+Drafted this run: 1. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-21 21:30 UTC
 
 Discovered 172 recent items, 9 candidate stories above score 0.45.
