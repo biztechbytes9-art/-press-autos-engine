@@ -139,15 +139,22 @@ def parse_gdelt(data: dict, query: str) -> list[dict]:
     return out
 
 
-def fetch_gdelt(cfg: dict, user_agent: str, timeout: int = 30, health: dict | None = None,
+def fetch_gdelt(cfg: dict, user_agent: str, timeout: int = 15, health: dict | None = None,
                 edition_queries: dict | None = None) -> list[dict]:
+    """GDELT is a bonus source: it gets a fixed time budget per run so a slow GDELT can never stall the engine."""
     edition_queries = edition_queries or {}
+    budget = float(cfg.get("time_budget_seconds", 90))
+    started = time.monotonic()
     if not cfg.get("enabled"):
         return []
     out, ok, failed = [], 0, 0
+    skipped = 0
     for i, q in enumerate(cfg.get("queries", [])):
+        if time.monotonic() - started > budget:
+            skipped += 1
+            continue
         if i:
-            time.sleep(8)  # GDELT allows one request every 5 seconds; leave a margin
+            time.sleep(6)  # GDELT allows one request every 5 seconds
         params = {"query": q, "mode": "artlist", "format": "json",
                   "maxrecords": cfg.get("max_records", 75), "timespan": cfg.get("timespan", "12h"), "sort": "datedesc"}
         try:
@@ -155,8 +162,8 @@ def fetch_gdelt(cfg: dict, user_agent: str, timeout: int = 30, health: dict | No
             for attempt in range(2):  # GDELT often refuses a request when busy: wait and try once more
                 r = requests.get(GDELT_URL, params=params, headers={"User-Agent": user_agent}, timeout=timeout)
                 if r.status_code == 429 or r.status_code >= 500 or not r.text.lstrip().startswith("{"):
-                    if attempt == 0:
-                        time.sleep(15)
+                    if attempt == 0 and time.monotonic() - started + 10 + timeout < budget:
+                        time.sleep(10)
                         continue
                 break
             r.raise_for_status()
@@ -171,7 +178,8 @@ def fetch_gdelt(cfg: dict, user_agent: str, timeout: int = 30, health: dict | No
             log.warning("gdelt failed for %s: %s", q[:60], exc)
             failed += 1
     if health is not None:
-        health["GDELT news search"] = f"{len(out)} items ({ok} searches ok, {failed} failed)"
+        health["GDELT news search"] = (f"{len(out)} items ({ok} searches ok, {failed} failed"
+                                       + (f", {skipped} skipped: time limit" if skipped else "") + ")")
     return out
 
 

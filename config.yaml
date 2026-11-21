@@ -352,6 +352,7 @@ feeds:
 # GDELT global news search (free, 1 request per 5 seconds). One query per line.
 gdelt:
   enabled: true
+  time_budget_seconds: 90   # GDELT is a bonus; never let a slow GDELT hold up a run
   timespan: "12h"
   max_records: 75
   queries:
