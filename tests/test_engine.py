@@ -1,6 +1,7 @@
 """Offline tests: every network call is faked."""
 import json
 import sys
+from collections import Counter
 from datetime import datetime, timedelta, timezone
 
 import pytest
@@ -164,7 +165,7 @@ def fake_net(monkeypatch, tmp_path):
         def __init__(self):
             self.headers, self.auth = {}, None
 
-        def get(self, url, params=None, timeout=None):
+        def get(self, url, params=None, timeout=None, allow_redirects=True):
             if url.endswith("/users/me"):
                 return Resp(js={"id": 7, "name": "Pipeline"})
             tax = url.rsplit("/", 1)[-1]
@@ -174,7 +175,7 @@ def fake_net(monkeypatch, tmp_path):
                 return Resp(js=[{"id": ids[tax][slug], "slug": slug, "name": slug}])
             return Resp(js=[])
 
-        def post(self, url, json=None, timeout=None):
+        def post(self, url, json=None, timeout=None, allow_redirects=True):
             json = dict(json, _url=url)
             calls["wp_posts"].append(json)
             return Resp(status=201, js={"id": 501})
@@ -437,3 +438,46 @@ def test_gemini_native_call_with_aq_key(monkeypatch):
     assert "Authorization" not in sent["headers"]
     assert sent["body"]["systemInstruction"]["parts"][0]["text"].startswith("sys")
     assert store.usage_today("g") == (1, 16)
+
+
+def test_edition_site_not_set_up_keeps_story(fake_net, monkeypatch):
+    """in.press.autos without a site redirects to the main site: never post there, keep the story for later."""
+    calls, tmp = fake_net
+    import engine.run, engine.wordpress
+    calls["facts"] = dict(FACTS, country="IN")
+    Orig = engine.wordpress.requests.Session
+
+    class Redirecting(Orig):
+        def get(self, url, params=None, timeout=None, allow_redirects=True):
+            if "in.press.autos" in url and url.endswith("/users/me"):
+                assert allow_redirects is False
+                return Resp(status=302, js={})
+            return super().get(url, params, timeout, allow_redirects)
+    monkeypatch.setattr(engine.wordpress.requests, "Session", Redirecting)
+    monkeypatch.setattr(sys, "argv", ["engine.run"])
+    engine.run.main()
+    assert calls["wp_posts"] == []
+    summary = (tmp / "summary.md").read_text()
+    assert "waiting: press.autos India" in summary and "not set up yet" in summary
+    from engine.store import Store
+    st = Store(tmp / "state" / "engine.db")
+    assert st.drafts_today() == []
+    assert not any("error" in (r[0] or "") for r in st.db.execute("select reason from rejected"))
+
+
+def test_source_cap_and_short_notes():
+    import engine.run as r
+    cfg = {"limits": {"max_candidates_per_source": 2},
+           "source_authority": {"pressroom.toyota.com": 1.0, "electrek.co": 0.7}}
+    cands = [{"items": [{"domain": "electrek.co"}]} for _ in range(5)] + [{"items": [{"domain": "rushlane.com"}]}]
+    per = Counter(r.lead_domain(c) for c in cands)
+    capped, seen = [], Counter()
+    for c in cands:
+        if seen[r.lead_domain(c)] < 2:
+            seen[r.lead_domain(c)] += 1
+            capped.append(c)
+    assert [r.lead_domain(c) for c in capped] == ["electrek.co", "electrek.co", "rushlane.com"] and per["electrek.co"] == 5
+    long = "The date is wrong: 20 November 2026 is a Thursday. " + "Let me think about this again. " * 40
+    assert len(r.short_note(long)) <= 260 and r.short_note(long).startswith("The date is wrong")
+    assert r.official_domain(cfg, "https://pressroom.toyota.com/img.jpg")
+    assert not r.official_domain(cfg, "https://electrek.co/wp-content/x.jpg")

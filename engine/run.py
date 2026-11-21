@@ -13,7 +13,7 @@ from . import blocks, checks, cluster, extract, sources, writer
 from .config import ROOT, load_config, load_secrets
 from .llm import BudgetExceeded, NoModelAvailable, Router
 from .store import Store
-from .wordpress import WordPress, build_payload
+from .wordpress import SiteNotReady, WordPress, build_payload
 
 log = logging.getLogger("engine")
 
@@ -53,7 +53,7 @@ def edition_url(cfg: dict, key: str, secret_url: str) -> str:
 
 
 # ------------------------------------------------------------------ steps
-def discover(cfg: dict, store: Store) -> list[dict]:
+def discover(cfg: dict, store: Store, health: dict | None = None) -> list[dict]:
     ua = cfg["site"]["user_agent"]
     feeds = list(cfg.get("feeds", []))
     gd = dict(cfg.get("gdelt", {}))
@@ -62,7 +62,7 @@ def discover(cfg: dict, store: Store) -> list[dict]:
         feeds += ed.get("feeds", []) or []
         queries += ed.get("gdelt_queries", []) or []
     gd["queries"] = queries
-    items = sources.fetch_feeds(feeds, ua) + sources.fetch_gdelt(gd, ua)
+    items = sources.fetch_feeds(feeds, ua, health=health) + sources.fetch_gdelt(gd, ua, health=health)
     items = sources.recent(items, cfg["limits"]["lookback_hours"])
     uniq = {}
     for it in items:
@@ -84,7 +84,39 @@ def choose(cfg: dict, store: Store, items: list[dict]) -> list[dict]:
         if c["score"] >= cfg["limits"]["min_score"]:
             fresh.append(c)
     fresh.sort(key=lambda c: c["score"], reverse=True)
-    return fresh[:30]
+    # One busy site must not fill the queue: keep at most N candidates led by the same website.
+    cap = int(cfg["limits"].get("max_candidates_per_source", 4))
+    per, out = Counter(), []
+    for c in fresh:
+        d = lead_domain(c)
+        if per[d] >= cap:
+            continue
+        per[d] += 1
+        out.append(c)
+    return out[:30]
+
+
+def lead_domain(c: dict) -> str:
+    doms = Counter(it.get("domain", "") for it in c.get("items", []))
+    return doms.most_common(1)[0][0] if doms else ""
+
+
+def short_note(text: str, limit: int = 260) -> str:
+    """Fact-check models sometimes think out loud; keep the first sentence or two."""
+    t = " ".join(str(text).split())
+    if len(t) <= limit:
+        return t
+    cut = t[:limit]
+    end = max(cut.rfind(". "), cut.rfind("? "))
+    return (cut[:end + 1] if end > 80 else cut.rstrip() + "…")
+
+
+def official_domain(cfg: dict, url: str) -> bool:
+    d = sources.domain_of(url or "")
+    for dom, v in (cfg.get("source_authority") or {}).items():
+        if (d == dom or d.endswith("." + dom)) and float(v) >= 1.0:
+            return True
+    return False
 
 
 def triage(ai: Router, cfg: dict, cands: list[dict]) -> list[dict]:
@@ -158,7 +190,7 @@ def write_story(ai: Router, cfg: dict, facts: dict, srcs: list[dict], edition: d
         draft = ai.ask_json("writer", s, u, max_tokens=3000)
         s, u = writer.verify_prompt(draft, facts, srcs)
         ver2 = ai.ask_json("verify", s, u, max_tokens=1500)
-        notes += ["Fact-check: " + i for i in (ver2.get("issues") or [])]
+        notes += ["Fact-check: " + short_note(i) for i in (ver2.get("issues") or [])[:5]]
         overlap = max(checks.copy_overlap(draft["body_markdown"], x["text"]) for x in srcs)
         if overlap > 0.06:
             notes.append(f"Wording overlap with a source is {overlap:.0%}; rephrase before publishing.")
@@ -168,7 +200,11 @@ def write_story(ai: Router, cfg: dict, facts: dict, srcs: list[dict], edition: d
     if not facts.get("is_confirmed", True):
         notes.append("Story is not officially confirmed; check the wording says so.")
     hint = draft.get("image_hint")
-    notes.append("Add a featured image" + (f" (suggested source: {hint})" if hint else "") + ".")
+    if hint and official_domain(cfg, hint):
+        notes.append(f"Add a featured image (official press image: {hint}).")
+    else:
+        notes.append("Add a featured image: use the maker's official press/media site or your own image. "
+                     "Never use photos from news sites (copyright).")
     return draft, notes
 
 
@@ -188,9 +224,19 @@ def main() -> None:
     try:
         room = {k: max(0, int(v.get("daily_max_articles", 6)) - len(store.drafts_today(k))) for k, v in eds.items()}
         total_left = max(0, int(lim.get("daily_max_total_articles", 999)) - len(store.drafts_today()))
-        items = discover(cfg, store)
+        health: dict = {}
+        items = discover(cfg, store, health)
         cands = choose(cfg, store, items)
         report.append(f"Discovered {len(items)} recent items, {len(cands)} candidate stories above score {lim['min_score']}.")
+        if health:
+            bad = [k for k, v in health.items() if isinstance(v, str) and v.startswith("failed")]
+            empty = [k for k, v in health.items() if v == 0]
+            good = [f"{k} {v}" for k, v in health.items() if isinstance(v, int) and v > 0]
+            report.append("Sources working: " + (", ".join(good) or "none") + ".")
+            if "GDELT news search" in health:
+                report.append("GDELT: " + str(health["GDELT news search"]) + ".")
+            if bad or empty:
+                report.append("Sources not working: " + ", ".join([f"{k} ({health[k]})" for k in bad] + [f"{k} (0 items)" for k in empty]) + ".")
         report.append("Room left today: " + ", ".join(f"{eds[k].get('name', k)} {v}" for k, v in room.items())
                       + f". Spend today: ${store.spend_today():.2f}.")
         ai = Router(cfg["llm"], store, float(lim.get("daily_max_usd", 0) or 0))
@@ -207,14 +253,28 @@ def main() -> None:
             report.append("No AI key for writing is set; add GROQ_API_KEY (free) in GitHub secrets.")
             return
         picked = triage(ai, cfg, cands)
-        report += ["", "### Chosen by triage"] + [
-            f"- {c['rank']:.2f} [{c['triage'].get('category')}, {c['triage'].get('audience')}] {c['title']}"
-            for c in picked[:10]]
+        report += ["", "### Chosen by triage", "",
+                   "| Score | Category | Country | Would go to | Story |", "| --- | --- | --- | --- | --- |"]
+        by_site, by_cat = Counter(), Counter()
+        for c in picked[:15]:
+            t = c["triage"]
+            ed = route(cfg, t.get("audience"))
+            site = "skipped (no edition)" if ed is None else (
+                "press.autos (main)" if ed == "global" else f"{eds[ed].get('name', ed)}")
+            by_site[site] += 1
+            by_cat[t.get("category") or "?"] += 1
+            title = c["title"].replace("|", "/")
+            report.append(f"| {c['rank']:.2f} | {t.get('category') or '?'} | {t.get('audience') or 'global'} | {site} | {title} |")
+        if picked:
+            report += ["", "By site: " + ", ".join(f"{k} {v}" for k, v in by_site.most_common()),
+                       "By category: " + ", ".join(f"{k} {v}" for k, v in by_cat.most_common())]
+        if args.dry_run:
+            report += ["", "Dry run: nothing was written or posted. The country is checked again from the "
+                       "source pages before a real draft is routed."]
+            return
         for c in cands:
             if c not in picked:
                 store.reject(c["key"], "triage")
-        if args.dry_run:
-            return
 
         wps: dict[str, WordPress] = {}
 
@@ -228,6 +288,8 @@ def main() -> None:
 
         cat_count = {k: Counter(r["category"] for r in store.drafts_today(k)) for k in eds}
         made = 0
+        not_ready: set[str] = set()
+        used_sources: set[str] = set()
         for c in picked:
             if made >= lim["per_run_max_articles"] or made >= total_left:
                 break
@@ -235,8 +297,17 @@ def main() -> None:
             if guess is None:
                 store.reject(c["key"], "local story without an edition")
                 continue
-            if room.get(guess, 0) <= 0:
-                continue  # that edition is full today; the story may still be picked up tomorrow if fresh
+            if room.get(guess, 0) <= 0 or guess in not_ready:
+                continue  # that edition is full today (or not set up); the story may be picked up later if fresh
+            if lead_domain(c) in used_sources:
+                continue  # one draft per website per run, so one busy site can't fill the queue
+            if guess != "global":
+                try:
+                    wp_for(guess)
+                except SiteNotReady as exc:
+                    not_ready.add(guess)
+                    report.append(f"- waiting: {eds[guess].get('name', guess)} — {exc} Stories for it are kept, not dropped.")
+                    continue
             srcs = gather_sources(cfg, c)
             if not srcs:
                 store.reject(c["key"], "no readable source")
@@ -252,14 +323,19 @@ def main() -> None:
                 if ed_key is None:
                     store.reject(c["key"], "local story without an edition")
                     continue
-                if room.get(ed_key, 0) <= 0:
+                if room.get(ed_key, 0) <= 0 or ed_key in not_ready:
                     continue
                 cat = facts.get("category") or c["triage"].get("category") or ""
                 max_per_cat = max(1, int(int(eds[ed_key].get("daily_max_articles", 6)) * lim["max_category_share"]))
                 if cat and cat_count[ed_key][cat] >= max_per_cat:
                     continue
+                try:
+                    wp = wp_for(ed_key)
+                except SiteNotReady as exc:
+                    not_ready.add(ed_key)
+                    report.append(f"- waiting: {eds[ed_key].get('name', ed_key)} — {exc} Stories for it are kept, not dropped.")
+                    continue
                 draft, notes = write_story(ai, cfg, facts, srcs, eds[ed_key])
-                wp = wp_for(ed_key)
                 html = blocks.to_blocks(draft["body_markdown"])
                 payload, extra = build_payload(wp, draft, facts, html, srcs, c["key"], notes, cfg["site"]["post_status"])
                 payload["meta"]["pa_edition"] = "global" if ed_key == "global" else ed_key
@@ -276,6 +352,7 @@ def main() -> None:
             cat_count[ed_key][cat] += 1
             room[ed_key] -= 1
             made += 1
+            used_sources.add(lead_domain(c))
             report.append(f"- drafted for **{eds[ed_key].get('name', ed_key)}**: {draft['title']} "
                           f"(WordPress ID {post.get('id')}, {len(notes + extra)} review notes)")
         report.append(f"\nDrafted this run: {made}. Paid AI spend today: ${store.spend_today():.2f} (free models cost $0).")

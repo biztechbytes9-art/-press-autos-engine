@@ -99,6 +99,9 @@ DRAFT:
 Check every number, date, name, price, spec and claim in the draft against the sources.
 Also check: the title matches the article; nothing is presented as confirmed if the source says it is a rumour;
 no sentence is copied from a source.
+Report only real errors, at most 5. Write each issue as ONE short sentence (under 40 words) that names the
+wrong statement and gives the correct value from the source. Do not explain your reasoning, do not list
+things that are correct, and do not report style preferences.
 Return JSON: {{"ok": true/false, "issues": ["specific problem and the correct value from the source", ...]}}
 Only list real problems. Rounding (e.g. 74.7% -> nearly 75%) is fine."""
     return system, user

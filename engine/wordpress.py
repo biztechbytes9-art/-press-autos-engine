@@ -6,6 +6,10 @@ import requests
 log = logging.getLogger("engine.wordpress")
 
 
+class SiteNotReady(RuntimeError):
+    """The edition's WordPress site does not exist yet (or redirects elsewhere)."""
+
+
 class WordPress:
     def __init__(self, base_url: str, user: str, app_password: str, user_agent: str):
         self.base = base_url.rstrip("/") + "/wp-json/wp/v2"
@@ -15,7 +19,10 @@ class WordPress:
         self._term_cache: dict[tuple[str, str], int | None] = {}
 
     def check(self) -> dict:
-        r = self.s.get(self.base + "/users/me", params={"context": "edit"}, timeout=30)
+        r = self.s.get(self.base + "/users/me", params={"context": "edit"}, timeout=30, allow_redirects=False)
+        if 300 <= r.status_code < 400 or r.status_code == 404:
+            # On a multisite network a subdomain without a site redirects to the main site: never post there by mistake.
+            raise SiteNotReady(f"{self.base.split('/wp-json')[0]} is not set up yet (HTTP {r.status_code}).")
         if r.status_code == 401:
             raise RuntimeError(f"{self.base}: WordPress rejected the login (401). Check WP_USER and WP_APP_PASSWORD, "
                              "that the pipeline user is added to this site, and that your host passes the Authorization header.")
@@ -42,10 +49,13 @@ class WordPress:
         return found
 
     def create_post(self, payload: dict) -> dict:
-        r = self.s.post(self.base + "/posts", json=payload, timeout=60)
-        if r.status_code >= 400:
+        r = self.s.post(self.base + "/posts", json=payload, timeout=60, allow_redirects=False)
+        if r.status_code >= 300:
             raise RuntimeError(f"WordPress {r.status_code}: {r.text[:400]}")
-        return r.json()
+        d = r.json()
+        if not isinstance(d, dict) or not d.get("id"):
+            raise RuntimeError("WordPress did not return a post ID")
+        return d
 
 
 def slugify(s: str) -> str:

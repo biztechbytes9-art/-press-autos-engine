@@ -91,17 +91,28 @@ def parse_feed(xml: bytes, source_name: str) -> list[dict]:
     return items
 
 
-def fetch_feeds(feeds: list[dict], user_agent: str, timeout: int = 20) -> list[dict]:
+def fetch_feeds(feeds: list[dict], user_agent: str, timeout: int = 20, health: dict | None = None) -> list[dict]:
+    """health (optional) is filled with {feed name: item count, or an error string}."""
     out = []
     for f in feeds:
         try:
-            r = requests.get(f["url"], headers={"User-Agent": user_agent}, timeout=timeout)
+            r = requests.get(f["url"], headers={"User-Agent": user_agent,
+                                                "Accept": "application/rss+xml, application/atom+xml, application/xml;q=0.9, */*;q=0.8"},
+                             timeout=timeout)
             r.raise_for_status()
             got = parse_feed(r.content, f["name"])
+            for it in got:
+                if f.get("country"):
+                    it["country"] = f["country"]
             log.info("feed ok: %s (%d items)", f["name"], len(got))
             out.extend(got)
+            if health is not None:
+                health[f["name"]] = len(got)
         except Exception as exc:  # a broken feed must never stop the run
             log.warning("feed failed: %s: %s", f["name"], exc)
+            if health is not None:
+                code = getattr(getattr(exc, "response", None), "status_code", None)
+                health[f["name"]] = f"failed ({code})" if code else "failed"
     return out
 
 
@@ -126,10 +137,10 @@ def parse_gdelt(data: dict, query: str) -> list[dict]:
     return out
 
 
-def fetch_gdelt(cfg: dict, user_agent: str, timeout: int = 30) -> list[dict]:
+def fetch_gdelt(cfg: dict, user_agent: str, timeout: int = 30, health: dict | None = None) -> list[dict]:
     if not cfg.get("enabled"):
         return []
-    out = []
+    out, ok, failed = [], 0, 0
     for i, q in enumerate(cfg.get("queries", [])):
         if i:
             time.sleep(6)  # GDELT allows one request every 5 seconds
@@ -141,8 +152,12 @@ def fetch_gdelt(cfg: dict, user_agent: str, timeout: int = 30) -> list[dict]:
             got = parse_gdelt(r.json(), q)
             log.info("gdelt ok: %d items for %s", len(got), q[:60])
             out.extend(got)
+            ok += 1
         except Exception as exc:
             log.warning("gdelt failed for %s: %s", q[:60], exc)
+            failed += 1
+    if health is not None:
+        health["GDELT news search"] = f"{len(out)} items ({ok} searches ok, {failed} failed)"
     return out
 
 
