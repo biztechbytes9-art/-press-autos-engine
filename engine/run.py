@@ -229,6 +229,7 @@ def write_story(ai: Router, cfg: dict, facts: dict, srcs: list[dict], edition: d
     s, u = writer.verify_prompt(draft, facts, srcs)
     ver = ai.ask_json("verify", s, u, max_tokens=1500)
     issues = list(ver.get("issues") or [])
+    issues += checks.headline_mismatch(draft.get("title", ""), draft.get("excerpt", ""), draft["body_markdown"])
     if overlap > 0.06:
         issues.append(f"About {overlap:.0%} of the wording matches a source; rewrite those passages in fresh words.")
     if issues:
@@ -240,6 +241,8 @@ def write_story(ai: Router, cfg: dict, facts: dict, srcs: list[dict], edition: d
         overlap = max(checks.copy_overlap(draft["body_markdown"], x["text"]) for x in srcs)
         if overlap > 0.06:
             notes.append(f"Wording overlap with a source is {overlap:.0%}; rephrase before publishing.")
+    notes += ["Headline: " + p for p in checks.headline_mismatch(draft.get("title", ""), draft.get("excerpt", ""),
+                                                                   draft["body_markdown"])]
     odd = checks.unsupported_numbers(draft["body_markdown"], src_text + "\n" + str(facts))
     if odd:
         notes.append("Numbers not found in sources (may be calculations): " + ", ".join(odd[:10]))
@@ -269,7 +272,7 @@ def attach_images(cfg: dict, wp: WordPress, srcs: list[dict], facts: dict, draft
         inl = pick.get("inline")
         if inl:
             m2 = upload_media(wp, inl[0], inl[1], inl[2], inl[3], inl[4])
-            html = images.insert_after_paragraph(html, images.image_block(m2, inl[4]), 2)
+            html = images.insert_after_paragraph(html, images.image_block(m2, inl[4]), 3)
         return html, media.get("id"), notes
     except Exception as exc:  # noqa: BLE001  (an image problem must never lose the article)
         log.warning("image step failed: %s", exc)
@@ -405,7 +408,7 @@ def main() -> None:
                     report.append(f"- waiting: {eds[ed_key].get('name', ed_key)} — {exc} Stories for it are kept, not dropped.")
                     continue
                 draft, notes = write_story(ai, cfg, facts, srcs, eds[ed_key])
-                html = blocks.to_blocks(draft["body_markdown"])
+                html = blocks.key_facts(draft.get("key_facts") or []) + blocks.to_blocks(draft["body_markdown"])
                 html, media_id, img_notes = attach_images(cfg, wp, srcs, facts, draft, eds[ed_key], ed_key, html)
                 notes += img_notes
                 payload, extra = build_payload(wp, draft, facts, html, srcs, c["key"], notes, cfg["site"]["post_status"])

@@ -12,8 +12,8 @@ limits:
   per_run_max_articles: 3     # across all editions; the workflow runs every 2 hours
   daily_max_total_articles: 20  # all editions together: keep this to what you can review in a day
   daily_max_usd: 3.50         # hard stop on PAID AI spend per day (free models cost $0)
-  max_sources: 2              # source pages read per story (kept small for free per-minute limits)
-  source_chars: 6000          # characters read from each source page
+  max_sources: 3              # source pages read per story (more sources = more original, better-supported articles)
+  source_chars: 4500          # characters read from each source page (3 x 4500 fits the free per-minute limits)
   min_score: 0.45             # skip weak stories rather than publish filler
   lookback_hours: 36          # only consider items this recent
   max_category_share: 0.5     # within an edition, no category gets more than half of its daily drafts
@@ -48,6 +48,7 @@ editions:
     url: https://india.press.autos
     enabled: true
     daily_max_articles: 6
+    local_section: "What it means for Indian buyers"
     min_score: 0.30          # local news is usually single-source, so it can't earn "coverage" points
     candidate_slots: 8       # places reserved for this edition among each run's candidates
     source_language: english

@@ -11,6 +11,8 @@ Rules you must never break:
 - Plain, clear English. Short paragraphs (max 3 sentences). Sentences under 25 words. No hype, no clickbait, no emoji.
 - Give metric units first; add miles or US units in brackets where the story is US/UK.
 - The first sentence states the news and its key number.
+- The title and meta description may only contain numbers, prices and claims that are in the article body.
+  No superlatives ("cheapest", "fastest", "first") unless a source states it, and then the body must say who claims it.
 - On the global edition: if the story is only about one country, say so in the first sentence and add the country in brackets at the end of the title, e.g. "(US)", "(India)", "(UK)". On a country edition, never add the country to the title.
 """
 
@@ -71,15 +73,20 @@ def write_prompt(facts: dict, sources: list[dict], cfg: dict, edition: dict | No
     system = HOUSE_RULES
     if edition:
         system += f"\nThis article is for the {edition.get('name', 'press.autos')} edition. {edition.get('style', '')}\n"
+    local_section = ""
+    if edition and edition.get("local_section"):
+        local_section = (f'\nInclude a section headed "## {edition["local_section"]}" covering, only from the fact table: '
+                         "local price (in the local currency, as stated), availability or launch timing, rivals the sources "
+                         "name, and whether buyers should wait. If the facts don't cover something, leave it out.")
     user = f"""FACT TABLE:
 {json.dumps(facts, ensure_ascii=False, indent=1)}
 
 SOURCES:
 {src_list}
 
-Write the news article from the fact table only. 300-600 words.
+Write the news article from the fact table only. 350-700 words.
 Structure: opening paragraph with the news; then sections with "## " headings (e.g. key details, prices/specs,
-what it means for buyers/owners). Use a "| table |" only when there are 3+ comparable numbers. Bullet lists with "- ".
+what it means for buyers/owners).{local_section} Use a "| table |" only when there are 3+ comparable numbers. Bullet lists with "- ".
 Do not add a Sources section (the site adds it automatically). Do not add a conclusion that repeats the article.
 
 Return JSON:
@@ -88,6 +95,7 @@ Return JSON:
   "focus_keyword": "2-5 word search phrase",
   "body_markdown": "the article",
   "image_hint": "best URL for an official press image or press release (from the sources), or empty",
+  "key_facts": ["3 to 5 short standalone sentences (max 25 words each) stating the most important facts, each with its number or date where there is one; they are shown in a Key facts box at the top and quoted by search engines, so each must make sense on its own"],
   "card_stats": ["up to 3 very short key figures from the fact table for the image card, max 22 characters each, e.g. \"Rs 12.5 lakh\", \"465 km range\", \"19,000 cars\"; empty list if none"]}}"""
     return system, user
 

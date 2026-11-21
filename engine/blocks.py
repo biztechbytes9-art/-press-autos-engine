@@ -82,3 +82,16 @@ def to_blocks(md: str) -> str:
             para.append(line.strip())
     flush_all()
     return "\n\n".join(out)
+
+
+def key_facts(facts: list) -> str:
+    """'Key facts' summary box at the top of an article (styled by the press.autos Design plugin)."""
+    items = [str(f).strip() for f in facts if str(f).strip()][:5]
+    if len(items) < 2:
+        return ""
+    lis = "".join("<!-- wp:list-item -->\n<li>" + _inline(i) + "</li>\n<!-- /wp:list-item -->" for i in items)
+    return ('<!-- wp:group {"className":"pa-keyfacts","layout":{"type":"constrained"}} -->\n'
+            '<div class="wp-block-group pa-keyfacts">'
+            '<!-- wp:paragraph {"className":"pa-keyfacts__title"} -->\n<p class="pa-keyfacts__title"><strong>Key facts</strong></p>\n<!-- /wp:paragraph -->\n'
+            f'<!-- wp:list -->\n<ul class="wp-block-list">{lis}</ul>\n<!-- /wp:list -->'
+            '</div>\n<!-- /wp:group -->\n\n')

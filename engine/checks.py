@@ -29,6 +29,21 @@ def numbers_in(text: str) -> set[str]:
     return out
 
 
+def headline_mismatch(title: str, excerpt: str, body: str) -> list[str]:
+    """Numbers and superlatives in the title/meta description that the article body doesn't contain."""
+    body_nums = numbers_in(body)
+    problems = []
+    for label, text in (("title", title or ""), ("meta description", excerpt or "")):
+        missing = [n for n in sorted(numbers_in(text)) if n not in body_nums and not re.fullmatch(r"(19|20)\d\d", n)]
+        if missing:
+            problems.append(f"The {label} mentions {', '.join(missing)}, which the article body never states; "
+                            f"either add it to the body (from the sources) or remove it from the {label}.")
+        for word in ("cheapest", "fastest", "first", "biggest", "best", "only", "most powerful", "longest"):
+            if re.search(r"\b" + word + r"\b", text, re.I) and not re.search(r"\b" + word + r"\b", body, re.I):
+                problems.append(f'The {label} says "{word}", but the article body does not; remove it or support it.')
+    return problems
+
+
 def unsupported_numbers(draft: str, sources_text: str) -> list[str]:
     """Numbers in the draft that never appear in any source text (likely invented or miscalculated)."""
     allowed = numbers_in(sources_text)

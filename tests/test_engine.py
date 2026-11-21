@@ -576,3 +576,19 @@ def test_interleave_editions():
     mk = lambda a, n: {"title": n, "triage": {"audience": a}}
     out = r.interleave_editions(cfg, [mk("global", "g1"), mk("global", "g2"), mk("global", "g3"), mk("IN", "i1")])
     assert [c["title"] for c in out][:2] in (["g1", "i1"], ["i1", "g1"])
+
+
+def test_headline_check_catches_unsupported_claims():
+    from engine import checks
+    body = "Renault's Twingo E-Tech starts at £14,745 in the UK and €13,990 in Germany, undercutting the BYD Dolphin Surf."
+    p = checks.headline_mismatch("Renault launches Twingo E-Tech EV under $20,000, undercutting BYD",
+                                 "The cheapest electric car you can buy.", body)
+    assert any("20,000" in x or "20000" in x for x in p) and any('"cheapest"' in x for x in p)
+    assert checks.headline_mismatch("Renault Twingo E-Tech priced from £14,745", "", body) == []
+
+
+def test_key_facts_box():
+    from engine import blocks
+    html = blocks.key_facts(["Price starts at Rs 1.98 lakh.", "Gets a TFT screen and ride modes.", "Bookings are open."])
+    assert 'class="wp-block-group pa-keyfacts"' in html and html.count("<li>") == 3 and "Key facts" in html
+    assert blocks.key_facts(["only one"]) == ""
