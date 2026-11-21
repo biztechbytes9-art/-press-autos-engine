@@ -114,6 +114,97 @@ def download_image(url: str, user_agent: str, timeout: int = 30) -> tuple[bytes,
         return None
 
 
+# ------------------------------------------------------------------ maker press rooms
+STOP = {"the", "a", "an", "and", "of", "in", "at", "with", "for", "to", "on", "new", "launches", "launched", "launch",
+        "unveils", "unveiled", "price", "prices", "priced", "india", "rs", "lakh", "crore", "updated", "update", "gets",
+        "from", "by", "its", "is", "now", "model", "edition", "all-new", "2025", "2026", "2027"}
+
+
+def _tokens(text: str) -> set[str]:
+    import re
+    return {t for t in re.findall(r"[a-z0-9]+(?:-[a-z0-9]+)?", (text or "").lower()) if t not in STOP and len(t) > 1}
+
+
+def press_room_candidates(cfg: dict, facts: dict, draft: dict, notes: list | None = None) -> list[tuple[str, str]]:
+    """Look the story up on the maker's own press-release page and return that release's photos.
+
+    Used when the story came from news sites only. A release is accepted only if its link text or URL
+    shares the model words of our headline (e.g. "pulsar" + "rs200"), never just the brand name.
+    """
+    from bs4 import BeautifulSoup
+    from urllib.parse import urlparse
+    rooms = cfg.get("press_rooms") or {}
+    ua = cfg["site"]["user_agent"]
+    title_toks = _tokens(draft.get("title", "")) | _tokens(facts.get("headline_fact", ""))
+    out = []
+    for brand in facts.get("brands") or []:
+        room = rooms.get(brand)
+        if not room:
+            continue
+        brand_toks = _tokens(brand)
+        model_toks = title_toks - brand_toks
+        if not model_toks:
+            continue
+        try:
+            r = requests.get(room, headers={"User-Agent": ua, "Accept-Language": "en"}, timeout=20)
+            r.raise_for_status()
+        except Exception as exc:  # noqa: BLE001
+            if notes is not None:
+                notes.append(f"Press room for {brand} could not be read ({exc.__class__.__name__}); "
+                             f"check {room} for an official photo.")
+            continue
+        soup = BeautifulSoup(r.text, "lxml")
+        host = urlparse(room).netloc.lower().removeprefix("www.")
+        best, best_score = None, 0
+        for a in soup.find_all("a", href=True):
+            href = urljoin(room, a["href"])
+            if urlparse(href).netloc.lower().removeprefix("www.") != host or href.rstrip("/") == room.rstrip("/"):
+                continue
+            words = _tokens(a.get_text(" ", strip=True)) | _tokens(urlparse(href).path.replace("/", " "))
+            hit = model_toks & words
+            # need 2 model words, or 1 if it contains a digit (model codes like "rs200", "xuv700")
+            score = len(hit) + (1 if any(any(ch.isdigit() for ch in w) for w in hit) else 0)
+            if score > best_score:
+                best, best_score = href, score
+        if not best or best_score < 2:
+            if notes is not None:
+                notes.append(f"No matching {brand} press release found yet at {room}; check it for an official photo.")
+            continue
+        page = extract.fetch_article(best, ua)
+        if not page:
+            continue
+        credit = "Image: " + brand
+        for u in page.get("images") or ([page["image"]] if page.get("image") else []):
+            u = urljoin(best, u)
+            if u.startswith("http") and u not in {x for x, _ in out}:
+                out.append((u, credit))
+        if out:
+            if notes is not None:
+                notes.append(f"Photo taken from {brand}'s press release: {best}")
+            break
+    return out[:4]
+
+
+# ------------------------------------------------------------------ infographic brief
+def infographic_brief(draft: dict, facts: dict, edition: dict, edition_key: str) -> str:
+    """A ready-to-paste prompt for Gemini that uses only verified facts from this article."""
+    stats = [s for s in (draft.get("card_stats") or []) if s][:3]
+    kf = [k for k in (draft.get("key_facts") or []) if k][:4]
+    if len(stats) + len(kf) < 3:
+        return ""
+    site = "press.autos" if edition_key == "global" else f"press.autos {edition.get('name', '').replace('press.autos', '').strip()}"
+    lines = [
+        "Infographic brief (paste into Gemini for a big story; check the result against the article):",
+        f"Create a clean 16:9 news infographic, 1920x1080. Top bar: dark slate with the text \"{site}\" on the left "
+        f"and the headline \"{draft.get('title', '')}\".",
+        "Left: a neutral studio illustration of the vehicle (no logos you are unsure of). Right: these facts only, as short labels:",
+    ]
+    lines += [f"- {x}" for x in stats + kf]
+    lines.append("Do NOT add any other specs, numbers, features, icons, slogans or claims. No question marks or hype words. "
+                 "Bottom-right, small text: \"Illustration generated with AI – not an official image\".")
+    return " ".join(lines)
+
+
 # ------------------------------------------------------------------ news card
 def _font(size: int, bold: bool = True):
     from PIL import ImageFont
@@ -211,7 +302,8 @@ def render_card(title: str, category: str, stats: list[str], edition_label: str 
 
 
 # ------------------------------------------------------------------ main entry
-def choose_images(cfg: dict, srcs: list[dict], facts: dict, draft: dict, edition: dict, edition_key: str) -> dict:
+def choose_images(cfg: dict, srcs: list[dict], facts: dict, draft: dict, edition: dict, edition_key: str,
+                  notes: list | None = None) -> dict:
     """Returns {"featured": (bytes, mime, filename, alt, caption, kind), "inline": same or None}."""
     icfg = cfg.get("images") or {}
     ua = cfg["site"]["user_agent"]
@@ -220,7 +312,10 @@ def choose_images(cfg: dict, srcs: list[dict], facts: dict, draft: dict, edition
     alt = draft.get("title", "")
     found = []
     if icfg.get("official_photos", True):
-        for url, credit in official_candidates(cfg, srcs, facts, draft):
+        cands = official_candidates(cfg, srcs, facts, draft)
+        if not cands and icfg.get("press_room_lookup", True):
+            cands = press_room_candidates(cfg, facts, draft, notes)
+        for url, credit in cands:
             got = download_image(url, ua)
             if got:
                 data, mime, _ = got

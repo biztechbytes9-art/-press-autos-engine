@@ -618,3 +618,35 @@ def test_check_detects_missing_post_permission(monkeypatch):
     with pytest.raises(w.SiteNotReady) as e:
         wp.check()
     assert "subscriber" in str(e.value) and "Pipeline (automation)" in str(e.value)
+
+
+def test_press_room_lookup_finds_matching_release(monkeypatch):
+    from engine import images
+    listing = """<html><body>
+      <a href="/corporate/media-centre/press-releases/bajaj-q2-results">Bajaj Auto Q2 results</a>
+      <a href="/corporate/media-centre/press-releases/new-pulsar-rs200-launched">New Pulsar RS200 launched with TFT</a>
+      <a href="https://othersite.com/pulsar-rs200">Pulsar RS200 elsewhere</a></body></html>"""
+    release = {"url": "https://www.bajajauto.com/corporate/media-centre/press-releases/new-pulsar-rs200-launched",
+               "text": "x" * 500, "images": ["/images/rs200-hero.jpg"], "image": ""}
+
+    class R:
+        status_code, text = 200, listing
+        def raise_for_status(self): pass
+    monkeypatch.setattr(images.requests, "get", lambda *a, **k: R())
+    monkeypatch.setattr(images.extract, "fetch_article", lambda url, ua: release if "rs200" in url else None)
+    cfg = {"site": {"user_agent": "t"}, "press_rooms": {"Bajaj": "https://www.bajajauto.com/corporate/media-centre/press-releases"}}
+    notes = []
+    got = images.press_room_candidates(cfg, {"brands": ["Bajaj"]}, {"title": "Bajaj launches updated Pulsar RS200 in India at Rs 1,98,441"}, notes)
+    assert got == [("https://www.bajajauto.com/images/rs200-hero.jpg", "Image: Bajaj")]
+    # brand name alone is not a match
+    got2 = images.press_room_candidates(cfg, {"brands": ["Bajaj"]}, {"title": "Bajaj sales rise in October"}, notes)
+    assert got2 == [] and any("No matching Bajaj press release" in n for n in notes)
+
+
+def test_infographic_brief_uses_only_given_facts():
+    from engine import images
+    b = images.infographic_brief({"title": "Bajaj launches updated Pulsar RS200 at Rs 1,98,441",
+                                  "card_stats": ["Rs 1,98,441", "USD forks"], "key_facts": ["Gets a TFT display.", "Ride modes added."]},
+                                 {}, {"name": "press.autos India"}, "IN")
+    assert "press.autos India" in b and "Rs 1,98,441" in b and "Do NOT add" in b and "not an official image" in b
+    assert images.infographic_brief({"title": "x", "card_stats": [], "key_facts": ["one"]}, {}, {}, "global") == ""

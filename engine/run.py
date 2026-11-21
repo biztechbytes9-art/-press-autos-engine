@@ -257,13 +257,13 @@ def attach_images(cfg: dict, wp: WordPress, srcs: list[dict], facts: dict, draft
     if not (cfg.get("images") or {}).get("enabled", True):
         return html, None, ["Add a featured image: the maker's official press/media site or your own photo."]
     try:
-        pick = images.choose_images(cfg, srcs, facts, draft, edition, ed_key)
+        notes: list[str] = []
+        pick = images.choose_images(cfg, srcs, facts, draft, edition, ed_key, notes)
         feat = pick.get("featured")
         if not feat:
-            return html, None, ["Add a featured image: the maker's official press/media site or your own photo."]
+            return html, None, notes + ["Add a featured image: the maker's official press/media site or your own photo."]
         data, mime, name, alt, caption, kind = feat
         media = upload_media(wp, data, mime, name, alt, caption)
-        notes = []
         if kind == "official":
             notes.append(f"Featured image: official press photo ({caption}). Check it shows the right model.")
         else:
@@ -273,6 +273,10 @@ def attach_images(cfg: dict, wp: WordPress, srcs: list[dict], facts: dict, draft
         if inl:
             m2 = upload_media(wp, inl[0], inl[1], inl[2], inl[3], inl[4])
             html = images.insert_after_paragraph(html, images.image_block(m2, inl[4]), 3)
+        if kind == "card" and (cfg.get("images") or {}).get("infographic_brief", True):
+            brief = images.infographic_brief(draft, facts, edition, ed_key)
+            if brief:
+                notes.append(brief)
         return html, media.get("id"), notes
     except Exception as exc:  # noqa: BLE001  (an image problem must never lose the article)
         log.warning("image step failed: %s", exc)

@@ -26,6 +26,32 @@ images:
   official_photos: true   # use the maker's/regulator's own press photos when the story has an official source
   inline_photo: true      # also place a second official photo inside the article
   news_card: true         # otherwise generate a branded card (headline, category, key figures)
+  press_room_lookup: true # if no official source: look the story up on the maker's press-release page
+  infographic_brief: true # with a news card, add a ready-to-paste Gemini prompt (verified facts only) to the notes
+
+# Makers' press-release pages (photos there are published for the media). If a page can't be read,
+# the review notes say so; replace the URL with the right page from that maker's website.
+press_rooms:
+  Bajaj: https://www.bajajauto.com/corporate/media-centre/press-releases
+  Tata Motors: https://www.tatamotors.com/press-releases/
+  Mahindra: https://www.mahindra.com/news-room/press-release
+  Maruti Suzuki: https://www.marutisuzuki.com/corporate/media/press-releases
+  Hyundai: https://www.hyundai.com/in/en/hyundai-story/media-center/press-release
+  Kia: https://www.kia.com/in/discover-kia/news.html
+  Toyota: https://pressroom.toyota.com/releases/
+  Honda Motorcycle: https://www.honda2wheelersindia.com/media
+  Hero MotoCorp: https://www.heromotocorp.com/en-in/company/media/press-release.html
+  TVS: https://www.tvsmotor.com/media/press-release
+  Royal Enfield: https://www.royalenfield.com/in/en/home/news/
+  Ather: https://www.atherenergy.com/media
+  Ola Electric: https://www.olaelectric.com/press
+  MG: https://www.mgmotor.co.in/media-center/press-release
+  BMW: https://www.press.bmwgroup.com/global/article/topic/latest
+  Mercedes-Benz: https://group.mercedes-benz.com/media/press-releases/
+  Volkswagen: https://www.volkswagen-newsroom.com/en/press-releases
+  Ford: https://media.ford.com/content/fordmedia/fna/us/en/news.html
+  Nissan: https://global.nissannews.com/en/releases
+  Skoda: https://www.skoda-storyboard.com/en/press-releases/
 
 # Where stories go. Each story's country decides its edition.
 # - "global" is the main site (WP_URL secret).
