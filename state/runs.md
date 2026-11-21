@@ -1,4 +1,28 @@
 <!-- run -->
+# Run 2026-11-21 22:52 UTC
+
+Discovered 172 recent items, 3 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
+GDELT: 8 items (2 searches ok, 2 failed, 3 skipped: time limit).
+Room left today: press.autos 3, press.autos India 6. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.63 | motorsport | global | press.autos (main) | Ferrari's New 296 Challenge Stradale Is A 670-HP Race Car You Can Drive Home |
+| 0.55 | motorcycles | IN | press.autos India | New Bajaj Pulsar RS200 Launched at Rs 1.98 Lakh With TFT, Ride Modes and USD Forks |
+| 0.46 | trends | IN | press.autos India | BYD India Crosses 20,000 Sales Milestone |
+
+By site: press.autos India 2, press.autos (main) 1
+By category: motorsport 1, motorcycles 1, trends 1
+- skipped (no readable source): Ferrari's New 296 Challenge Stradale Is A 670-HP Race Car You Can Drive Home
+- drafted for **press.autos India**: Bajaj launches updated Pulsar RS200 in India at Rs 1,98,441 (WordPress ID 1006, 2 review notes)
+
+Drafted this run: 1. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-21 21:48 UTC
 
 Discovered 173 recent items, 5 candidate stories above score 0.45.
