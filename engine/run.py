@@ -26,6 +26,19 @@ def summary(lines: list[str]) -> None:
     if path:
         with open(path, "a", encoding="utf-8") as f:
             f.write(text + "\n")
+    # Also keep the latest reports in the repository (state/runs.md, newest first, last 30 runs),
+    # so they can be read without opening the Actions page.
+    try:
+        from datetime import datetime, timezone
+        log_path = ROOT / "state" / "runs.md"
+        stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+        entry = f"<!-- run -->\n# Run {stamp}\n\n" + text.replace("## press.autos engine run", "").strip() + "\n\n"
+        old = log_path.read_text(encoding="utf-8") if log_path.exists() else ""
+        runs = [r for r in old.split("<!-- run -->\n") if r.strip()][:29]
+        log_path.parent.mkdir(parents=True, exist_ok=True)
+        log_path.write_text(entry + "".join("<!-- run -->\n" + r for r in runs), encoding="utf-8")
+    except OSError as exc:
+        log.warning("could not save run report: %s", exc)
 
 
 # ------------------------------------------------------------------ editions
@@ -291,6 +304,7 @@ def main() -> None:
             report += ["", "By site: " + ", ".join(f"{k} {v}" for k, v in by_site.most_common()),
                        "By category: " + ", ".join(f"{k} {v}" for k, v in by_cat.most_common())]
         if args.dry_run:
+            report[0] = "## press.autos engine run (DRY RUN)"
             report += ["", "Dry run: nothing was written or posted. The country is checked again from the "
                        "source pages before a real draft is routed."]
             return
