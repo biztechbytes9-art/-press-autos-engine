@@ -1,4 +1,23 @@
 <!-- run -->
+# Run 2026-11-22 03:00 UTC
+
+Discovered 137 recent items, 2 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
+GDELT: 0 items (0 searches ok, 5 failed, 2 skipped: time limit).
+Room left today: press.autos 9, press.autos India 6. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.64 | ev | IN | press.autos India | JSW Motors To Launch J5 And V23 Electric SUVs Next Year |
+| 0.56 | commercial | US | press.autos (main) | Rumor: Hyundai is getting ready to roll out an all-new, all-electric work truck |
+
+By site: press.autos India 1, press.autos (main) 1
+By category: ev 1, commercial 1
+
+<!-- run -->
 # Run 2026-11-22 01:19 UTC
 
 Discovered 147 recent items, 1 candidate stories above score 0.45.
