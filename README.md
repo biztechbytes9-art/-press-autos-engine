@@ -8,7 +8,7 @@ Runs **free** on GitHub Actions every 2 hours, using free AI models (Groq, with 
 4. For the best 1–2 stories it **reads the source pages**, builds a **fact table** with a source for every fact, **writes** an original article, **fact-checks** it against the sources with a *different* AI model, fixes problems, and checks the wording is not copied.
 5. **Posts it to WordPress as "Pending review"** with category, brand/powertrain/body tags, SEO description, sources list, AI note and review notes. It never publishes.
 
-**Editions:** each story's country decides where it goes. Global stories go to press.autos; India-only stories go to in.press.autos. Ready to switch on in `config.yaml` (create the site first, then set `enabled: true`): UK, US, Australia, Canada, Malaysia, Singapore, Philippines, UAE, South Africa, New Zealand, Thailand, Indonesia, Italy, Germany, France. All editions are written in English; for Malaysia, Thailand, Indonesia, Italy, Germany and France the engine also reads local-language news (`source_language: any`). Local stories for countries without an enabled edition go to the main site with the country in the title (or are skipped with `local_without_edition: skip`). To add a country not listed, copy any edition block and change its code, name, url, style and `sourcecountry:` name.
+**Editions:** each story's country decides where it goes. Global stories go to press.autos; India-only stories go to india.press.autos. Ready to switch on in `config.yaml` (create the site first, then set `enabled: true`): UK, US, Australia, Canada, Malaysia, Singapore, Philippines, UAE, South Africa, New Zealand, Thailand, Indonesia, Italy, Germany, France. All editions are written in English; for Malaysia, Thailand, Indonesia, Italy, Germany and France the engine also reads local-language news (`source_language: any`). Local stories for countries without an enabled edition go to the main site with the country in the title (or are skipped with `local_without_edition: skip`). To add a country not listed, copy any edition block and change its code, name, url, style and `sourcecountry:` name.
 
 Limits (in `config.yaml`): 10 drafts/day for the main site, 6/day for India, 3/day for each new edition, 20/day in total across all editions (what one person can review), 3 per run, max half of an edition's drafts in one category. Free models cost nothing; if you ever add a paid Claude key as a fallback, it is capped at $3.50/day.
 
@@ -50,15 +50,23 @@ Free limits are set by each provider and can change at any time; the engine simp
 
 After that it runs automatically every 2 hours.
 
-## Adding a country edition (e.g. in.press.autos)
+## Adding a country edition (e.g. india.press.autos)
 1. **Network Admin → Sites → Add New**: Site Address `in`, Title `press.autos India`.
 2. On the new site: activate Blocksy, set Permalinks to `/%category%/%postname%/`, set **Settings → General → press.autos edition country** to `IN`.
 3. **Tools → Import → WordPress**: import the same starter-content XML used for the main site (categories, tags, trust pages), then edit the About page for the edition.
 4. **Users → Add Existing User**: add `pipeline` with the role **Pipeline (automation)**. The same application password works on every site.
 5. In `config.yaml`, set the edition's `enabled: true` (India is already on).
 
+## Editor's assistant (hourly)
+`.github/workflows/assistant.yml` runs `python -m engine.assistant` every hour at minute 47. On the engine's pending drafts it:
+- looks again for official press photos and replaces a generated card with one (credited), plus a second photo inside the article;
+- fills a missing focus keyword / meta description, puts the keyword in the image alt text;
+- adds "Also read" links once related articles are published;
+- writes an "SEO check (assistant): NN/100" line with what to improve into the Review notes.
+It never publishes and never rewrites the article text. Reports: `state/assistant.md`.
+
 ## Daily routine (about 20–30 minutes)
-- Check the review queue on **each edition's dashboard** (main site and in.press.autos).
+- Check the review queue on **each edition's dashboard** (main site and india.press.autos).
 - Dashboard → **press.autos review queue**. Items marked **⚠ check notes** have something to verify.
 - Open each draft: read the **Review notes** box (bottom of the editor), check facts against the linked sources, add a featured image, then **Publish** or **Move to Trash**.
 - Drafts you trash are never re-written (the engine remembers stories it has done).
