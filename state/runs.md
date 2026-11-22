@@ -1,4 +1,27 @@
 <!-- run -->
+# Run 2026-11-22 20:54 UTC
+
+Discovered 129 recent items, 5 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
+GDELT: 4 items (2 searches ok, 2 failed, 3 skipped: time limit).
+Room left today: press.autos 1, press.autos India 3. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.64 | motorsport | global | press.autos (main) | F1 plans two-team engine supply limit under 2030 V8 rules |
+| 0.59 | motorsport | global | press.autos (main) | F1 set to reduce customer teams as key 2030 details emerge |
+
+By site: press.autos (main) 2
+By category: motorsport 2
+
+Source pages that couldn't be read: autosport.com (HTTP 403 x1), motorsport.com (HTTP 403 x1).
+
+Drafted this run: 0. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-22 18:59 UTC
 
 Discovered 126 recent items, 6 candidate stories above score 0.45.
