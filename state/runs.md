@@ -1,4 +1,25 @@
 <!-- run -->
+# Run 2026-11-22 01:19 UTC
+
+Discovered 147 recent items, 1 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
+GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
+Room left today: press.autos 10, press.autos India 6. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.69 | ev | global | press.autos (main) | Red wave: Xiaomi goes global with first overseas EV sales |
+
+By site: press.autos (main) 1
+By category: ev 1
+- drafted for **press.autos**: Xiaomi launches EV sales in UAE with SU7, YU7 and Skynomad (UAE) (WordPress ID 3490, 5 review notes)
+
+Drafted this run: 1. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-21 23:14 UTC
 
 Discovered 161 recent items, 2 candidate stories above score 0.45.
