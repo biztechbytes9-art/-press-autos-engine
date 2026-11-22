@@ -1,4 +1,31 @@
 <!-- run -->
+# Run 2026-11-22 11:01 UTC
+
+Discovered 122 recent items, 5 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
+GDELT: 1 items (1 searches ok, 3 failed, 3 skipped: time limit).
+Room left today: press.autos 8, press.autos India 6. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.61 | ev | IN | press.autos India | VinFast eyes 1 . 5 lakh vehicle capacity at Thoothukudi plant ; puts electric bus plans on hold |
+| 0.59 | motorsport | global | press.autos (main) | Hadjar penalised after backing up Russell in Las Vegas GP, Perez given grid drop for Qatar GP |
+| 0.52 | suvs | IN | press.autos India | Hyundai’s Two Upcoming 7-Seater Cars For India Explained |
+
+By site: press.autos India 2, press.autos (main) 1
+By category: ev 1, motorsport 1, suvs 1
+- drafted for **press.autos India**: VinFast plans to boost Thoothukudi plant capacity to 150,000 vehicles (India) (WordPress ID 1030, 5 review notes)
+- drafted for **press.autos**: Isack Hadjar receives 10‑second penalty for slow safety‑car backing up Russell (WordPress ID 3496, 5 review notes)
+- drafted for **press.autos India**: Hyundai Neira MPV and NI1i SUV to debut in India from 2027 (India) (WordPress ID 1032, 5 review notes)
+
+Source pages that couldn't be read: autosport.com (HTTP 403 x1), gaadiwaadi.com (too little text (paywall or bot check?) x1), motorsport.com (HTTP 403 x1).
+
+Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-22 08:57 UTC
 
 Discovered 124 recent items, 10 candidate stories above score 0.45.
