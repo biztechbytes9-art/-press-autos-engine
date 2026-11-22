@@ -1,4 +1,29 @@
 <!-- run -->
+# Run 2026-11-22 05:07 UTC
+
+Discovered 125 recent items, 4 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
+GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
+Room left today: press.autos 9, press.autos India 6. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.64 | motorsport | global | press.autos (main) | Macau GP: Craigie wins F4 World Cup after first-lap pile-up |
+| 0.61 | ev | IN | press.autos India | JSW Motors To Launch J5 And V23 Electric SUVs Next Year |
+| 0.53 | commercial | global | press.autos (main) | Rumor: Hyundai is getting ready to roll out an all-new, all-electric work truck |
+
+By site: press.autos (main) 2, press.autos India 1
+By category: motorsport 1, ev 1, commercial 1
+- skipped (no readable source): Macau GP: Craigie wins F4 World Cup after first-lap pile-up
+- skipped (no readable source): JSW Motors To Launch J5 And V23 Electric SUVs Next Year
+- drafted for **press.autos**: Electric Hyundai Porter pickup rumored for 2027 launch (WordPress ID 3492, 4 review notes)
+
+Drafted this run: 1. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-22 03:00 UTC
 
 Discovered 137 recent items, 2 candidate stories above score 0.45.
