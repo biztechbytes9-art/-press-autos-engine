@@ -52,6 +52,21 @@ def _text(el, *paths) -> str:
     return ""
 
 
+def html_to_text(html: str) -> str:
+    """Plain text from a feed's HTML content (publishers include it for readers and apps)."""
+    if not html:
+        return ""
+    if "<" not in html:
+        return " ".join(html.split())
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(html, "lxml")
+    for t in soup(["script", "style", "figure", "iframe", "noscript"]):
+        t.decompose()
+    parts = [p.get_text(" ", strip=True) for p in soup.find_all(["p", "li", "h2", "h3", "td"])]
+    text = "\n".join(p for p in parts if p) or soup.get_text(" ", strip=True)
+    return text.strip()
+
+
 def parse_feed(xml: bytes, source_name: str) -> list[dict]:
     """Parse RSS 2.0 or Atom into items {url,title,published,summary,source,domain}."""
     parser = etree.XMLParser(recover=True, resolve_entities=False, no_network=True)
@@ -67,6 +82,7 @@ def parse_feed(xml: bytes, source_name: str) -> list[dict]:
             title = _text(e, "title")
             published = _text(e, "pubDate", "{http://purl.org/dc/elements/1.1/}date")
             summary = _text(e, "description")
+            content = _text(e, "{http://purl.org/rss/1.0/modules/content/}encoded") or summary
         else:
             link = None
             for l in e.findall(f"{ns_atom}link"):
@@ -77,6 +93,7 @@ def parse_feed(xml: bytes, source_name: str) -> list[dict]:
             title = _text(e, f"{ns_atom}title")
             published = _text(e, f"{ns_atom}published", f"{ns_atom}updated")
             summary = _text(e, f"{ns_atom}summary", f"{ns_atom}content")
+            content = _text(e, f"{ns_atom}content") or summary
         if not url or not title or not url.startswith("http"):
             continue
         d = _parse_date(published)
@@ -85,6 +102,7 @@ def parse_feed(xml: bytes, source_name: str) -> list[dict]:
             "title": " ".join(title.split()),
             "published": d.isoformat() if d else "",
             "summary": summary[:500],
+            "feed_text": html_to_text(content)[:12000],
             "source": source_name,
             "domain": domain_of(url),
         })

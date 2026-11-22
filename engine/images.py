@@ -331,6 +331,9 @@ def choose_images(cfg: dict, srcs: list[dict], facts: dict, draft: dict, edition
     slug = (draft.get("slug") or draft.get("title", "press-autos"))
     slug = "".join(ch if ch.isalnum() else "-" for ch in slug.lower()).strip("-")[:60] or "press-autos"
     alt = draft.get("title", "")
+    kw = (draft.get("focus_keyword") or "").strip()
+    if kw and kw.lower() not in alt.lower():
+        alt = f"{kw[:1].upper()}{kw[1:]}: {alt}"
     found = []
     if icfg.get("official_photos", True):
         cands = official_candidates(cfg, srcs, facts, draft)

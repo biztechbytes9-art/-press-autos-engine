@@ -51,18 +51,31 @@ def extract_text(html: str) -> dict:
     return {"title": title, "text": text[:20000], "image": image, "images": images[:5], "site_name": site_name}
 
 
+FAILS: dict = {}   # domain -> list of reasons, reported in the run summary
+
+
+def _fail(url: str, reason: str) -> None:
+    from urllib.parse import urlparse
+    FAILS.setdefault(urlparse(url).netloc.lower().removeprefix("www."), []).append(reason)
+
+
 def fetch_article(url: str, user_agent: str, timeout: int = 25) -> dict | None:
     try:
         r = requests.get(url, headers={"User-Agent": user_agent, "Accept-Language": "en"}, timeout=timeout)
-        r.raise_for_status()
+        if r.status_code >= 400:
+            _fail(url, f"HTTP {r.status_code}")
+            return None
         if "html" not in r.headers.get("Content-Type", "html"):
+            _fail(url, "not a web page")
             return None
         data = extract_text(r.text)
     except Exception as exc:
         log.warning("fetch failed %s: %s", url, exc)
+        _fail(url, exc.__class__.__name__)
         return None
-    if len(data["text"]) < 400:  # paywall, consent wall or empty page
+    if len(data["text"]) < 400:  # paywall, consent wall, bot check or empty page
         log.info("too little text at %s", url)
+        _fail(url, "too little text (paywall or bot check?)")
         return None
     data["url"] = url
     return data

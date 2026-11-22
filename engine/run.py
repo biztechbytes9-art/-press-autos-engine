@@ -199,6 +199,10 @@ def gather_sources(cfg: dict, c: dict) -> list[dict]:
         if it["domain"] in domains:
             continue
         page = extract.fetch_article(it["url"], cfg["site"]["user_agent"])
+        if not page and len(it.get("feed_text") or "") >= 400:
+            # The site refused the page request; use the text the publisher put in its feed.
+            page = {"url": it["url"], "title": it["title"], "text": it["feed_text"], "image": "", "images": [],
+                    "site_name": it.get("source", ""), "from_feed": True}
         if page:
             page["title"] = page.get("title") or it["title"]
             page["text"] = page["text"][:chars]
@@ -380,9 +384,10 @@ def main() -> None:
             if guess != "global":
                 try:
                     wp_for(guess)
-                except SiteNotReady as exc:
+                except Exception as exc:  # noqa: BLE001  (site down, firewall, timeout, wrong role...)
                     not_ready.add(guess)
-                    report.append(f"- waiting: {eds[guess].get('name', guess)} — {exc} Stories for it are kept, not dropped.")
+                    report.append(f"- waiting: {eds[guess].get('name', guess)} — {str(exc)[:300]} "
+                                  "Stories for it are kept and retried next run.")
                     continue
             srcs = gather_sources(cfg, c)
             if not srcs:
@@ -407,9 +412,10 @@ def main() -> None:
                     continue
                 try:
                     wp = wp_for(ed_key)
-                except SiteNotReady as exc:
+                except Exception as exc:  # noqa: BLE001
                     not_ready.add(ed_key)
-                    report.append(f"- waiting: {eds[ed_key].get('name', ed_key)} — {exc} Stories for it are kept, not dropped.")
+                    report.append(f"- waiting: {eds[ed_key].get('name', ed_key)} — {str(exc)[:300]} "
+                                  "Stories for it are kept and retried next run.")
                     continue
                 draft, notes = write_story(ai, cfg, facts, srcs, eds[ed_key])
                 html = blocks.key_facts(draft.get("key_facts") or []) + blocks.to_blocks(draft["body_markdown"])
@@ -444,11 +450,18 @@ def main() -> None:
             used_sources.add(lead_domain(c))
             report.append(f"- drafted for **{eds[ed_key].get('name', ed_key)}**: {draft['title']} "
                           f"(WordPress ID {post.get('id')}, {len(notes + extra)} review notes)")
+        if extract.FAILS:
+            report.append("\nSource pages that couldn't be read: " + ", ".join(
+                f"{d} ({', '.join(sorted(set(r)))} x{len(r)})" for d, r in sorted(extract.FAILS.items())) + ".")
         report.append(f"\nDrafted this run: {made}. Paid AI spend today: ${store.spend_today():.2f} (free models cost $0).")
     except BudgetExceeded as exc:
         report.append(f"Stopped: {exc}.")
     except NoModelAvailable as exc:
         report.append(f"Stopped: free AI limits reached for now ({exc}). The next run will continue.")
+    except Exception as exc:  # noqa: BLE001
+        log.exception("run failed")
+        report.append(f"\n**Run stopped by an error:** {exc.__class__.__name__}: {str(exc)[:400]}")
+        raise
     finally:
         store.prune()
         store.close()

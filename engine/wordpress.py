@@ -127,6 +127,8 @@ def build_payload(wp: WordPress, draft: dict, facts: dict, content_html: str, so
             tax[taxonomy] = ids
     src_meta = [{"title": s.get("title") or s["url"], "url": s["url"]} for s in sources]
     kw = (draft.get("focus_keyword") or "").strip().lower()
+    extra_kw = [k.strip().lower() for k in (draft.get("secondary_keywords") or []) if isinstance(k, str) and k.strip()]
+    keywords = ",".join(dict.fromkeys([k.replace(",", " ") for k in [kw] + extra_kw if k]))[:250]
     slug = slugify(draft.get("slug") or kw or draft["title"])
     slug = "-".join(slug.split("-")[:8])
     payload = {
@@ -144,7 +146,7 @@ def build_payload(wp: WordPress, draft: dict, facts: dict, content_html: str, so
             "pa_edition": facts.get("country") or "global",
             "pa_review_notes": "\n".join(notes + extra),
             "pa_image_hint": draft.get("image_hint") or "",
-            "rank_math_focus_keyword": kw,
+            "rank_math_focus_keyword": keywords,
             "rank_math_description": (draft.get("excerpt") or "")[:160],
         },
         **tax,

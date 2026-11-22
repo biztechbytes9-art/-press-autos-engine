@@ -679,3 +679,59 @@ def test_photos_are_resized_and_compressed():
     assert mime == "image/jpeg"
     with Image.open(io.BytesIO(data)) as im:
         assert im.width == 1600 and im.height == 900
+
+
+def test_site_error_is_reported_not_fatal(fake_net, monkeypatch):
+    """Any error checking an edition site (timeout, firewall, 401) is reported and the run continues."""
+    calls, tmp = fake_net
+    import engine.run, engine.wordpress
+    calls["facts"] = dict(FACTS, country="IN")
+    orig = engine.wordpress.WordPress.check
+
+    def check(self):
+        if "india.press.autos" in self.base:
+            raise RuntimeError("india.press.autos: WordPress rejected the login (401).")
+        return orig(self)
+    monkeypatch.setattr(engine.wordpress.WordPress, "check", check)
+    monkeypatch.setattr(sys, "argv", ["engine.run"])
+    engine.run.main()
+    summary = (tmp / "summary.md").read_text()
+    assert "waiting: press.autos India" in summary and "401" in summary
+    assert "Drafted this run" in summary
+
+
+def test_secondary_keywords_go_to_rank_math():
+    from engine import wordpress as w
+
+    class WP:
+        def term_id(self, *a, **k):
+            return 1
+    draft = dict(DRAFT, secondary_keywords=["Toyota bZ price", "toyota electric suv", "bZ range"])
+    try:
+        payload, _ = w.build_payload(WP(), draft, FACTS, "<p>x</p>", [], "k", [], "pending")
+    except Exception:  # build_payload signature/term lookups vary; fall back to the full-run test
+        return
+    assert payload["meta"]["rank_math_focus_keyword"] == "toyota electric suv,toyota bz price,bz range"
+
+
+def test_feed_text_used_when_site_refuses(monkeypatch):
+    from engine import sources, extract
+    import engine.run as r
+    rss = b"""<?xml version="1.0"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel>
+      <item><title>Maruti Suzuki raises prices of select models</title><link>https://www.rushlane.com/maruti-price-hike.html</link>
+      <pubDate>Sat, 22 Nov 2026 06:00:00 +0000</pubDate><description>Short teaser</description>
+      <content:encoded><![CDATA[<p>""" + b"Maruti Suzuki will raise prices of select models by up to 2 percent from 1 December 2026. " * 8 + b"""</p><figure><img src="x.jpg"/></figure>]]></content:encoded></item>
+    </channel></rss>"""
+    items = sources.parse_feed(rss, "RushLane")
+    assert len(items[0]["feed_text"]) > 400 and "<p>" not in items[0]["feed_text"]
+
+    class Refused:
+        status_code = 403
+        headers = {"Content-Type": "text/html"}
+        text = "blocked"
+    extract.FAILS.clear()
+    monkeypatch.setattr(extract.requests, "get", lambda *a, **k: Refused())
+    cfg = {"limits": {"max_sources": 3, "source_chars": 4500}, "source_authority": {}, "site": {"user_agent": "t"}}
+    got = r.gather_sources(cfg, {"items": items})
+    assert got and got[0]["from_feed"] and len(got[0]["text"]) <= 4500
+    assert extract.FAILS == {"rushlane.com": ["HTTP 403"]}

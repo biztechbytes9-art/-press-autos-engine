@@ -87,7 +87,7 @@ def write_prompt(facts: dict, sources: list[dict], cfg: dict, edition: dict | No
 SOURCES:
 {src_list}
 
-Write the news article from the fact table only. 350-700 words.
+Write the news article from the fact table only. 450-800 words.
 Structure: opening paragraph with the news; then sections with "## " headings (e.g. key details, prices/specs,
 what it means for buyers/owners).{local_section} Use a "| table |" only when there are 3+ comparable numbers. Bullet lists with "- ".
 Do not add a Sources section (the site adds it automatically). Do not add a conclusion that repeats the article.
@@ -99,11 +99,15 @@ SEO (do this naturally, never stuff keywords): choose a focus keyword people wou
 the news, e.g. "Pulsar RS200 price"); put it near the start of the title, in the excerpt, in the first sentence and in
 one "## " heading. Link the most authoritative source once in the body text as a Markdown link, e.g.
 "[according to Bajaj](https://...)", using a URL from SOURCES only.
+Use the focus keyword 4-6 times in total (about 1% of the words), always where it reads naturally.
+Aim for 600-800 words when the fact table supports it (more details, context, rivals, what buyers should do);
+never pad with repetition or general filler: a shorter accurate article beats a padded one.
 
 Return JSON:
 {{"title": "accurate headline, max 65 characters so it is not cut off in search results, no clickbait",
   "excerpt": "meta description, 140-160 characters",
   "focus_keyword": "2-5 word search phrase, lowercase, that appears in the title, excerpt, first sentence and one heading",
+  "secondary_keywords": ["2-4 other phrases people would search for this story, lowercase, e.g. model + price, brand + sales"],
   "slug": "short URL slug, 3-7 lowercase words joined by hyphens, starting with the focus keyword, no dates or filler words",
   "body_markdown": "the article",
   "image_hint": "best URL for an official press image or press release (from the sources), or empty",
