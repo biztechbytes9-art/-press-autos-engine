@@ -1,4 +1,29 @@
 <!-- run -->
+# Run 2026-11-22 15:00 UTC
+
+Discovered 126 recent items, 3 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
+GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
+Room left today: press.autos 5, press.autos India 4. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.70 | motorsport | global | press.autos (main) | MotoGP Portuguese GP: Marquez crowned 2026 champion as Bezzecchi wins tense race |
+| 0.51 | motorcycles | IN | press.autos India | Suzuki Access new colours – Royal Bronze, and Mat Bordeaux Red in Metallic |
+
+By site: press.autos (main) 1, press.autos India 1
+By category: motorsport 1, motorcycles 1
+- drafted for **press.autos**: Marc Marquez clinches 2026 MotoGP title as Bezzecchi wins in Portugal (WordPress ID 3502, 5 review notes)
+- drafted for **press.autos India**: Suzuki Access gets Metallic Royal Bronze and Mat Bordeaux Red colours (WordPress ID 1034, 2 review notes)
+
+Source pages that couldn't be read: autosport.com (HTTP 403 x1), motorsport.com (HTTP 403 x1).
+
+Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-22 13:07 UTC
 
 Discovered 124 recent items, 6 candidate stories above score 0.45.
