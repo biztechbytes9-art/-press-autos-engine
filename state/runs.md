@@ -1,4 +1,29 @@
 <!-- run -->
+# Run 2026-11-22 16:59 UTC
+
+Discovered 127 recent items, 5 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
+GDELT: 1 items (1 searches ok, 4 failed, 2 skipped: time limit).
+Room left today: press.autos 4, press.autos India 3. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.68 | motorsport | global | press.autos (main) | MotoGP Portuguese GP: Marquez crowned 2026 champion as Bezzecchi wins tense race |
+| 0.63 | tech | US | press.autos (main) | Owners Frequently Report These Problems With Stellantis' Hurricane 3.0-Liter Engine |
+
+By site: press.autos (main) 2
+By category: motorsport 1, tech 1
+- drafted for **press.autos**: Marc Marquez clinches 2026 MotoGP title as Bezzecchi wins Portuguese GP (WordPress ID 3701, 4 review notes)
+- drafted for **press.autos**: Stellantis Hurricane engine problems reported by US owners (US) (WordPress ID 3703, 4 review notes)
+
+Source pages that couldn't be read: autosport.com (HTTP 403 x1), motorsport.com (HTTP 403 x1).
+
+Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-22 15:24 UTC
 
 Discovered 128 recent items, 1 candidate stories above score 0.45.
