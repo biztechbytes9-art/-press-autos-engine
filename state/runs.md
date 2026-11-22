@@ -1,4 +1,28 @@
 <!-- run -->
+# Run 2026-11-22 18:59 UTC
+
+Discovered 126 recent items, 6 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
+GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
+Room left today: press.autos 2, press.autos India 3. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.61 | motorsport | global | press.autos (main) | Camara to finish F1 season with Haas, ending F2 title bid |
+| 0.53 | motorsport | global | press.autos (main) | 'I will put my name on MotoGP trophy again,' vows Jorge Martin after ceding 2026 title to Marc Marquez |
+
+By site: press.autos (main) 2
+By category: motorsport 2
+- drafted for **press.autos**: Rafael Camara to finish 2026 F1 season with Haas, ending F2 title bid (WordPress ID 3706, 1 review notes)
+
+Source pages that couldn't be read: autosport.com (HTTP 403 x1), motorsport.com (HTTP 403 x2).
+
+Drafted this run: 1. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-22 16:59 UTC
 
 Discovered 127 recent items, 5 candidate stories above score 0.45.
