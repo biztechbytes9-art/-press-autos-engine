@@ -1,4 +1,14 @@
 <!-- run -->
+# Run 2026-11-23 15:16 UTC
+
+Discovered 163 recent items, 18 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 1 items (1 searches ok, 2 failed, 4 skipped: time limit).
+Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+Daily limits reached; nothing to do.
+
+<!-- run -->
 # Run 2026-11-23 13:33 UTC
 
 Discovered 154 recent items, 17 candidate stories above score 0.45.
