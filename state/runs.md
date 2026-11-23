@@ -1,4 +1,39 @@
 <!-- run -->
+# Run 2026-11-23 09:39 UTC
+
+Discovered 130 recent items, 15 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 3 items (1 searches ok, 2 failed, 4 skipped: time limit).
+Room left today: press.autos 6, press.autos India 2. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.66 | tech | US | press.autos (main) | Ford starts making EV battery cells in the US with CATL technology, plans to manufacture battery packs in 2027 |
+| 0.65 | trends | IN | press.autos India | Festive Vehicle Retail 2026 Hits Record 55.25 Lakh – EVs Cross 5 Lakh |
+| 0.65 | trends | DE | press.autos (main) | Dutch court bars sale of Ti7 in Europe for Land Rover Defender copyright infringement; BYD to contest ruling |
+| 0.52 | trends | IN | press.autos India | Hatchback Sales Oct 2026 – WagonR, Baleno, Swift, Alto, Tiago, i20, i10, Celerio, Altroz, Comet |
+| 0.64 | tech | global | press.autos (main) | BYD's Trick Folding Steering Wheel Turns The New Ti9 Into The Perfect Resting Pod After A 1,013-Mile PHEV Drive |
+| 0.46 | trends | IN | press.autos India | Yamaha Oct 2026 Sales Analysis – FZ, XSR, Fascino, Aerox, R15, MT15, RayZR |
+| 0.62 | tech | global | press.autos (main) | Honda Shows Several New Hybrids Under Covers, Details All-New Modular Platform |
+| 0.62 | ev | ID | press.autos (main) | Hyundai Neira open for pre-booking in Indonesia – CKD EV SUV with 80% localisation; 3 variants; from RM88k |
+| 0.61 | suvs | ID | press.autos (main) | Toyota Land Cruiser FJ launched in Indonesia – 2.7L NA, 6AT; standard and Adventure variants; from RM189k |
+| 0.55 | ev | global | press.autos (main) | The BMW iX5 Was Driven Until It Died. It Had A Surprising Amount Of Hidden Range Left |
+| 0.50 | ev | global | press.autos (main) | The Mercedes-Benz EQS Sedan, EQS SUV, And EQE SUV Soldier On For 2027 |
+
+By site: press.autos (main) 8, press.autos India 3
+By category: trends 4, tech 3, ev 3, suvs 1
+- drafted for **press.autos**: Ford begins LFP battery cell production at Michigan plant (WordPress ID 3716, 6 review notes)
+- drafted for **press.autos India**: Festive vehicle retail 2026 hits 5.525 million units, EVs cross 500,000 (WordPress ID 1067, 4 review notes)
+- drafted for **press.autos**: BYD Ti9 achieves 1,013‑mile PHEV range with fold‑able steering wheel (WordPress ID 3718, 2 review notes)
+
+Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1), motor1.com (HTTP 403 x1).
+
+Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-23 07:49 UTC
 
 Discovered 118 recent items, 13 candidate stories above score 0.45.
