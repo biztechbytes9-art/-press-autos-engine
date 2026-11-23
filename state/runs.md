@@ -1,4 +1,36 @@
 <!-- run -->
+# Run 2026-11-23 05:36 UTC
+
+Discovered 126 recent items, 9 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
+GDELT: 6 items (1 searches ok, 3 failed, 3 skipped: time limit).
+Room left today: press.autos 8, press.autos India 6. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.66 | tech | global | press.autos (main) | Honda, Toyota recall 1.6 million vehicles over potentially faulty Takata airbags – Honda 810.5k units, Toyota 790k |
+| 0.59 | motorcycles | IN | press.autos India | VinFast plans early 2027 launch for e-scooters in India; eyes 1 million-unit annual capacity |
+| 0.58 | motorcycles | MY | press.autos (main) | 2025 Cyclone RT 450 launched for Malaysia – 398 cc twin-cylinder scooter, priced at RM27,988 |
+| 0.59 | ev | IN | press.autos India | 2027 MG Windsor Facelift Expected With Larger 61 kWh Battery As Sales Face Pressure |
+| 0.53 | motorcycles | MY | press.autos (main) | WMoto X2R 185 cc kapcai under development with 20 hp, VVA, 5-inch TFT display, dash cam |
+| 0.56 | trends | IN | press.autos India | Hatchback Sales Oct 2026 – WagonR, Baleno, Swift, Alto, Tiago, i20, i10, Celerio, Altroz, Comet |
+| 0.51 | suvs | IN | press.autos India | Top 5 Safest SUVs In India In 2026 – Based On BNCAP Ratings |
+
+By site: press.autos India 4, press.autos (main) 3
+By category: motorcycles 3, tech 1, ev 1, trends 1, suvs 1
+- drafted for **press.autos**: Honda and Toyota recall 1.6 million vehicles over Takata airbags (WordPress ID 3712, 6 review notes)
+- skipped (no readable source): VinFast plans early 2027 launch for e-scooters in India; eyes 1 million-unit annual capacity
+- drafted for **press.autos India**: MG Windsor Facelift Planned for 2027 with Larger 61 kWh Battery (WordPress ID 1059, 7 review notes)
+- drafted for **press.autos India**: Bharat NCAP SUV safety scores reveal five top models in India (WordPress ID 1061, 2 review notes)
+
+Source pages that couldn't be read: auto.economictimes.indiatimes.com (too little text (paywall or bot check?) x1), gaadiwaadi.com (too little text (paywall or bot check?) x1), pressroom.toyota.com (too little text (paywall or bot check?) x1).
+
+Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-23 03:10 UTC
 
 Discovered 118 recent items, 5 candidate stories above score 0.45.
