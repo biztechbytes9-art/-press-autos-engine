@@ -1,4 +1,29 @@
 <!-- run -->
+# Run 2026-11-23 03:10 UTC
+
+Discovered 118 recent items, 5 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
+GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
+Room left today: press.autos 10, press.autos India 6. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.66 | ev | CN | press.autos (main) | iCaur V25 REEV launched in China – longer V23, up to 455 PS, 210 km CLTC EV range |
+| 0.63 | ev | global | press.autos (main) | BYD Ti7 Banned From EU After Dutch Court Rules in JLR’s Favour |
+| 0.61 | motorcycles | MY | press.autos (main) | 2025 Cyclone RT 450 launched for Malaysia – 398 cc twin-cylinder scooter, priced at RM27,988 |
+| 0.53 | ev | SG | press.autos (main) | JMEV shuts Singapore showroom after a year – report |
+
+By site: press.autos (main) 4
+By category: ev 3, motorcycles 1
+- drafted for **press.autos**: Chery iCar iCaur V25 REEV launches in China with up to 455 PS (China) (WordPress ID 3708, 6 review notes)
+- drafted for **press.autos**: Dutch court bans BYD Ti7 sales and production in EU (WordPress ID 3710, 2 review notes)
+
+Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-23 01:25 UTC
 
 Discovered 116 recent items, 0 candidate stories above score 0.45.
