@@ -1,4 +1,14 @@
 <!-- run -->
+# Run 2026-11-23 23:02 UTC
+
+Discovered 171 recent items, 13 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (1 searches ok, 4 failed, 2 skipped: time limit).
+Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+Daily limits reached; nothing to do.
+
+<!-- run -->
 # Run 2026-11-23 21:01 UTC
 
 Discovered 170 recent items, 15 candidate stories above score 0.45.
@@ -691,34 +701,6 @@ AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
 
 By site: press.autos India 5, press.autos (main) 3
 By category: ev 2, suvs 2, motorcycles 1, used-cars 1, reviews 1, trends 1
-
-Dry run: nothing was written or posted. The country is checked again from the source pages before a real draft is routed.
-
-<!-- run -->
-# Run 2026-11-21 21:04 UTC
-
-(DRY RUN)
-
-Discovered 181 recent items, 8 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
-GDELT: 11 items (4 searches ok, 3 failed).
-Room left today: press.autos 6, press.autos India 6. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.64 | ev | CN | press.autos (main) | BYD Fang Cheng Bao Ti 9 Launched With Folding Steering Wheel and 1,630km Range |
-| 0.55 | motorcycles | IN | press.autos India | New Bajaj Pulsar RS200 Launched at Rs 1.98 Lakh With TFT, Ride Modes and USD Forks |
-| 0.47 | suvs | KR | press.autos (main) | 2028 Hyundai Elantra Launched in Korea , Gets Bigger And More Intelligent |
-| 0.53 | ev | IN | press.autos India | Mahindra To Launch XEV 9e Sporteq Series Next Month In India |
-| 0.52 | suvs | IN | press.autos India | Toyota Innova Hycross Facelift To Launch This Week – All Key Details |
-| 0.48 | suvs | IN | press.autos India | Volkswagen Virtus Facelift Prices To Be Announced On Dec 11 |
-| 0.47 | trends | IN | press.autos India | BYD India Crosses 20,000 Sales Milestone |
-
-By site: press.autos India 5, press.autos (main) 2
-By category: suvs 3, ev 2, motorcycles 1, trends 1
 
 Dry run: nothing was written or posted. The country is checked again from the source pages before a real draft is routed.
 
