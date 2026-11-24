@@ -1,4 +1,37 @@
 <!-- run -->
+# Run 2026-11-24 05:23 UTC
+
+Discovered 174 recent items, 10 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 13 items (1 searches ok, 2 failed, 4 skipped: time limit).
+Room left today: press.autos 7, press.autos India 3. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.62 | ev | IN | press.autos India | Bentley to launch first electric car in India in H2 2027; rules out local manufacturing |
+| 0.57 | motorcycles | MY | press.autos (main) | 2027 Suzuki SV-7GX launched in Malaysia – 645 cc V-Twin crossover, introductory price RM37,900 |
+| 0.58 | suvs | IN | press.autos India | Toyota Innova Hycross Facelift To Launch Tomorrow – Top 5 Highlights |
+| 0.57 | ev | ID | press.autos (main) | BAIC Indonesia considering new A0-class electric SUV priced between RM45k and RM68k – Q3 2028 launch |
+| 0.57 | motorcycles | IN | press.autos India | Honda CB500 Specs Fully Revealed – 28 PS, 43.3 Nm, TBT Nav |
+| 0.49 | motorsport | US | press.autos (main) | Spire returns check to Joe Gibbs Racing; rejects attempt to settle countersuit |
+| 0.54 | ev | IN | press.autos India | Honda Alpha Midsize e-SUV To Debut Next Week – What We Know So Far |
+| 0.52 | trends | IN | press.autos India | Karnataka seeks Toyota investment as automaker eyes 1 million vehicle production capacity |
+
+By site: press.autos India 5, press.autos (main) 3
+By category: ev 3, motorcycles 2, suvs 1, motorsport 1, trends 1
+- skipped (no readable source): Bentley to launch first electric car in India in H2 2027; rules out local manufacturing
+- drafted for **press.autos**: 2027 Suzuki SV-7GX price and specs revealed for Malaysia (WordPress ID 3785, 3 review notes)
+- drafted for **press.autos India**: Toyota Innova Hycross facelift to launch tomorrow (India) (WordPress ID 1089, 5 review notes)
+- drafted for **press.autos India**: Honda CB500 Classic Roadster specs and price in India (India) (WordPress ID 1091, 6 review notes)
+
+Source pages that couldn't be read: auto.economictimes.indiatimes.com (too little text (paywall or bot check?) x1), gaadiwaadi.com (too little text (paywall or bot check?) x1).
+
+Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-24 03:04 UTC
 
 Discovered 171 recent items, 4 candidate stories above score 0.45.
@@ -671,33 +704,6 @@ By site: press.autos India 2, press.autos (main) 1
 By category: motorsport 1, motorcycles 1, trends 1
 - skipped (no readable source): Ferrari's New 296 Challenge Stradale Is A 670-HP Race Car You Can Drive Home
 - drafted for **press.autos India**: Bajaj launches updated Pulsar RS200 in India at Rs 1,98,441 (WordPress ID 1006, 2 review notes)
-
-Drafted this run: 1. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-21 21:48 UTC
-
-Discovered 173 recent items, 5 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
-GDELT: 3 items (1 searches ok, 3 failed, 3 skipped: time limit).
-Room left today: press.autos 4, press.autos India 6. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.55 | motorcycles | IN | press.autos India | New Bajaj Pulsar RS200 Launched at Rs 1.98 Lakh With TFT, Ride Modes and USD Forks |
-| 0.51 | ev | GB | press.autos (main) | BYD Ti7 Faces EU Ban Over Defender Design – Tata Owned JLR Secures Interim Court Order |
-| 0.51 | ev | IN | press.autos India | PM E-DRIVE records over 30 lakh EV sales till September 2026: Kumaraswamy |
-| 0.47 | trends | IN | press.autos India | BYD India Crosses 20,000 Sales Milestone |
-
-By site: press.autos India 3, press.autos (main) 1
-By category: ev 2, motorcycles 1, trends 1
-- failed: New Bajaj Pulsar RS200 Launched at Rs 1.98 Lakh With TFT, Ride Modes and USD Forks: WordPress 403: {"code":"rest_cannot_create","message":"Sorry, you are not allowed to create posts as this user.","data":{"status":403}}
-- drafted for **press.autos**: EU Court Issues Preliminary Injunction on BYD Ti7 SUV Over Defender Design Infringement (WordPress ID 3449, 1 review notes)
-- skipped (no readable source): PM E-DRIVE records over 30 lakh EV sales till September 2026: Kumaraswamy
-- failed: BYD India Crosses 20,000 Sales Milestone: WordPress 403: {"code":"rest_cannot_create","message":"Sorry, you are not allowed to create posts as this user.","data":{"status":403}}
 
 Drafted this run: 1. Paid AI spend today: $0.00 (free models cost $0).
 
