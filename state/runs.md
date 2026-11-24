@@ -1,4 +1,14 @@
 <!-- run -->
+# Run 2026-11-24 17:13 UTC
+
+Discovered 195 recent items, 17 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
+GDELT: 4 items (1 searches ok, 2 failed, 4 skipped: time limit).
+Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+Daily limits reached; nothing to do.
+
+<!-- run -->
 # Run 2026-11-24 15:14 UTC
 
 Discovered 205 recent items, 13 candidate stories above score 0.45.
@@ -753,33 +763,6 @@ By category: motorsport 4, tech 1, trends 1, motorcycles 1
 - skipped (no readable source): “My mistake was to lift” – Why Antonelli lost power in Las Vegas GP victory battle
 - skipped (no readable source): Vasseur furious with "unprofessional" Ferrari clash and demands fresh talks after Las Vegas GP
 - skipped (no readable source): Sheldon van der Linde survives 250km/h wall strike to win chaotic FIA GT World Cup in Macau
-
-Drafted this run: 0. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-22 07:20 UTC
-
-Discovered 122 recent items, 8 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
-GDELT: 1 items (3 searches ok, 1 failed, 3 skipped: time limit).
-Room left today: press.autos 8, press.autos India 6. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.70 | motorsport | global | press.autos (main) | F1 Las Vegas GP: Verstappen wins thriller as Russell hits the wall late on |
-| 0.58 | motorcycles | IN | press.autos India | Royal Enfield Plans Affordable 250 cc Motorcycles, Targeting First-Time Buyers |
-| 0.56 | motorsport | global | press.autos (main) | Super Formula Suzuka: Nojiri ends drought with win in season finale |
-| 0.55 | ev | IN | press.autos India | MG Windsor Facelift To Offer Higher Range And New Features In 2027 |
-
-By site: press.autos (main) 2, press.autos India 2
-By category: motorsport 2, motorcycles 1, ev 1
-- skipped (no readable source): F1 Las Vegas GP: Verstappen wins thriller as Russell hits the wall late on
-- skipped (no readable source): Royal Enfield Plans Affordable 250 cc Motorcycles, Targeting First-Time Buyers
-- skipped (no readable source): Super Formula Suzuka: Nojiri ends drought with win in season finale
-- skipped (no readable source): MG Windsor Facelift To Offer Higher Range And New Features In 2027
 
 Drafted this run: 0. Paid AI spend today: $0.00 (free models cost $0).
 
