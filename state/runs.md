@@ -1,4 +1,36 @@
 <!-- run -->
+# Run 2026-11-24 15:14 UTC
+
+Discovered 205 recent items, 13 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
+GDELT: 24 items (2 searches ok, 2 failed, 3 skipped: time limit).
+Room left today: press.autos 1, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.58 | motorsport | global | press.autos (main) | Maverick Vinales ruled out of Valencia GP, can’t bid farewell to MotoGP |
+| 0.57 | ev | IN | press.autos India | JSW Motors Signs MoU With ARAI For New Energy Vehicle Development |
+| 0.57 | ev | global | press.autos (main) | This Electric Motorcycle Company Is Worth Over $1 Billion. It's Just Getting Started |
+| 0.54 | motorcycles | IN | press.autos India | TVS Jupiter Fastest To Reach 1 Crore Production Milestone – New Record |
+| 0.54 | motorsport | GB | press.autos (main) | Richards set to step down as Motorsport UK chairman |
+| 0.53 | motorcycles | IN | press.autos India | Honda CB500 Retro Roadster – All Key Specs & Features Revealed |
+| 0.52 | ev | IN | press.autos India | Honda Alpha Midsize e-SUV To Debut Next Week – What We Know So Far |
+| 0.47 | trends | IN | press.autos India | December 2026 Brings 0.5 Percent Price Increase for Tata Cars |
+| 0.46 | ev | IN | press.autos India | Royal Enfield Flying Flea Further Expands Its Presence, Lands In Goa |
+| 0.44 | trends | IN | press.autos India | Audi India Price Update, Cars to Cost More From January 1, 2027 |
+
+By site: press.autos India 7, press.autos (main) 3
+By category: ev 4, motorsport 2, motorcycles 2, trends 2
+- drafted for **press.autos**: Maverick Vinales misses Valencia MotoGP finale due to shoulder injury (WordPress ID 3797, 2 review notes)
+
+Source pages that couldn't be read: motorsport.com (HTTP 403 x1).
+
+Drafted this run: 1. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-24 13:28 UTC
 
 Discovered 177 recent items, 18 candidate stories above score 0.45.
@@ -750,29 +782,4 @@ By category: motorsport 2, motorcycles 1, ev 1
 - skipped (no readable source): MG Windsor Facelift To Offer Higher Range And New Features In 2027
 
 Drafted this run: 0. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-22 05:07 UTC
-
-Discovered 125 recent items, 4 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
-GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
-Room left today: press.autos 9, press.autos India 6. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.64 | motorsport | global | press.autos (main) | Macau GP: Craigie wins F4 World Cup after first-lap pile-up |
-| 0.61 | ev | IN | press.autos India | JSW Motors To Launch J5 And V23 Electric SUVs Next Year |
-| 0.53 | commercial | global | press.autos (main) | Rumor: Hyundai is getting ready to roll out an all-new, all-electric work truck |
-
-By site: press.autos (main) 2, press.autos India 1
-By category: motorsport 1, ev 1, commercial 1
-- skipped (no readable source): Macau GP: Craigie wins F4 World Cup after first-lap pile-up
-- skipped (no readable source): JSW Motors To Launch J5 And V23 Electric SUVs Next Year
-- drafted for **press.autos**: Electric Hyundai Porter pickup rumored for 2027 launch (WordPress ID 3492, 4 review notes)
-
-Drafted this run: 1. Paid AI spend today: $0.00 (free models cost $0).
 
