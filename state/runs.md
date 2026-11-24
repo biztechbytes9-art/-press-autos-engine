@@ -1,4 +1,14 @@
 <!-- run -->
+# Run 2026-11-24 23:07 UTC
+
+Discovered 194 recent items, 10 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
+GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
+Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+Daily limits reached; nothing to do.
+
+<!-- run -->
 # Run 2026-11-24 21:04 UTC
 
 Discovered 200 recent items, 15 candidate stories above score 0.45.
@@ -696,33 +706,6 @@ By category: motorsport 1, motorcycles 1
 - drafted for **press.autos India**: Suzuki Access gets Metallic Royal Bronze and Mat Bordeaux Red colours (WordPress ID 1034, 2 review notes)
 
 Source pages that couldn't be read: autosport.com (HTTP 403 x1), motorsport.com (HTTP 403 x1).
-
-Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-22 13:07 UTC
-
-Discovered 124 recent items, 6 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
-GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
-Room left today: press.autos 7, press.autos India 4. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.63 | tech | US | press.autos (main) | Tesla FSD v15 starts rolling out in US – AI-generated Reality View, slows for speed cameras |
-| 0.59 | ev | US | press.autos (main) | The U.S. Let Volvo Keep Selling Cars. Polestar Got A No. What About Mercedes? |
-| 0.53 | motorsport | global | press.autos (main) | The one aspect of Max Verstappen "outsmarting" Mercedes that left Red Bull speechless |
-
-By site: press.autos (main) 3
-By category: tech 1, ev 1, motorsport 1
-- drafted for **press.autos**: Tesla FSD v15 rollout begins in US with Reality View (US) (WordPress ID 3498, 4 review notes)
-- skipped (no readable source): The U.S. Let Volvo Keep Selling Cars. Polestar Got A No. What About Mercedes?
-- drafted for **press.autos**: Max Verstappen clinches fourth win in six at energy‑poor Las Vegas circuit (WordPress ID 3500, 5 review notes)
-
-Source pages that couldn't be read: insideevs.com (HTTP 403 x1), motorsport.com (HTTP 403 x1).
 
 Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
 
