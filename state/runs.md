@@ -1,4 +1,45 @@
 <!-- run -->
+# Run 2026-11-24 09:19 UTC
+
+Discovered 196 recent items, 15 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
+GDELT: 40 items (2 searches ok, 1 failed, 4 skipped: time limit).
+Room left today: press.autos 4, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.64 | motorsport | global | press.autos (main) | Why Peugeot is quitting WEC’s Hypercar class |
+| 0.58 | motorcycles | IN | press.autos India | Honda CB500 Retro Roadster – All Key Specs & Features Revealed |
+| 0.63 | ev | global | press.autos (main) | VW’s Cheap EVs Are So Popular, Buyers Face Wait Times Of Nearly Two Years |
+| 0.58 | ev | IN | press.autos India | JSW Motors Signs MoU With ARAI For New Energy Vehicle Development |
+| 0.60 | tech | US | press.autos (main) | Pirelli Launches Its Smart Cyber Tire In The US |
+| 0.55 | ev | IN | press.autos India | Honda Alpha Midsize e-SUV To Debut Next Week – What We Know So Far |
+| 0.60 | trends | DE | press.autos (main) | EU car registrations rise in October as EV demand holds firm |
+| 0.55 | trends | IN | press.autos India | Audi India Price Update, Cars to Cost More From January 1, 2027 |
+| 0.58 | trends | global | press.autos (main) | Stellantis Promises More Fun Cars After Pulling Out Of Major Motorsport Championships |
+| 0.53 | trends | IN | press.autos India | Audi India to hike vehicle prices by up to 2% from January 1 |
+| 0.53 | trends | US | press.autos (main) | Amazon Has Quietly Expanded Its Car-Buying Business To 35 Brands |
+| 0.52 | compare | IN | press.autos India | Honda CB500 vs Rivals Compared – Bonnie 400, Classic 350, INT 650 |
+| 0.51 | trends | IN | press.autos India | Festive 2026 Vehicle Sales Hit Record 55.25 Lakh Units, Up 2.21% |
+| 0.47 | trends | IN | press.autos India | Karnataka seeks Toyota investment as automaker eyes 1 million vehicle production capacity |
+
+By site: press.autos India 8, press.autos (main) 6
+By category: trends 7, ev 3, motorsport 1, motorcycles 1, tech 1, compare 1
+- drafted for **press.autos**: Peugeot to exit WEC Hypercar class at end of 2026 (WordPress ID 3791, 3 review notes)
+- skipped (no readable source): VW’s Cheap EVs Are So Popular, Buyers Face Wait Times Of Nearly Two Years
+- skipped (no readable source): Pirelli Launches Its Smart Cyber Tire In The US
+- drafted for **press.autos**: EU car registrations October 2026 rise 2.6% to 916,070 units (WordPress ID 3793, 2 review notes)
+- skipped (no readable source): Stellantis Promises More Fun Cars After Pulling Out Of Major Motorsport Championships
+- skipped (no readable source): Amazon Has Quietly Expanded Its Car-Buying Business To 35 Brands
+
+Source pages that couldn't be read: insideevs.com (HTTP 403 x1), motor1.com (HTTP 403 x3), motorsport.com (HTTP 403 x1).
+
+Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-24 07:36 UTC
 
 Discovered 173 recent items, 15 candidate stories above score 0.45.
@@ -697,27 +738,6 @@ AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
 By site: press.autos (main) 1
 By category: ev 1
 - drafted for **press.autos**: Xiaomi launches EV sales in UAE with SU7, YU7 and Skynomad (UAE) (WordPress ID 3490, 5 review notes)
-
-Drafted this run: 1. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-21 23:14 UTC
-
-Discovered 161 recent items, 2 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
-GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
-Room left today: press.autos 3, press.autos India 5. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.46 | ev | IN | press.autos India | BYD India Crosses 20,000 Sales Milestone |
-
-By site: press.autos India 1
-By category: ev 1
-- drafted for **press.autos India**: BYD India passes 20,000 EV deliveries, expands showroom network (WordPress ID 1022, 3 review notes)
 
 Drafted this run: 1. Paid AI spend today: $0.00 (free models cost $0).
 
