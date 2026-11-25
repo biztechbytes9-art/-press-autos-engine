@@ -1,4 +1,14 @@
 <!-- run -->
+# Run 2026-11-25 19:03 UTC
+
+Discovered 177 recent items, 15 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
+Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+Daily limits reached; nothing to do.
+
+<!-- run -->
 # Run 2026-11-25 17:14 UTC
 
 Discovered 172 recent items, 17 candidate stories above score 0.45.
@@ -708,39 +718,6 @@ By category: trends 4, tech 3, ev 3, suvs 1
 - drafted for **press.autos**: BYD Ti9 achieves 1,013‑mile PHEV range with fold‑able steering wheel (WordPress ID 3718, 2 review notes)
 
 Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1), motor1.com (HTTP 403 x1).
-
-Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-23 07:49 UTC
-
-Discovered 118 recent items, 13 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
-GDELT: 1 items (1 searches ok, 3 failed, 3 skipped: time limit).
-Room left today: press.autos 7, press.autos India 4. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.70 | ev | IN | press.autos India | Electric Two-Wheeler Festive 2026 Sales Jump 61.10% To 3.31 Lakh Units |
-| 0.65 | motorcycles | JP | press.autos (main) | Harley-Davidson Sprint 440 Launched in Japan, India Launch Expected in 2027 |
-| 0.61 | trends | IN | press.autos India | India&#039;s festive auto retail sales rise 2.21% to record 55.25 lakh units despite high base |
-| 0.63 | motorcycles | global | press.autos (main) | 2027 Royal Enfield Continental GT 750 unveiled |
-| 0.53 | trends | IN | press.autos India | Yamaha Oct 2026 Sales Analysis – FZ, XSR, Fascino, Aerox, R15, MT15, RayZR |
-| 0.61 | motorcycles | MY | press.autos (main) | 2025 Cyclone RT 450 launched for Malaysia – 398 cc twin-cylinder scooter, priced at RM27,988 |
-| 0.53 | trends | IN | press.autos India | Hatchback Sales Oct 2026 – WagonR, Baleno, Swift, Alto, Tiago, i20, i10, Celerio, Altroz, Comet |
-| 0.53 | motorsport | global | press.autos (main) | BYD Better Watch Out: Koenigsegg Is Still Chasing A 330-MPH Jesko Run |
-
-By site: press.autos India 4, press.autos (main) 4
-By category: motorcycles 3, trends 3, ev 1, motorsport 1
-- drafted for **press.autos India**: Electric two-wheeler festive sales jump 61% in India (WordPress ID 1063, 2 review notes)
-- drafted for **press.autos**: Harley-Davidson Sprint 440 launches in Japan, India launch expected early 2027 (WordPress ID 3714, 5 review notes)
-- skipped (no readable source): India&#039;s festive auto retail sales rise 2.21% to record 55.25 lakh units despite high base
-- drafted for **press.autos India**: Royal Enfield Continental GT 750 unveiled at EICMA 2026 (WordPress ID 1065, 3 review notes)
-
-Source pages that couldn't be read: auto.economictimes.indiatimes.com (too little text (paywall or bot check?) x1), gaadiwaadi.com (too little text (paywall or bot check?) x1).
 
 Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
 
