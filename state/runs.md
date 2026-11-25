@@ -1,4 +1,32 @@
 <!-- run -->
+# Run 2026-11-25 03:07 UTC
+
+Discovered 170 recent items, 6 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
+GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
+Room left today: press.autos 9, press.autos India 5. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.73 | ev | global | press.autos (main) | Porsche 718 Boxster EV to debut in Q1 2027 – E-Core architecture, 800V, E-Shift, 0-100 under 3s, over 250 km/h |
+| 0.66 | trends | IN | press.autos India | Tata Motors To Hike Prices From Dec 2026 As ICE Cars & EVs Will Get Costlier |
+| 0.58 | motorcycles | global | press.autos (main) | MV Agusta Motorcycles up for sale for RM130 million |
+| 0.61 | ev | IN | press.autos India | Luxury carmakers charged up for electric push |
+
+By site: press.autos (main) 2, press.autos India 2
+By category: ev 2, trends 1, motorcycles 1
+- drafted for **press.autos**: Porsche 718 Boxster EV to debut in Q1 2027 with 800 V architecture (WordPress ID 3801, 2 review notes)
+- drafted for **press.autos India**: Tata Motors price hike of 0.5% from December 2026 (WordPress ID 1097, 3 review notes)
+- skipped (no readable source): Luxury carmakers charged up for electric push
+
+Source pages that couldn't be read: auto.economictimes.indiatimes.com (too little text (paywall or bot check?) x1), gaadiwaadi.com (too little text (paywall or bot check?) x1).
+
+Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-25 01:34 UTC
 
 Discovered 186 recent items, 5 candidate stories above score 0.45.
@@ -695,20 +723,4 @@ By category: motorsport 1, tech 1
 Source pages that couldn't be read: autosport.com (HTTP 403 x1), motorsport.com (HTTP 403 x1).
 
 Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-22 15:24 UTC
-
-Discovered 128 recent items, 1 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
-GDELT: 1 items (1 searches ok, 2 failed, 4 skipped: time limit).
-Room left today: press.autos 4, press.autos India 3. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-
-Drafted this run: 0. Paid AI spend today: $0.00 (free models cost $0).
 
