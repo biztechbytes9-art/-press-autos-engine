@@ -1,4 +1,14 @@
 <!-- run -->
+# Run 2026-11-25 23:04 UTC
+
+Discovered 187 recent items, 8 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (1 searches ok, 2 failed, 4 skipped: time limit).
+Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+Daily limits reached; nothing to do.
+
+<!-- run -->
 # Run 2026-11-25 21:06 UTC
 
 Discovered 186 recent items, 17 candidate stories above score 0.45.
@@ -655,44 +665,4 @@ By category: trends 3, motorsport 3, ev 2, motorcycles 1, suvs 1, tech 1
 Source pages that couldn't be read: autosport.com (HTTP 403 x1), motorsport.com (HTTP 403 x1), rideapart.com (HTTP 403 x1).
 
 Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-23 11:22 UTC
-
-Discovered 136 recent items, 16 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
-Room left today: press.autos 4, press.autos India 1. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.63 | suvs | global | press.autos (main) | Dutch court bars sale of Ti7 in Europe for Land Rover Defender copyright infringement; BYD to contest ruling |
-| 0.50 | trends | IN | press.autos India | Hatchback Sales Oct 2026 – WagonR, Baleno, Swift, Alto, Tiago, i20, i10, Celerio, Altroz, Comet |
-| 0.60 | ev | global | press.autos (main) | China’s SC01 EV Sports Car Will Get Its Own Factory In Europe |
-| 0.50 | motorcycles | IN | press.autos India | Yamaha Oct 2026 Sales Analysis – FZ, XSR, Fascino, Aerox, R15, MT15, RayZR |
-| 0.60 | ev | ID | press.autos (main) | Hyundai Neira open for pre-booking in Indonesia – CKD EV SUV with 80% localisation; 3 variants; from RM88k |
-| 0.59 | suvs | ID | press.autos (main) | Toyota Land Cruiser FJ launched in Indonesia – 2.7L NA, 6AT; standard and Adventure variants; from RM189k |
-| 0.58 | ev | global | press.autos (main) | The BMW iX5 Was Driven Until It Died. It Had A Surprising Amount Of Hidden Range Left |
-| 0.58 | ev | TH | press.autos (main) | Voyah Dream in Thailand – Dongfeng flagship EV MPV, up to 650 km NEDC, fr RM315k est, in Malaysia Q1 2027 |
-| 0.58 | trends | DE | press.autos (main) | First Chinese Car In Germany's Biggest Reliability Study Finishes Near The Bottom |
-| 0.55 | motorsport | global | press.autos (main) | Herta replaced at Hitech to end F2 season early |
-| 0.53 | ev | global | press.autos (main) | Honda Teased Six Mystery Hybrids, And One Could Be The Next Odyssey |
-| 0.53 | used-cars | US | press.autos (main) | Mechanics Were Asked About Buying Used Jeeps. They Have Strong Opinions |
-| 0.53 | ev | global | press.autos (main) | The Mercedes-Benz EQS Sedan, EQS SUV, And EQE SUV Soldier On For 2027 |
-
-By site: press.autos (main) 11, press.autos India 2
-By category: ev 6, suvs 2, trends 2, motorcycles 1, motorsport 1, used-cars 1
-- drafted for **press.autos**: Dutch court blocks BYD Ti7 SUV sales in EU over Defender design (WordPress ID 3720, 2 review notes)
-- drafted for **press.autos India**: India hatchback sales rise 11.65% in October 2026 (India) (WordPress ID 1069, 6 review notes)
-- skipped (no readable source): China’s SC01 EV Sports Car Will Get Its Own Factory In Europe
-- skipped (no readable source): The BMW iX5 Was Driven Until It Died. It Had A Surprising Amount Of Hidden Range Left
-- skipped (no readable source): First Chinese Car In Germany's Biggest Reliability Study Finishes Near The Bottom
-- drafted for **press.autos**: Colton Herta to miss final two rounds of 2026 Formula 2 season (WordPress ID 3722, 2 review notes)
-
-Source pages that couldn't be read: autosport.com (HTTP 403 x1), gaadiwaadi.com (too little text (paywall or bot check?) x1), insideevs.com (HTTP 403 x2), motor1.com (HTTP 403 x1), motorsport.com (HTTP 403 x1).
-
-Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
 
