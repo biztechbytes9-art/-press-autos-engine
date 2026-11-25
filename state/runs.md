@@ -1,4 +1,35 @@
 <!-- run -->
+# Run 2026-11-25 07:37 UTC
+
+Discovered 142 recent items, 10 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
+Room left today: press.autos 6, press.autos India 4. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.60 | suvs | IN | press.autos India | JSW Motors Unveils Official Logo, First SUV To Debut Next Week |
+| 0.58 | suvs | global | press.autos (main) | Bentley Confirms Rugged Bentayga Is On The Horizon |
+| 0.60 | ev | IN | press.autos India | Honda Alpha Electric SUV Exterior, Interiors – Official Sketches Revealed |
+| 0.56 | tech | global | press.autos (main) | Porsche Launches New Dashcam With Interior Recording And Radar Detection |
+| 0.49 | trends | IN | press.autos India | Maruti Suzuki Increases Car Prices For The 4th Time Due To Rising Costs |
+| 0.41 | motorcycles | IN | press.autos India | Suzuki Access Rejigged – 1 Variant, 1 Colour Discontinued; 1 New Colour |
+
+By site: press.autos India 4, press.autos (main) 2
+By category: suvs 2, ev 1, tech 1, trends 1, motorcycles 1
+- drafted for **press.autos India**: JSW Motors Combat plug‑in hybrid SUV unveiled ahead of 3 December launch (India) (WordPress ID 1100, 2 review notes)
+- skipped (no readable source): Bentley Confirms Rugged Bentayga Is On The Horizon
+- drafted for **press.autos India**: Honda Alpha electric SUV sketches reveal design ahead of global premiere on 2 December 2026 (India) (WordPress ID 1102, 2 review notes)
+- skipped (no readable source): Porsche Launches New Dashcam With Interior Recording And Radar Detection
+
+Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1), motor1.com (HTTP 403 x2).
+
+Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-25 05:24 UTC
 
 Discovered 152 recent items, 4 candidate stories above score 0.45.
@@ -700,28 +731,4 @@ By category: motorsport 2
 Source pages that couldn't be read: autosport.com (HTTP 403 x1), motorsport.com (HTTP 403 x1).
 
 Drafted this run: 0. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-22 18:59 UTC
-
-Discovered 126 recent items, 6 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
-GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
-Room left today: press.autos 2, press.autos India 3. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.61 | motorsport | global | press.autos (main) | Camara to finish F1 season with Haas, ending F2 title bid |
-| 0.53 | motorsport | global | press.autos (main) | 'I will put my name on MotoGP trophy again,' vows Jorge Martin after ceding 2026 title to Marc Marquez |
-
-By site: press.autos (main) 2
-By category: motorsport 2
-- drafted for **press.autos**: Rafael Camara to finish 2026 F1 season with Haas, ending F2 title bid (WordPress ID 3706, 1 review notes)
-
-Source pages that couldn't be read: autosport.com (HTTP 403 x1), motorsport.com (HTTP 403 x2).
-
-Drafted this run: 1. Paid AI spend today: $0.00 (free models cost $0).
 
