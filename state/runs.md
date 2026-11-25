@@ -1,4 +1,39 @@
 <!-- run -->
+# Run 2026-11-25 09:26 UTC
+
+Discovered 183 recent items, 14 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 43 items (1 searches ok, 2 failed, 4 skipped: time limit).
+Room left today: press.autos 6, press.autos India 2. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.65 | ev | IN | press.autos India | Production-Spec Honda Alpha e-SUV Sketches Revealed Ahead Of Debut |
+| 0.60 | trends | MY | press.autos (main) | Malaysia new vehicle sales expected to hit 815k units in 2026, says CIMB – automakers’ promos affect profits |
+| 0.57 | trends | IN | press.autos India | Mahindra Sales Breakup Oct 2026 – Scorpio, Bolero, XUV3XO, 7XO, Thar ROXX, OG, XEV 9S |
+| 0.59 | motorsport | global | press.autos (main) | Fernando Alonso: “We can't be competitive with the power unit we have” |
+| 0.52 | trends | IN | press.autos India | Maruti Suzuki Increases Car Prices For The 4th Time Due To Rising Costs |
+| 0.58 | tech | US | press.autos (main) | US Road Deaths Drop To One Of Their Lowest Levels In History |
+| 0.58 | ev | US | press.autos (main) | Slate Truck’s 205-Mile Range Is The Bet That Could Redefine Affordable EVs |
+| 0.54 | motorcycles | MY | press.autos (main) | SWM Temax 160 kapchai coming to Malaysia in Q2 2027 – 155 cc engine, 18 hp, dual-channel ABS |
+| 0.54 | commercial | global | press.autos (main) | Toyota Turned The New Hilux Into A Slammed Widebody Street Fighter |
+| 0.53 | ev | global | press.autos (main) | This BMW iX3 Drove Over 600 Miles On One Charge. The Catch? It Took Nearly 18 Hours |
+| 0.53 | suvs | JP | press.autos (main) | Konnichiwa, Camry! Toyota Is Importing The Kentucky-Built Sedan Into Japan |
+
+By site: press.autos (main) 8, press.autos India 3
+By category: ev 3, trends 3, motorsport 1, tech 1, motorcycles 1, commercial 1, suvs 1
+- drafted for **press.autos India**: Honda Alpha EV sketches unveiled ahead of India debut on 2 Dec 2026 (WordPress ID 1104, 2 review notes)
+- drafted for **press.autos**: Malaysia new vehicle sales forecast 815,000 units in 2026 (WordPress ID 3878, 4 review notes)
+- drafted for **press.autos India**: Mahindra October sales rise 2.9% to 73,338 units in India (WordPress ID 1106, 4 review notes)
+
+Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1).
+
+Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-25 07:37 UTC
 
 Discovered 142 recent items, 10 candidate stories above score 0.45.
@@ -706,29 +741,6 @@ AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
 
 | Score | Category | Country | Would go to | Story |
 | --- | --- | --- | --- | --- |
-
-Drafted this run: 0. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-22 20:54 UTC
-
-Discovered 129 recent items, 5 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 7.
-GDELT: 4 items (2 searches ok, 2 failed, 3 skipped: time limit).
-Room left today: press.autos 1, press.autos India 3. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.64 | motorsport | global | press.autos (main) | F1 plans two-team engine supply limit under 2030 V8 rules |
-| 0.59 | motorsport | global | press.autos (main) | F1 set to reduce customer teams as key 2030 details emerge |
-
-By site: press.autos (main) 2
-By category: motorsport 2
-
-Source pages that couldn't be read: autosport.com (HTTP 403 x1), motorsport.com (HTTP 403 x1).
 
 Drafted this run: 0. Paid AI spend today: $0.00 (free models cost $0).
 
