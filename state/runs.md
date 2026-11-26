@@ -1,4 +1,43 @@
 <!-- run -->
+# Run 2026-11-26 09:25 UTC
+
+Discovered 146 recent items, 16 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
+Room left today: press.autos 3, press.autos India 2. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.57 | ev | global | press.autos (main) | Electric BMW M3 Reportedly Targets CES 2027 Debut With 838 HP |
+| 0.52 | ev | IN | press.autos India | VinFast VF5 Facelift Spied Again Ahead Of India Launch – Interiors Revealed |
+| 0.55 | ev | global | press.autos (main) | JLR Confirms Range Rover GT Arrives Electric In 2027, Leaving Hybrid Buyers Waiting |
+| 0.50 | ev | IN | press.autos India | Honda Avancier Full Size Hybrid SUV Production Commences |
+| 0.53 | ev | global | press.autos (main) | Bentley Torcal Reveals Stunning Illuminated Grille With 76 Crystal Diamonds |
+| 0.50 | reviews | IN | press.autos India | Toyota Innova Hycross New Vs Old – Battery, Power, Features And Variant Changes |
+| 0.53 | ev | global | press.autos (main) | This Is Suzuki's Cute New Ignis, And It's All Electric |
+| 0.37 | motorcycles | IN | press.autos India | TVS Norton Atlas ADV Spied Testing With Accessories |
+| 0.48 | used-cars | global | press.autos (main) | This $41,000 Chevy Corvette C1 Lookalike Is Really A Supersized Miata |
+| 0.48 | tech | global | press.autos (main) | Volvo Is Bringing Humanoid Robots Into Its Factories. Here's When They'll Start Working |
+| 0.45 | motorcycles | MY | press.autos (main) | JPJ warns against wearing damaged, non-compliant motorcycle helmets |
+| 0.45 | ev | US | press.autos (main) | Ionna Slashes EV Charging Prices For Thanksgiving |
+
+By site: press.autos (main) 8, press.autos India 4
+By category: ev 7, motorcycles 2, reviews 1, used-cars 1, tech 1
+- skipped (no readable source): Electric BMW M3 Reportedly Targets CES 2027 Debut With 838 HP
+- skipped (no readable source): JLR Confirms Range Rover GT Arrives Electric In 2027, Leaving Hybrid Buyers Waiting
+- drafted for **press.autos**: Honda Avancier Hybrid SUV enters production in Thailand on 23 November 2026 (WordPress ID 3904, 2 review notes)
+- skipped (no readable source): Bentley Torcal Reveals Stunning Illuminated Grille With 76 Crystal Diamonds
+- drafted for **press.autos India**: Toyota Innova Hycross price rise and new hybrid battery launch in India (WordPress ID 1195, 5 review notes)
+- drafted for **press.autos**: Suzuki Ignis electric unveiled with 26 kWh battery and 90 hp motor (WordPress ID 3906, 3 review notes)
+
+Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1), motor1.com (HTTP 403 x3).
+
+Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-26 07:36 UTC
 
 Discovered 144 recent items, 12 candidate stories above score 0.45.
@@ -706,16 +745,6 @@ Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
 Discovered 171 recent items, 13 candidate stories above score 0.45.
 Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
 GDELT: 0 items (1 searches ok, 4 failed, 2 skipped: time limit).
-Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-Daily limits reached; nothing to do.
-
-<!-- run -->
-# Run 2026-11-23 21:01 UTC
-
-Discovered 170 recent items, 15 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
 Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
 AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
 Daily limits reached; nothing to do.
