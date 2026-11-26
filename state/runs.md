@@ -1,4 +1,41 @@
 <!-- run -->
+# Run 2026-11-26 11:12 UTC
+
+Discovered 157 recent items, 20 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
+Room left today: press.autos 1, press.autos India 1. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.65 | trends | global | press.autos (main) | BYD Could Swoop In And Buy The Ineos Plant In France |
+| 0.63 | suvs | IN | press.autos India | Toyota Innova Hycross Facelift Launched, Priced From Rs. 19.59 Lakhs |
+| 0.59 | suvs | CN | press.autos (main) | 2027 Honda Accord Gets Split Headlights With Squinty Eyes, But Only In China |
+| 0.59 | ev | IN | press.autos India | VinFast VF5 Facelift Spied Again Ahead Of India Launch – Interiors Revealed |
+| 0.58 | ev | MY | press.autos (main) | BYD’s Yangwang U9 ‘dancing’ supercar, U8 luxury ‘floating’ SUV and Denza N9 showcased in Malaysia |
+| 0.58 | ev | IN | press.autos India | Suzuki Ignis EV Revealed With 310 Km Range, 91 HP Motor |
+| 0.58 | used-cars | US | press.autos (main) | Canceled Or Not, The Cybertruck Is America's Fastest Selling Used Truck |
+| 0.57 | tech | IN | press.autos India | Govt Plans To Link Motor Insurance Premiums To Traffic Violations |
+| 0.57 | trends | MY | press.autos (main) | Xpeng Malaysia officially takes over distributorship from Bermaz – warranties, after-sales unaffected |
+| 0.48 | suvs | IN | press.autos India | 5 Upcoming Tata SUVs In India In 2027-28 – All Key Details |
+| 0.54 | commercial | MY | press.autos (main) | More accidents involving commercial vehicles so far this year than in full year of 2025 – APAD director-general |
+| 0.46 | motorcycles | IN | press.autos India | TVS Norton Atlas ADV Spied Testing With Accessories |
+| 0.48 | motorsport | GB | press.autos (main) | Excelr8 goes for customer BTCC engine for 2027 |
+| 0.48 | motorcycles | MY | press.autos (main) | JPJ warns against wearing damaged, non-compliant motorcycle helmets |
+
+By site: press.autos (main) 8, press.autos India 6
+By category: suvs 3, ev 3, trends 2, motorcycles 2, used-cars 1, tech 1, commercial 1, motorsport 1
+- drafted for **press.autos**: BYD in exclusive talks to buy Ineos Hambach plant in France (WordPress ID 3908, 3 review notes)
+- drafted for **press.autos India**: Toyota Innova Hycross facelift launches in India with prices from Rs 19.59 lakh (WordPress ID 1197, 8 review notes)
+
+Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1).
+
+Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-26 09:25 UTC
 
 Discovered 146 recent items, 16 candidate stories above score 0.45.
@@ -738,14 +775,4 @@ By category: ev 4, motorsport 2, trends 1
 Source pages that couldn't be read: motorsport.com (HTTP 403 x1).
 
 Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-23 23:02 UTC
-
-Discovered 171 recent items, 13 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 0 items (1 searches ok, 4 failed, 2 skipped: time limit).
-Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-Daily limits reached; nothing to do.
 
