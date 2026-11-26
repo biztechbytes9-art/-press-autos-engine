@@ -1,4 +1,14 @@
 <!-- run -->
+# Run 2026-11-26 15:14 UTC
+
+Discovered 171 recent items, 19 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
+Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+Daily limits reached; nothing to do.
+
+<!-- run -->
 # Run 2026-11-26 13:32 UTC
 
 Discovered 162 recent items, 16 candidate stories above score 0.45.
@@ -727,32 +737,6 @@ By category: ev 3, motorcycles 2, suvs 1, motorsport 1, trends 1
 - drafted for **press.autos India**: Honda CB500 Classic Roadster specs and price in India (India) (WordPress ID 1091, 6 review notes)
 
 Source pages that couldn't be read: auto.economictimes.indiatimes.com (too little text (paywall or bot check?) x1), gaadiwaadi.com (too little text (paywall or bot check?) x1).
-
-Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-24 03:04 UTC
-
-Discovered 171 recent items, 4 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 9 items (1 searches ok, 3 failed, 3 skipped: time limit).
-Room left today: press.autos 9, press.autos India 4. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.63 | tech | DE | press.autos (main) | Mercedes-Benz becomes first carmaker to get regulatory approval for Level 2 point-to-point driving in Germany |
-| 0.46 | trends | IN | press.autos India | Maruti Suzuki Announces Fourth Price Hike in 2026 |
-| 0.60 | ev | US | press.autos (main) | Lithium Ion Battery Legislation at Last for E - Bikes and Light Electric Vehicle Battery Packs |
-| 0.58 | trends | MY | press.autos (main) | National vehicle sales stay on track for fourth straight record year |
-
-By site: press.autos (main) 3, press.autos India 1
-By category: trends 2, tech 1, ev 1
-- drafted for **press.autos**: Mercedes-Benz gains first Level 2 point‑to‑point approval in Germany (WordPress ID 3781, 3 review notes)
-- drafted for **press.autos India**: Maruti Suzuki announces fourth price hike of 0.31% effective 22 November 2026 (WordPress ID 1087, 3 review notes)
-- drafted for **press.autos**: US Senate passes e‑bike battery safety legislation (WordPress ID 3783, 2 review notes)
 
 Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
 
