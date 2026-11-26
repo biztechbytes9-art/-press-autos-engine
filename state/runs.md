@@ -1,4 +1,14 @@
 <!-- run -->
+# Run 2026-11-26 17:19 UTC
+
+Discovered 186 recent items, 18 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 2 items (2 searches ok, 1 failed, 4 skipped: time limit).
+Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+Daily limits reached; nothing to do.
+
+<!-- run -->
 # Run 2026-11-26 15:14 UTC
 
 Discovered 171 recent items, 19 candidate stories above score 0.45.
@@ -704,39 +714,6 @@ By category: trends 4, ev 4, tech 3, motorcycles 1, suvs 1
 - drafted for **press.autos**: High‑power e‑bike market sees 1,000 W to 2,000 W models surge (global) (WordPress ID 3789, 2 review notes)
 
 Source pages that couldn't be read: motor1.com (HTTP 403 x1), tvsmotor.com (too little text (paywall or bot check?) x1).
-
-Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-24 05:23 UTC
-
-Discovered 174 recent items, 10 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 13 items (1 searches ok, 2 failed, 4 skipped: time limit).
-Room left today: press.autos 7, press.autos India 3. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.62 | ev | IN | press.autos India | Bentley to launch first electric car in India in H2 2027; rules out local manufacturing |
-| 0.57 | motorcycles | MY | press.autos (main) | 2027 Suzuki SV-7GX launched in Malaysia – 645 cc V-Twin crossover, introductory price RM37,900 |
-| 0.58 | suvs | IN | press.autos India | Toyota Innova Hycross Facelift To Launch Tomorrow – Top 5 Highlights |
-| 0.57 | ev | ID | press.autos (main) | BAIC Indonesia considering new A0-class electric SUV priced between RM45k and RM68k – Q3 2028 launch |
-| 0.57 | motorcycles | IN | press.autos India | Honda CB500 Specs Fully Revealed – 28 PS, 43.3 Nm, TBT Nav |
-| 0.49 | motorsport | US | press.autos (main) | Spire returns check to Joe Gibbs Racing; rejects attempt to settle countersuit |
-| 0.54 | ev | IN | press.autos India | Honda Alpha Midsize e-SUV To Debut Next Week – What We Know So Far |
-| 0.52 | trends | IN | press.autos India | Karnataka seeks Toyota investment as automaker eyes 1 million vehicle production capacity |
-
-By site: press.autos India 5, press.autos (main) 3
-By category: ev 3, motorcycles 2, suvs 1, motorsport 1, trends 1
-- skipped (no readable source): Bentley to launch first electric car in India in H2 2027; rules out local manufacturing
-- drafted for **press.autos**: 2027 Suzuki SV-7GX price and specs revealed for Malaysia (WordPress ID 3785, 3 review notes)
-- drafted for **press.autos India**: Toyota Innova Hycross facelift to launch tomorrow (India) (WordPress ID 1089, 5 review notes)
-- drafted for **press.autos India**: Honda CB500 Classic Roadster specs and price in India (India) (WordPress ID 1091, 6 review notes)
-
-Source pages that couldn't be read: auto.economictimes.indiatimes.com (too little text (paywall or bot check?) x1), gaadiwaadi.com (too little text (paywall or bot check?) x1).
 
 Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
 
