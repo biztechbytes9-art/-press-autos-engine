@@ -1,4 +1,15 @@
 <!-- run -->
+# Run 2026-11-26 13:32 UTC
+
+Discovered 162 recent items, 16 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 7 items (1 searches ok, 2 failed, 4 skipped: time limit).
+Sources not working: RushLane (failed (415)).
+Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+Daily limits reached; nothing to do.
+
+<!-- run -->
 # Run 2026-11-26 11:12 UTC
 
 Discovered 157 recent items, 20 candidate stories above score 0.45.
@@ -742,37 +753,6 @@ By category: trends 2, tech 1, ev 1
 - drafted for **press.autos**: Mercedes-Benz gains first Level 2 point‑to‑point approval in Germany (WordPress ID 3781, 3 review notes)
 - drafted for **press.autos India**: Maruti Suzuki announces fourth price hike of 0.31% effective 22 November 2026 (WordPress ID 1087, 3 review notes)
 - drafted for **press.autos**: US Senate passes e‑bike battery safety legislation (WordPress ID 3783, 2 review notes)
-
-Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-24 01:26 UTC
-
-Discovered 165 recent items, 8 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
-Room left today: press.autos 10, press.autos India 6. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.55 | ev | IN | press.autos India | Ultraviolette X-47 Venom Deliveries Start – Price Range Rs Rs 2.5 L to Rs 4 L |
-| 0.54 | motorsport | US | press.autos (main) | Dodge’s NASCAR Cup car unveil will include celebrity exhibition race during Snowball Derby |
-| 0.47 | ev | IN | press.autos India | Paytm Partners With ChargeZone to Enable QR Payments at 15,000 EV Charging Points |
-| 0.53 | ev | global | press.autos (main) | Subaru is cutting EV prices by dropping one of its most distinctive features |
-| 0.42 | trends | IN | press.autos India | Maruti Suzuki Announces Fourth Price Hike in 2026 |
-| 0.49 | ev | global | press.autos (main) | Mercedes Is Testing A Weird Two-Seat EV Chassis |
-| 0.48 | motorsport | US | press.autos (main) | Nikita Johnson targets Alex Palou’s rookie benchmark with Coyne ahead of 2027 IndyCar debut |
-
-By site: press.autos (main) 4, press.autos India 3
-By category: ev 4, motorsport 2, trends 1
-- drafted for **press.autos India**: Ultraviolette X-47 Venom deliveries start, prices Rs 2.5‑4 lakh (India) (WordPress ID 1083, 6 review notes)
-- drafted for **press.autos**: Dodge NASCAR Cup car unveiled at Snowball Derby with celebrity race (WordPress ID 3779, 3 review notes)
-- drafted for **press.autos India**: Payrm enables QR payments at 15,000 ChargeZone EV charging points (WordPress ID 1085, 2 review notes)
-
-Source pages that couldn't be read: motorsport.com (HTTP 403 x1).
 
 Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
 
