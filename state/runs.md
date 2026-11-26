@@ -1,4 +1,14 @@
 <!-- run -->
+# Run 2026-11-26 19:10 UTC
+
+Discovered 196 recent items, 17 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
+Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+Daily limits reached; nothing to do.
+
+<!-- run -->
 # Run 2026-11-26 17:19 UTC
 
 Discovered 186 recent items, 18 candidate stories above score 0.45.
@@ -678,42 +688,4 @@ By category: trends 7, ev 3, motorsport 1, motorcycles 1, tech 1, compare 1
 Source pages that couldn't be read: insideevs.com (HTTP 403 x1), motor1.com (HTTP 403 x3), motorsport.com (HTTP 403 x1).
 
 Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-24 07:36 UTC
-
-Discovered 173 recent items, 15 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 15 items (1 searches ok, 2 failed, 4 skipped: time limit).
-Room left today: press.autos 6, press.autos India 1. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.64 | tech | US | press.autos (main) | New York Bans Car Subscriptions For Features Your Car Already Has, With Exceptions |
-| 0.61 | trends | IN | press.autos India | TVS Sales Breakup Oct 2026 – Jupiter, Apache, XL, iQube, Raider, Ntorq, Radeon, Ronin |
-| 0.59 | ev | ID | press.autos (main) | BAIC Indonesia considering new A0-class electric SUV priced between RM45k and RM68k – Q3 2028 launch |
-| 0.60 | motorcycles | IN | press.autos India | Honda CB500 Retro Roadster – All Key Specs & Features Revealed |
-| 0.59 | ev | VN | press.autos (main) | Yamaha NMax E and XEnter E electric scooters to be made in Vietnam |
-| 0.57 | ev | IN | press.autos India | Honda Alpha Midsize e-SUV To Debut Next Week – What We Know So Far |
-| 0.59 | tech | FR | press.autos (main) | Xpeng begins offering public ADAS test rides in Paris to showcase NGP system ahead of expected launch in 2027 |
-| 0.57 | suvs | IN | press.autos India | JSW Motors Signs MoU With ARAI Ahead Of Combat SUV Debut |
-| 0.58 | ev | global | press.autos (main) | The e-bike industry has a horsepower problem |
-| 0.57 | trends | IN | press.autos India | Festive 2026 Vehicle Sales Hit Record 55.25 Lakh Units, Up 2.21% |
-| 0.54 | tech | global | press.autos (main) | Audi Patents Hidden Buttons That Pop Out From Behind The Screen |
-| 0.55 | trends | IN | press.autos India | Audi India to hike vehicle prices by up to 2% from January 1 |
-| 0.54 | trends | IN | press.autos India | Karnataka seeks Toyota investment as automaker eyes 1 million vehicle production capacity |
-
-By site: press.autos India 7, press.autos (main) 6
-By category: trends 4, ev 4, tech 3, motorcycles 1, suvs 1
-- skipped (no readable source): New York Bans Car Subscriptions For Features Your Car Already Has, With Exceptions
-- drafted for **press.autos India**: TVS two-wheeler sales jump 22% in October 2026 (WordPress ID 1093, 4 review notes)
-- drafted for **press.autos**: BAIC A0 EV SUV plans Indonesia price RM45k‑RM68k, launch Q3 2028 (ID) (WordPress ID 3787, 5 review notes)
-- drafted for **press.autos**: High‑power e‑bike market sees 1,000 W to 2,000 W models surge (global) (WordPress ID 3789, 2 review notes)
-
-Source pages that couldn't be read: motor1.com (HTTP 403 x1), tvsmotor.com (too little text (paywall or bot check?) x1).
-
-Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
 
