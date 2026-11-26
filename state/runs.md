@@ -1,4 +1,40 @@
 <!-- run -->
+# Run 2026-11-26 07:36 UTC
+
+Discovered 144 recent items, 12 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
+Room left today: press.autos 5, press.autos India 3. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.63 | ev | global | press.autos (main) | Xiaomi's New SU7 Ultra Wants To Take The Taycan's Nurburgring Crown |
+| 0.56 | trends | IN | press.autos India | How replacing Delhi&#039;s non-BS-VI vehicles may cost owners close to ₹76,000 crore |
+| 0.62 | ev | global | press.autos (main) | This Is Suzuki's Cute New Ignis, And It's All Electric |
+| 0.54 | trends | IN | press.autos India | Mahindra To Launch Four New Models In The Coming Months |
+| 0.60 | motorcycles | global | press.autos (main) | Harley-Davidson unveils 2027 range – new Road King ST, Road Glide ST and Street Glide ST, Super Glide returns |
+| 0.49 | motorcycles | IN | press.autos India | TVS Norton Atlas ADV Spied Testing With Accessories |
+| 0.57 | suvs | TH | press.autos (main) | Honda Avancier Full Size Hybrid SUV Production Commences |
+| 0.53 | ev | MY | press.autos (main) | No reason to restructure EV road tax, as rates are 85% lower than ICE on average – transport ministry |
+| 0.53 | reviews | JP | press.autos (main) | America-Built Acura Integra Type S Is Heading To Japan, And There's A Twist |
+| 0.53 | commercial | MY | press.autos (main) | BYD Shark 6 announced as the brand’s first CKD model in Malaysia, at Sime’s Inokom plant – launch early 2027 |
+| 0.49 | ev | MY | press.autos (main) | GWM Ora 5 HEV exceeds 800 bookings in Malaysia |
+
+By site: press.autos (main) 8, press.autos India 3
+By category: ev 4, trends 2, motorcycles 2, suvs 1, reviews 1, commercial 1
+- drafted for **press.autos**: Xiaomi unveils 2027 SU7 Ultra with extensive carbon‑fiber upgrades (WordPress ID 3900, 3 review notes)
+- skipped (no readable source): How replacing Delhi&#039;s non-BS-VI vehicles may cost owners close to ₹76,000 crore
+- drafted for **press.autos India**: Mahindra announces four new models by April 2027 (India) (WordPress ID 1193, 6 review notes)
+- drafted for **press.autos**: Harley‑Davidson unveils 2027 range with new ST models and Super Glide return (WordPress ID 3902, 4 review notes)
+
+Source pages that couldn't be read: auto.economictimes.indiatimes.com (too little text (paywall or bot check?) x1), gaadiwaadi.com (too little text (paywall or bot check?) x1).
+
+Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-26 05:29 UTC
 
 Discovered 146 recent items, 5 candidate stories above score 0.45.
@@ -678,16 +714,6 @@ Daily limits reached; nothing to do.
 # Run 2026-11-23 21:01 UTC
 
 Discovered 170 recent items, 15 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
-Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-Daily limits reached; nothing to do.
-
-<!-- run -->
-# Run 2026-11-23 19:12 UTC
-
-Discovered 176 recent items, 20 candidate stories above score 0.45.
 Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
 GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
 Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
