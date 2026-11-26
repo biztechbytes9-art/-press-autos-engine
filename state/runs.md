@@ -1,4 +1,32 @@
 <!-- run -->
+# Run 2026-11-26 01:33 UTC
+
+Discovered 169 recent items, 5 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (1 searches ok, 2 failed, 4 skipped: time limit).
+Room left today: press.autos 10, press.autos India 6. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.65 | ev | global | press.autos (main) | Toyota is about to unveil its first extended-range EV, and it looks like the Highlander |
+| 0.55 | suvs | IN | press.autos India | 2026 Toyota Innova Hycross Facelift Launched At Rs. 19.59 Lakh |
+| 0.48 | reviews | CN | press.autos (main) | Honda Accord Gains A Wild New Face In China, But Keeps The Old Hybrid |
+| 0.47 | suvs | IN | press.autos India | Toyota Innova Hycross Facelift Brochure, Variants Wise Features – G, GX, VX And ZX |
+
+By site: press.autos (main) 2, press.autos India 2
+By category: suvs 2, ev 1, reviews 1
+- drafted for **press.autos**: Toyota EREV debut at Guangzhou Motor Show on 27 November 2026 (China) (WordPress ID 3890, 5 review notes)
+- drafted for **press.autos India**: Toyota Innova Hycross facelift price and specs revealed (India) (WordPress ID 1187, 3 review notes)
+- drafted for **press.autos**: GAC Honda Accord 2027 facelift unveiled in China (WordPress ID 3892, 2 review notes)
+
+Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1), pressroom.toyota.com (too little text (paywall or bot check?) x1).
+
+Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-25 23:04 UTC
 
 Discovered 187 recent items, 8 candidate stories above score 0.45.
@@ -630,39 +658,4 @@ GDELT: 1 items (1 searches ok, 2 failed, 4 skipped: time limit).
 Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
 AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
 Daily limits reached; nothing to do.
-
-<!-- run -->
-# Run 2026-11-23 13:33 UTC
-
-Discovered 154 recent items, 17 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
-Room left today: press.autos 2, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.65 | motorcycles | global | press.autos (main) | This Honda Superbike Is Two-Wheel Drive. It's Also Electric |
-| 0.64 | ev | IN | press.autos India | Ultraviolette X-47 Venom Deliveries Begin In India, Up To 343 Km Range |
-| 0.63 | trends | global | press.autos (main) | If you can’t beat ’em: VW to export 300,000 Chinese-built cars per year by 2030 |
-| 0.58 | trends | IN | press.autos India | Alternative-fuel vehicle inquiries rise as buyers seek options beyond petrol: FADA |
-| 0.60 | motorsport | global | press.autos (main) | Why Ferrari believes written rules won't help manage Charles Leclerc and Lewis Hamilton |
-| 0.53 | trends | IN | press.autos India | Yamaha Oct 2026 Sales Analysis – FZ, XSR, Fascino, Aerox, R15, MT15, RayZR |
-| 0.58 | ev | ID | press.autos (main) | Hyundai Neira open for pre-booking in Indonesia – CKD EV SUV with 80% localisation; 3 variants; from RM88k |
-| 0.55 | motorsport | global | press.autos (main) | The star performers of a wild Macau weekend |
-| 0.54 | motorsport | global | press.autos (main) | Marc Marquez: 'Curbing my instincts was key to winning 2026 MotoGP title' |
-| 0.53 | suvs | JP | press.autos (main) | Subaru's American-Built Ascent Is Heading To Japan |
-| 0.52 | tech | global | press.autos (main) | Skoda Peaq Scores 5 Stars in Euro NCAP, Sets New Crash Test Record |
-
-By site: press.autos (main) 8, press.autos India 3
-By category: trends 3, motorsport 3, ev 2, motorcycles 1, suvs 1, tech 1
-- skipped (no readable source): This Honda Superbike Is Two-Wheel Drive. It's Also Electric
-- drafted for **press.autos**: Volkswagen export target of 300,000 China-built cars by 2030 (WordPress ID 3724, 3 review notes)
-- drafted for **press.autos**: Ferrari says written rules won’t help manage Leclerc and Hamilton (WordPress ID 3726, 3 review notes)
-
-Source pages that couldn't be read: autosport.com (HTTP 403 x1), motorsport.com (HTTP 403 x1), rideapart.com (HTTP 403 x1).
-
-Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
 
