@@ -1,4 +1,33 @@
 <!-- run -->
+# Run 2026-11-26 05:29 UTC
+
+Discovered 146 recent items, 5 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
+Room left today: press.autos 6, press.autos India 5. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.62 | ev | IN | press.autos India | RE To Invest Rs. 1,000 Crore For EV Development, New Models Incoming |
+| 0.60 | suvs | MY | press.autos (main) | 2027 Kia Sportage Turbo-Hybrid facelift in Malaysia – 1.6L petrol hybrid, 2WD and AWD variants; fr RM148,800 |
+| 0.61 | trends | IN | press.autos India | MG Sales Breakup Oct 2026 – Windsor, Comet, Tomahawk, Hector, Majestor, Astor, ZS |
+| 0.60 | commercial | MY | press.autos (main) | BYD Shark 6 announced as the brand’s first CKD model in Malaysia, at Sime’s Inokom plant – launch early 2027 |
+| 0.52 | motorcycles | IN | press.autos India | TVS Norton Atlas ADV Spied Testing With Accessories |
+
+By site: press.autos India 3, press.autos (main) 2
+By category: ev 1, suvs 1, trends 1, commercial 1, motorcycles 1
+- drafted for **press.autos India**: Royal Enfield invests Rs 1,000 crore in EVs, launches Flying Flea FF.C6 (WordPress ID 1189, 4 review notes)
+- drafted for **press.autos**: 2027 Kia Sportage Turbo‑Hybrid launched in Malaysia from RM148,800 (MY) (WordPress ID 3898, 4 review notes)
+- drafted for **press.autos India**: MG sales October 2026 hit 8,013 units, 25% YoY growth (WordPress ID 1191, 3 review notes)
+
+Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1).
+
+Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-26 03:13 UTC
 
 Discovered 169 recent items, 5 candidate stories above score 0.45.
@@ -661,16 +690,6 @@ Daily limits reached; nothing to do.
 Discovered 176 recent items, 20 candidate stories above score 0.45.
 Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
 GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
-Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-Daily limits reached; nothing to do.
-
-<!-- run -->
-# Run 2026-11-23 17:13 UTC
-
-Discovered 173 recent items, 20 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
 Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
 AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
 Daily limits reached; nothing to do.
