@@ -1,4 +1,14 @@
 <!-- run -->
+# Run 2026-11-26 23:08 UTC
+
+Discovered 183 recent items, 12 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
+Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+Daily limits reached; nothing to do.
+
+<!-- run -->
 # Run 2026-11-26 21:04 UTC
 
 Discovered 195 recent items, 15 candidate stories above score 0.45.
@@ -621,40 +631,4 @@ By category: ev 4, trends 2, motorsport 2, commercial 1, motorcycles 1, suvs 1, 
 Source pages that couldn't be read: autosport.com (HTTP 403 x1), insideevs.com (HTTP 403 x2), motor1.com (HTTP 403 x1), motorsport.com (HTTP 403 x1), rideapart.com (HTTP 403 x2).
 
 Drafted this run: 0. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-24 11:03 UTC
-
-Discovered 176 recent items, 13 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
-GDELT: 17 items (1 searches ok, 4 failed, 2 skipped: time limit).
-Room left today: press.autos 2, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.70 | ev | global | press.autos (main) | Volkswagen Launches Mass-Market Vehicle-To-Grid Charging, Letting EV Owners Earn Money |
-| 0.57 | motorcycles | IN | press.autos India | TVS Jupiter Gets Past A Monumental One Crore Production Milestone In India |
-| 0.63 | suvs | global | press.autos (main) | Lamborghini Temerario Spyder debuts – 4.0L biturbo V8 hybrid model gets supercar maker’s first folding hardtop |
-| 0.57 | motorcycles | IN | press.autos India | Honda CB500 Retro Roadster – All Key Specs & Features Revealed |
-| 0.63 | ev | global | press.autos (main) | BMW Can't Build Its New iX3 Fast Enough. Now It's Adding The iX4 |
-| 0.56 | ev | IN | press.autos India | JSW Motors Signs MoU With ARAI For New Energy Vehicle Development |
-| 0.54 | tech | global | press.autos (main) | Porsche Has A Wild Idea To Make Its Cars Corner Faster |
-| 0.50 | motorcycles | IN | press.autos India | Royal Enfield Flying Flea Further Expands Its Presence, Lands In Goa |
-| 0.48 | motorsport | global | press.autos (main) | Isack Hadjar frustrated – What really happened on Red Bull's team radio in Las Vegas |
-| 0.48 | trends | IN | press.autos India | Audi India Price Update, Cars to Cost More From January 1, 2027 |
-
-By site: press.autos (main) 5, press.autos India 5
-By category: ev 3, motorcycles 3, suvs 1, tech 1, motorsport 1, trends 1
-- skipped (no readable source): Volkswagen Launches Mass-Market Vehicle-To-Grid Charging, Letting EV Owners Earn Money
-- drafted for **press.autos**: Lamborghini Temerario Spyder unveiled with 4.0 L hybrid and folding hardtop (WordPress ID 3795, 4 review notes)
-- skipped (no readable source): BMW Can't Build Its New iX3 Fast Enough. Now It's Adding The iX4
-- skipped (no readable source): Porsche Has A Wild Idea To Make Its Cars Corner Faster
-- skipped (not enough facts): Isack Hadjar frustrated – What really happened on Red Bull's team radio in Las Vegas
-
-Source pages that couldn't be read: insideevs.com (HTTP 403 x1), motor1.com (HTTP 403 x2), motorsport.com (HTTP 403 x1).
-
-Drafted this run: 1. Paid AI spend today: $0.00 (free models cost $0).
 
