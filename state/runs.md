@@ -1,4 +1,30 @@
 <!-- run -->
+# Run 2026-11-26 03:13 UTC
+
+Discovered 169 recent items, 5 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 5 items (1 searches ok, 2 failed, 4 skipped: time limit).
+Room left today: press.autos 8, press.autos India 5. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.56 | suvs | IN | press.autos India | New Honda Avancier SUV Production Starts In Thailand |
+| 0.54 | ev | CN | press.autos (main) | Chinese brands , cross - border trade and EV demand seen reshaping Macau car market |
+| 0.51 | suvs | IN | press.autos India | Toyota Innova Hycross Facelift Brochure, Variants Wise Features – G, GX, VX And ZX |
+
+By site: press.autos India 2, press.autos (main) 1
+By category: suvs 2, ev 1
+- drafted for **press.autos**: Honda Avancier SUV enters series production in Thailand ahead of December launch (WordPress ID 3894, 2 review notes)
+- drafted for **press.autos**: Macau car market reshaped by Chinese brands, cross‑border buying and EV demand (WordPress ID 3896, 8 review notes)
+
+Source pages that couldn't be read: pressroom.toyota.com (too little text (paywall or bot check?) x1).
+
+Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-26 01:33 UTC
 
 Discovered 169 recent items, 5 candidate stories above score 0.45.
@@ -645,16 +671,6 @@ Daily limits reached; nothing to do.
 Discovered 173 recent items, 20 candidate stories above score 0.45.
 Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
 GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
-Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-Daily limits reached; nothing to do.
-
-<!-- run -->
-# Run 2026-11-23 15:16 UTC
-
-Discovered 163 recent items, 18 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 1 items (1 searches ok, 2 failed, 4 skipped: time limit).
 Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
 AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
 Daily limits reached; nothing to do.
