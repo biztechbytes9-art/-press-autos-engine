@@ -1,4 +1,41 @@
 <!-- run -->
+# Run 2026-11-27 09:24 UTC
+
+Discovered 142 recent items, 10 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 4 items (1 searches ok, 2 failed, 4 skipped: time limit).
+Sources not working: RushLane (failed (415)).
+Room left today: press.autos 3, press.autos India 2. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.66 | ev | CN | press.autos (main) | Nissan NX7 Debuts In China With 1,035 Miles Of Range And A Low Price |
+| 0.58 | ev | IN | press.autos India | Toyota's New Innova Hycross Combines Hybrid Power With Flex-Fuel Technology |
+| 0.62 | motorsport | global | press.autos (main) | Supercars Adelaide: Kostecki boosts title hopes as rivals hit trouble in Race 1 |
+| 0.51 | suvs | IN | press.autos India | JSW Motors Inches Closer To Solo Debut With Combat PHEV – Key Details |
+| 0.58 | reviews | global | press.autos (main) | Gordon Murray's Next Supercar Will Be Unlike Anything He's Built Before |
+| 0.58 | reviews | GB | press.autos (main) | The On-Again-Off-Again TVR Griffith Is Back, And Lotus Is Helping Build It |
+| 0.55 | reviews | MY | press.autos (main) | Proton S70 RS launch, price reveal on Dec 1 at Sepang |
+| 0.50 | suvs | global | press.autos (main) | Second-gen Mazda CX-3 spotted testing in Japan ahead of 2027 debut – new B-SUV to be built in Thailand |
+
+By site: press.autos (main) 6, press.autos India 2
+By category: reviews 3, ev 2, suvs 2, motorsport 1
+- skipped (no readable source): Nissan NX7 Debuts In China With 1,035 Miles Of Range And A Low Price
+- skipped (no readable source): Toyota's New Innova Hycross Combines Hybrid Power With Flex-Fuel Technology
+- drafted for **press.autos**: Brodie Kostecki wins inaugural Friday race at Adelaide 500 (WordPress ID 4081, 3 review notes)
+- drafted for **press.autos India**: JSW Motors Combat PHEV set for debut on 3 December 2026 (WordPress ID 1262, 5 review notes)
+- skipped (no readable source): Gordon Murray's Next Supercar Will Be Unlike Anything He's Built Before
+- skipped (no readable source): The On-Again-Off-Again TVR Griffith Is Back, And Lotus Is Helping Build It
+- drafted for **press.autos**: Proton S70 RS launch set for 1 December 2026 at Sepang (Malaysia) (WordPress ID 4083, 6 review notes)
+
+Source pages that couldn't be read: autosport.com (HTTP 403 x1), gaadiwaadi.com (too little text (paywall or bot check?) x1), motor1.com (HTTP 403 x4), motorsport.com (HTTP 403 x1).
+
+Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-27 07:37 UTC
 
 Discovered 145 recent items, 12 candidate stories above score 0.45.
@@ -649,16 +686,6 @@ Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
 Discovered 194 recent items, 10 candidate stories above score 0.45.
 Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
 GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
-Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-Daily limits reached; nothing to do.
-
-<!-- run -->
-# Run 2026-11-24 21:04 UTC
-
-Discovered 200 recent items, 15 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
-GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
 Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
 AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
 Daily limits reached; nothing to do.
