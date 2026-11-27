@@ -489,19 +489,17 @@ def test_source_cap_and_short_notes():
 
 
 
-def test_news_card_attached_when_no_official_photo(fake_net, monkeypatch):
+def test_no_card_when_no_official_photo(fake_net, monkeypatch):
+    """Generated text cards are switched off: no photo means no featured image plus a note and a Gemini brief."""
     calls, tmp = fake_net
     import engine.run, engine.images
     monkeypatch.setattr(engine.images, "official_candidates", lambda *a, **k: [])
+    monkeypatch.setattr(engine.images, "press_room_candidates", lambda *a, **k: [])
     monkeypatch.setattr(sys, "argv", ["engine.run"])
     engine.run.main()
     p = calls["wp_posts"][0]
-    uploads = [m for m in calls["media"] if m["headers"]]
-    assert len(uploads) == 1 and uploads[0]["headers"]["Content-Type"] == "image/jpeg"
-    assert "card.jpg" in uploads[0]["headers"]["Content-Disposition"] and uploads[0]["size"] > 10000
-    assert p["featured_media"] == 901
-    assert "generated news card" in p["meta"]["pa_review_notes"]
-
+    assert not calls.get("media") and "featured_media" not in p
+    assert "No featured image yet" in p["meta"]["pa_review_notes"]
 
 def test_official_photo_used_with_credit_and_inline(fake_net, monkeypatch):
     calls, tmp = fake_net
@@ -735,3 +733,121 @@ def test_feed_text_used_when_site_refuses(monkeypatch):
     got = r.gather_sources(cfg, {"items": items})
     assert got and got[0]["from_feed"] and len(got[0]["text"]) <= 4500
     assert extract.FAILS == {"rushlane.com": ["HTTP 403"]}
+
+
+def test_seo_audit_and_notes():
+    from engine import assistant as a
+    content = ('<p>The Bajaj Pulsar RS200 now costs Rs 1,98,441, <a href="https://www.bajajauto.com/x">Bajaj said</a>.</p>'
+               '<h2>Bajaj Pulsar RS200 price and variants</h2><p>' + "More detail about the bike. " * 120 + '</p>'
+               '<p>Bajaj Pulsar RS200 rivals.</p><ul class="pa-alsoread"><li><a href="https://india.press.autos/x/">x</a></li></ul>')
+    score, missing = a.seo_audit("Bajaj Pulsar RS200 launched at Rs 1,98,441", "bajaj-pulsar-rs200-price",
+                                 content, "The Bajaj Pulsar RS200 gets a TFT.", "bajaj pulsar rs200,pulsar price",
+                                 "Bajaj pulsar rs200: launch", "press.autos")
+    assert score >= 90, missing
+    score2, missing2 = a.seo_audit("Price hike from December", "price-hike", "<p>short</p>", "", "maruti price hike", "", "press.autos")
+    assert score2 < 40 and any("title" in m for m in missing2)
+    n = a.merge_notes("Fact-check: date wrong.\n\nSEO check (assistant): 40/100. old", 80, ["No internal link to another press.autos article."])
+    assert n.startswith("Fact-check: date wrong.") and n.count("SEO check (assistant)") == 1 and "80/100" in n
+
+
+def test_assistant_replaces_card_with_official_photo(monkeypatch, tmp_path):
+    from engine import assistant as a, images
+    calls = {"posts": []}
+    post = {"id": 1034, "title": {"raw": "Suzuki Access gets new colours"}, "slug": "suzuki-access-colours",
+            "content": {"raw": "<!-- wp:paragraph -->\n<p>Suzuki Access gets two colours.</p>\n<!-- /wp:paragraph -->"},
+            "excerpt": {"raw": "Suzuki Access gets two new colours."}, "featured_media": 77, "categories": [5],
+            "pa_brand": [9], "meta": {"rank_math_focus_keyword": "", "rank_math_description": "",
+                                      "pa_sources_json": "[]", "pa_review_notes": "Fact-check: ok."}}
+
+    class R:
+        def __init__(self, js, code=200):
+            self._js, self.status_code, self.text = js, code, ""
+        def json(self):
+            return self._js
+
+    class S:
+        headers, auth = {}, None
+        def get(self, url, params=None, timeout=None, allow_redirects=True):
+            if url.endswith("/users/me"):
+                return R({"id": 3, "roles": ["pa_pipeline"], "capabilities": {"edit_posts": True}})
+            if "/media/77" in url:
+                return R({"id": 77, "source_url": "https://india.press.autos/wp-content/uploads/suzuki-access-card.jpg", "alt_text": "x"})
+            if url.endswith("/pa_brand"):
+                return R([{"id": 9, "name": "Suzuki"}])
+            if url.endswith("/posts") and params and params.get("status") == "pending":
+                return R([post])
+            if url.endswith("/posts"):
+                return R([])
+            return R({}, 404)
+        def post(self, url, json=None, timeout=None, allow_redirects=True, data=None, headers=None):
+            if url.endswith("/media"):
+                return R({"id": 500 + len(calls["posts"]), "source_url": "https://india.press.autos/up/p.jpg"}, 201)
+            if "/media/" in url:
+                return R({"id": int(url.rsplit("/", 1)[-1]), "source_url": "https://india.press.autos/up/p.jpg",
+                          "alt_text": (json or {}).get("alt_text", "")}, 200)
+            calls["posts"].append((url, json))
+            return R({"id": 1}, 200)
+
+    import engine.wordpress as w
+    monkeypatch.setattr(w.requests, "Session", S)
+    photo = ("img", "image/jpeg", "suzuki-access-1.jpg", "Suzuki access: new colours", "Image: Suzuki", "official")
+    monkeypatch.setattr(images, "choose_images", lambda *a_, **k: {"featured": photo, "inline": None})
+    monkeypatch.setattr(images, "commons_candidates", lambda *a_, **k: [])
+
+    class AI:
+        def ask_json(self, *a_, **k):
+            return {"focus_keyword": "suzuki access", "secondary_keywords": ["suzuki access colours"],
+                    "meta_description": "Suzuki Access gets Metallic Royal Bronze and Mat Bordeaux Red colours in India."}
+    wp = w.WordPress("https://india.press.autos", "pipeline", "x", "ua")
+    upd, lines, photo_done = a.assist({"images": {}, "site": {"user_agent": "t"}, "source_authority": {}}, wp, AI(), post,
+                                      "press.autos", {"name": "press.autos India"}, "IN")
+    assert photo_done and upd["featured_media"] >= 500
+    assert upd["meta"]["rank_math_focus_keyword"].startswith("suzuki access")
+    assert "SEO check (assistant)" in upd["meta"]["pa_review_notes"] and upd["meta"]["pa_review_notes"].startswith("Fact-check: ok.")
+    assert "official photo" in lines[0] and "generated card removed" in lines[0]
+
+
+def test_commons_only_matching_free_licence_landscape(monkeypatch):
+    from engine import images
+
+    def page(i, title, lic, w=1600, h=1000):
+        return {"index": i, "title": title, "imageinfo": [{"width": w, "height": h, "thumburl": f"https://upload.wikimedia.org/{i}.jpg",
+                "descriptionurl": f"https://commons.wikimedia.org/wiki/{title}",
+                "extmetadata": {"LicenseShortName": {"value": lic}, "Artist": {"value": "<a href='x'>Jane Doe</a>"},
+                                "LicenseUrl": {"value": "https://creativecommons.org/licenses/by-sa/4.0"}}}]}
+    data = {"query": {"pages": {
+        "1": page(1, "File:Suzuki Access 125 2023 front.jpg", "CC BY-SA 4.0"),
+        "2": page(2, "File:Suzuki Burgman street.jpg", "CC BY 4.0"),
+        "3": page(3, "File:Suzuki Access 125 side.jpg", "CC BY-NC 2.0"),
+        "4": page(4, "File:Suzuki Access logo.png", "CC0"),
+        "5": page(5, "File:Suzuki Access 125 rear.jpg", "Public domain", 900, 1400)}}}
+
+    class R:
+        def raise_for_status(self): pass
+        def json(self): return data
+    monkeypatch.setattr(images.requests, "get", lambda *a, **k: R())
+    got = images.commons_candidates("suzuki access", "ua")
+    assert [g["name"] for g in got] == ["Suzuki Access 125 2023 front"]
+    assert got[0]["credit_text"] == "Photo: Jane Doe, CC BY-SA 4.0, via Wikimedia Commons"
+    assert 'href="https://creativecommons.org/licenses/by-sa/4.0"' in got[0]["credit_html"]
+
+
+def test_featured_kit_note():
+    from engine import images, assistant
+    kit = images.featured_kit("Suzuki Access gets new colours", ["Two new colours", "Prices unchanged"],
+                              "https://commons.wikimedia.org/wiki/File:x.jpg", "Photo: Jane Doe, CC BY-SA 4.0, via Wikimedia Commons", "India")
+    assert kit.startswith(assistant.KIT_MARK) and "press.autos India" in kit and "without changing its design" in kit
+    assert "CC BY-SA" in kit and "Based on: Photo: Jane Doe" in kit
+    n = assistant.merge_notes("Fact-check: ok.", 70, [], kit)
+    n2 = assistant.merge_notes(n, 80, [])
+    assert n2.count(assistant.KIT_MARK) == 1 and n2.count("SEO check") == 1 and "80/100" in n2
+
+
+def test_same_model_within_48h_is_repeat():
+    from engine import cluster as c
+    prev = ["Toyota Innova Hycross facelift price and specs revealed (India)", "Royal Enfield Himalayan 450 gets new colours"]
+    rep = lambda t: c.is_repeat({"title": t, "tokens": c.tokens(t)}, [], same_model_titles=prev)
+    assert rep("Toyota Innova Hycross facelift launches in India with prices from Rs 19.59 lakh")
+    assert rep("Royal Enfield Himalayan 450 price hike")
+    assert not rep("Royal Enfield invests Rs 1,000 crore in EVs")
+    assert not rep("Toyota Urban Cruiser Hyryder sales rise")
