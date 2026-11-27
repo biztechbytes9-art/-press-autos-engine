@@ -1,4 +1,14 @@
 <!-- run -->
+# Run 2026-11-27 21:07 UTC
+
+Discovered 194 recent items, 17 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 1 items (1 searches ok, 3 failed, 3 skipped: time limit).
+Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+Daily limits reached; nothing to do.
+
+<!-- run -->
 # Run 2026-11-27 19:09 UTC
 
 Discovered 191 recent items, 20 candidate stories above score 0.45.
@@ -800,41 +810,4 @@ By category: ev 3, suvs 2, commercial 1, motorsport 1, trends 1
 Source pages that couldn't be read: motor1.com (HTTP 403 x1), motorsport.com (HTTP 403 x1), pressroom.toyota.com (too little text (paywall or bot check?) x1).
 
 Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-25 11:11 UTC
-
-Discovered 144 recent items, 13 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
-Room left today: press.autos 5, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.61 | ev | IN | press.autos India | Suzuki Ignis Returns As Small Electric Car – 26 kWh, 90 hp, 3.6m, 1080 Kg |
-| 0.60 | motorsport | global | press.autos (main) | Six ways Marc Marquez outgunned Aprilia to the 2026 MotoGP title |
-| 0.45 | trends | IN | press.autos India | Maruti Suzuki Increases Car Prices For The 4th Time Due To Rising Costs |
-| 0.58 | suvs | global | press.autos (main) | Audi Is Bringing Back The RS6 Sedan To Fight The BMW M5 |
-| 0.54 | motorsport | global | press.autos (main) | Opel, Citroen exit is not a betrayal of Formula E, but a major blow at the worst possible time |
-| 0.53 | ev | US | press.autos (main) | ChargePoint's DC Fast Chargers Are Hitting The Ski Slopes |
-| 0.53 | tech | global | press.autos (main) | Genesis GV90 Uses Two Different Infotainment Systems At Once |
-| 0.49 | motorsport | global | press.autos (main) | Alonso: “We can't be competitive with the power unit we have” |
-| 0.45 | ev | global | press.autos (main) | This miniature electric Bentley is ridiculously cool – and actually street legal |
-
-By site: press.autos (main) 7, press.autos India 2
-By category: ev 3, motorsport 3, trends 1, suvs 1, tech 1
-- skipped (no readable source): Six ways Marc Marquez outgunned Aprilia to the 2026 MotoGP title
-- drafted for **press.autos**: Audi RS6 sedan to return with plug‑in hybrid power (WordPress ID 3880, 5 review notes)
-- drafted for **press.autos**: Citroën and Opel Formula E exit confirmed for end of 2027 (WordPress ID 3882, 4 review notes)
-- skipped (no readable source): ChargePoint's DC Fast Chargers Are Hitting The Ski Slopes
-- skipped (no readable source): Genesis GV90 Uses Two Different Infotainment Systems At Once
-- skipped (no readable source): Alonso: “We can't be competitive with the power unit we have”
-- drafted for **press.autos**: Electric Bentley Blower Junior deliveries scheduled in UK at £112,500 (WordPress ID 3884, 3 review notes)
-
-Source pages that couldn't be read: autosport.com (HTTP 403 x2), insideevs.com (HTTP 403 x1), motor1.com (HTTP 403 x1), motorsport.com (HTTP 403 x3).
-
-Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
 
