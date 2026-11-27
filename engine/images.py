@@ -260,23 +260,23 @@ def commons_candidates(query: str, user_agent: str, n: int = 2, timeout: int = 2
 
 
 def featured_kit(title: str, facts: list[str], photo_url: str, photo_credit: str, edition_label: str) -> str:
-    """Review note: how to make the featured image in the Gemini app, using a photo we may use."""
-    site = "press.autos" + (f" {edition_label}" if edition_label else "")
-    facts = [f for f in facts if f][:3]
+    """Review note: how to make the featured image in the Gemini app, using a photo we may use.
+
+    Google Discover favours clean, high-contrast photos without text, so the featured image has NO headline on it;
+    the press.autos Core plugin makes the text version for WhatsApp/X/Facebook shares automatically."""
     lines = ["Featured image kit (Gemini app):"]
     if photo_url:
         lines.append(f"1) Download this reference photo: {photo_url} ({photo_credit}).")
         lines.append("2) In Gemini, attach it and paste:")
     else:
         lines.append("No licensed reference photo found yet; check the maker's press page. In Gemini, paste:")
-    prompt = (f"\"Create a 16:9 (1920x1080) news image for {site}. Use the attached photo of the vehicle as the main "
-              f"subject without changing its design, colours or badges. Add the headline '{title}' in clean bold white "
-              f"text on a dark gradient at the bottom, and a small '{site}' wordmark top-left.")
-    if facts:
-        prompt += " Optionally add up to three short labels, using only these facts: " + "; ".join(facts) + "."
-    prompt += " No other text, specs, icons or slogans.\""
+    prompt = ("\"Create a 16:9 photo, 1920x1080, of the vehicle in the attached image, keeping its exact design, colours, "
+              "wheels and badges. Place it in a clean, realistic setting with strong contrast and natural light, three-quarter "
+              "front view, the vehicle filling about two thirds of the frame and sharp. Do NOT add any text, headline, logo, "
+              "watermark, icons or graphics.\"")
     lines.append(prompt)
-    lines.append("3) Upload the result as the featured image with the caption "
+    lines.append("3) Upload the result as the featured image (no text on it: Google Discover prefers clean photos; "
+                 "the share version with the headline is made automatically). Caption: "
                  + (f"\"Based on: {photo_credit}\"" if photo_url else "\"Illustration generated with AI\"") + ".")
     if "CC BY-SA" in (photo_credit or ""):
         lines.append("(This photo is CC BY-SA: an image based on it must also be credited and shared under CC BY-SA.)")
