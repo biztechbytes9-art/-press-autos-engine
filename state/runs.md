@@ -1,4 +1,239 @@
 <!-- run -->
+# Run 2026-11-27 18:02 UTC
+
+#
+#
+ 
+p
+r
+e
+s
+s
+.
+a
+u
+t
+o
+s
+ 
+g
+u
+i
+d
+e
+s
+
+
+
+
+-
+ 
+p
+r
+e
+s
+s
+.
+a
+u
+t
+o
+s
+:
+ 
+n
+o
+ 
+u
+n
+u
+s
+e
+d
+ 
+g
+u
+i
+d
+e
+ 
+t
+o
+p
+i
+c
+s
+ 
+l
+e
+f
+t
+;
+ 
+a
+d
+d
+ 
+m
+o
+r
+e
+ 
+u
+n
+d
+e
+r
+ 
+`
+g
+u
+i
+d
+e
+s
+:
+`
+ 
+i
+n
+ 
+c
+o
+n
+f
+i
+g
+.
+y
+a
+m
+l
+.
+
+
+-
+ 
+d
+r
+a
+f
+t
+e
+d
+ 
+g
+u
+i
+d
+e
+ 
+f
+o
+r
+ 
+*
+*
+p
+r
+e
+s
+s
+.
+a
+u
+t
+o
+s
+ 
+I
+n
+d
+i
+a
+*
+*
+:
+ 
+F
+A
+S
+T
+a
+g
+ 
+A
+n
+n
+u
+a
+l
+ 
+P
+a
+s
+s
+:
+ 
+e
+l
+i
+g
+i
+b
+i
+l
+i
+t
+y
+,
+ 
+c
+o
+s
+t
+ 
+a
+n
+d
+ 
+h
+o
+w
+ 
+t
+o
+ 
+a
+c
+t
+i
+v
+a
+t
+e
+ 
+(
+W
+o
+r
+d
+P
+r
+e
+s
+s
+ 
+I
+D
+ 
+1
+2
+8
+1
+)
+
+<!-- run -->
 # Run 2026-11-27 17:19 UTC
 
 Discovered 182 recent items, 13 candidate stories above score 0.45.
@@ -627,35 +862,4 @@ By category: ev 3, trends 3, motorsport 1, tech 1, motorcycles 1, commercial 1, 
 Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1).
 
 Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-25 07:37 UTC
-
-Discovered 142 recent items, 10 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
-Room left today: press.autos 6, press.autos India 4. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.60 | suvs | IN | press.autos India | JSW Motors Unveils Official Logo, First SUV To Debut Next Week |
-| 0.58 | suvs | global | press.autos (main) | Bentley Confirms Rugged Bentayga Is On The Horizon |
-| 0.60 | ev | IN | press.autos India | Honda Alpha Electric SUV Exterior, Interiors – Official Sketches Revealed |
-| 0.56 | tech | global | press.autos (main) | Porsche Launches New Dashcam With Interior Recording And Radar Detection |
-| 0.49 | trends | IN | press.autos India | Maruti Suzuki Increases Car Prices For The 4th Time Due To Rising Costs |
-| 0.41 | motorcycles | IN | press.autos India | Suzuki Access Rejigged – 1 Variant, 1 Colour Discontinued; 1 New Colour |
-
-By site: press.autos India 4, press.autos (main) 2
-By category: suvs 2, ev 1, tech 1, trends 1, motorcycles 1
-- drafted for **press.autos India**: JSW Motors Combat plug‑in hybrid SUV unveiled ahead of 3 December launch (India) (WordPress ID 1100, 2 review notes)
-- skipped (no readable source): Bentley Confirms Rugged Bentayga Is On The Horizon
-- drafted for **press.autos India**: Honda Alpha electric SUV sketches reveal design ahead of global premiere on 2 December 2026 (India) (WordPress ID 1102, 2 review notes)
-- skipped (no readable source): Porsche Launches New Dashcam With Interior Recording And Radar Detection
-
-Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1), motor1.com (HTTP 403 x2).
-
-Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
 
