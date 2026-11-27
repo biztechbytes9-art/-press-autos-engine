@@ -1,4 +1,34 @@
 <!-- run -->
+# Run 2026-11-27 11:06 UTC
+
+Discovered 144 recent items, 11 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
+Sources not working: RushLane (failed (415)).
+Room left today: press.autos 1, press.autos India 1. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.71 | motorsport | global | press.autos (main) | Marc Marquez announces shock MotoGP retirement |
+| 0.64 | ev | IN | press.autos India | New Gen Mini Cooper SE Launched In India At Rs. 53.9 Lakh |
+| 0.66 | motorsport | global | press.autos (main) | MotoGP Valencia GP: Bezzecchi leads retiring Marquez in cold FP1 |
+| 0.57 | commercial | IN | press.autos India | Festive 2026: Tractor Sales Cross 1 Lakh Units As Mahindra Dominates |
+| 0.53 | tech | global | press.autos (main) | Porsche Patents A Steering Wheel That Changes Shape In Sport Mode |
+| 0.53 | suvs | global | press.autos (main) | Second-gen Mazda CX-3 spotted testing in Japan ahead of 2027 debut – new B-SUV to be built in Thailand |
+
+By site: press.autos (main) 4, press.autos India 2
+By category: motorsport 2, ev 1, commercial 1, tech 1, suvs 1
+- drafted for **press.autos**: Marc Marquez retirement announced ahead of Valencia Grand Prix (WordPress ID 4085, 5 review notes)
+- drafted for **press.autos India**: Mini Cooper SE price launches at Rs 53.90 lakh in India (WordPress ID 1269, 3 review notes)
+
+Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1), motorsport.com (HTTP 403 x2).
+
+Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-27 09:24 UTC
 
 Discovered 142 recent items, 10 candidate stories above score 0.45.
@@ -679,14 +709,4 @@ By category: ev 3, motorcycles 1
 Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x2).
 
 Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-24 23:07 UTC
-
-Discovered 194 recent items, 10 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
-GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
-Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-Daily limits reached; nothing to do.
 
