@@ -45,11 +45,43 @@ def cluster_items(items: list[dict], threshold: float = 0.6, min_shared: int = 3
     return clusters
 
 
-def is_repeat(cluster: dict, recent_titles: list[str], threshold: float = 0.6) -> bool:
+GENERIC = set("""price prices priced launch launches launched launching unveil unveils unveiled reveal reveals revealed
+sales sale sold india indian global new model models update updated gets get set debut debuts specs features variant
+variants rise hike cut drop jumps grows booking bookings delivery deliveries plan plans electric ev suv car cars bike
+bikes motorcycle scooter rs lakh crore km kwh hp ps units year month october november december january
+announces announced announce invests invest confirms confirmed teases teased spotted spied recall recalls recalled hits
+crosses passes starts begins begin expands opens reports posts registers records adds reveals introduces showcases
+unveiling tested testing""".split())
+# Two-word brand names are not model names on their own.
+BRAND_PAIRS = {("royal", "enfield"), ("maruti", "suzuki"), ("tata", "motors"), ("land", "rover"), ("aston", "martin"),
+               ("rolls", "royce"), ("alfa", "romeo"), ("great", "wall"), ("hero", "motocorp"), ("ashok", "leyland"),
+               ("bharat", "benz"), ("force", "motors"), ("mahindra", "mahindra"), ("hyundai", "motor"), ("kia", "india"),
+               ("jsw", "motors"), ("mg", "motor"), ("ola", "electric"), ("ather", "energy"), ("bajaj", "auto")}
+
+
+def model_bigrams(title: str) -> set[tuple[str, str]]:
+    """Adjacent pairs of distinctive words, e.g. ("innova", "hycross"), ("pulsar", "rs200")."""
+    words = [w for w in re.findall(r"[a-z0-9]+(?:[.-][a-z0-9]+)*", title.lower()) if w not in STOP]
+    out = set()
+    for a, b in zip(words, words[1:]):
+        if a not in GENERIC and b not in GENERIC and not a.isdigit() and not b.isdigit() and (a, b) not in BRAND_PAIRS:
+            out.add((a, b))
+    return out
+
+
+def is_repeat(cluster: dict, recent_titles: list[str], threshold: float = 0.6,
+              same_model_titles: list[str] | None = None) -> bool:
     for t in recent_titles:
         tt = tokens(t)
         if len(tt & cluster["tokens"]) >= 3 and similarity(tt, tokens(cluster["title"])) >= threshold:
             return True
+    # Within the last 48 hours, a second story naming the same model is a repeat
+    # (e.g. three "Toyota Innova Hycross" drafts on one day with different angles and prices).
+    mine = model_bigrams(cluster["title"])
+    if mine:
+        for t in same_model_titles or []:
+            if mine & model_bigrams(t):
+                return True
     return False
 
 

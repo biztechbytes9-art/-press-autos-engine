@@ -6,6 +6,7 @@
 Photos from news sites are never used.
 """
 import io
+import re
 import logging
 import textwrap
 from urllib.parse import urljoin
@@ -202,6 +203,83 @@ def infographic_brief(draft: dict, facts: dict, edition: dict, edition_key: str)
     lines += [f"- {x}" for x in stats + kf]
     lines.append("Do NOT add any other specs, numbers, features, icons, slogans or claims. No question marks or hype words. "
                  "Bottom-right, small text: \"Illustration generated with AI – not an official image\".")
+    return " ".join(lines)
+
+
+# ------------------------------------------------------------------ Wikimedia Commons (free licences)
+COMMONS_API = "https://commons.wikimedia.org/w/api.php"
+OK_LICENCE = re.compile(r"^(cc0|public domain|pd|cc by(-sa)? [0-9.]+)", re.I)
+
+
+def _strip_html(s: str) -> str:
+    return " ".join(re.sub(r"<[^>]+>", " ", s or "").split())
+
+
+def commons_candidates(query: str, user_agent: str, n: int = 2, timeout: int = 25) -> list[dict]:
+    """Photos from Wikimedia Commons whose file name matches every word of the query (e.g. "suzuki access")
+    and whose licence allows commercial use (CC0, public domain, CC BY, CC BY-SA). Returns url + credit."""
+    words = [w for w in re.findall(r"[a-z0-9]+", (query or "").lower()) if len(w) > 1]
+    if len(words) < 2:
+        return []
+    params = {"action": "query", "format": "json", "generator": "search", "gsrnamespace": 6,
+              "gsrsearch": f"{' '.join(words)} filetype:bitmap", "gsrlimit": 20, "prop": "imageinfo",
+              "iiprop": "url|size|extmetadata", "iiurlwidth": 1600}
+    try:
+        r = requests.get(COMMONS_API, params=params, headers={"User-Agent": user_agent}, timeout=timeout)
+        r.raise_for_status()
+        pages = (r.json().get("query") or {}).get("pages") or {}
+    except Exception as exc:  # noqa: BLE001
+        log.info("commons search failed: %s", exc)
+        return []
+    out = []
+    for pg in sorted(pages.values(), key=lambda x: x.get("index", 99)):
+        title = pg.get("title", "")
+        name = title.lower()
+        if not all(w in name for w in words) or re.search(r"logo|badge|emblem|map|diagram|interior|engine bay", name):
+            continue
+        info = (pg.get("imageinfo") or [{}])[0]
+        meta = info.get("extmetadata") or {}
+        lic = _strip_html((meta.get("LicenseShortName") or {}).get("value", ""))
+        if not OK_LICENCE.match(lic) or re.search(r"\b(nc|nd)\b", lic, re.I):
+            continue
+        w, h = int(info.get("width") or 0), int(info.get("height") or 0)
+        if w < 1000 or not h or w < h:  # landscape photos only
+            continue
+        artist = _strip_html((meta.get("Artist") or {}).get("value", "")) or "Unknown author"
+        lic_url = (meta.get("LicenseUrl") or {}).get("value", "")
+        page_url = info.get("descriptionurl", "")
+        credit_text = f"Photo: {artist[:60]}, {lic}, via Wikimedia Commons"
+        lic_html = f'<a href="{lic_url}">{lic}</a>' if lic_url else lic
+        credit_html = f'Photo: <a href="{page_url}">{artist[:60]}</a>, {lic_html}, via Wikimedia Commons'
+        clean = re.sub(r"^File:|\.(jpe?g|png|webp|tiff?)$", "", title, flags=re.I).replace("_", " ")
+        out.append({"url": info.get("thumburl") or info.get("url"), "credit_text": credit_text,
+                    "credit_html": credit_html, "licence": lic, "page": page_url, "name": clean})
+        if len(out) >= n:
+            break
+    return out
+
+
+def featured_kit(title: str, facts: list[str], photo_url: str, photo_credit: str, edition_label: str) -> str:
+    """Review note: how to make the featured image in the Gemini app, using a photo we may use."""
+    site = "press.autos" + (f" {edition_label}" if edition_label else "")
+    facts = [f for f in facts if f][:3]
+    lines = ["Featured image kit (Gemini app):"]
+    if photo_url:
+        lines.append(f"1) Download this reference photo: {photo_url} ({photo_credit}).")
+        lines.append("2) In Gemini, attach it and paste:")
+    else:
+        lines.append("No licensed reference photo found yet; check the maker's press page. In Gemini, paste:")
+    prompt = (f"\"Create a 16:9 (1920x1080) news image for {site}. Use the attached photo of the vehicle as the main "
+              f"subject without changing its design, colours or badges. Add the headline '{title}' in clean bold white "
+              f"text on a dark gradient at the bottom, and a small '{site}' wordmark top-left.")
+    if facts:
+        prompt += " Optionally add up to three short labels, using only these facts: " + "; ".join(facts) + "."
+    prompt += " No other text, specs, icons or slogans.\""
+    lines.append(prompt)
+    lines.append("3) Upload the result as the featured image with the caption "
+                 + (f"\"Based on: {photo_credit}\"" if photo_url else "\"Illustration generated with AI\"") + ".")
+    if "CC BY-SA" in (photo_credit or ""):
+        lines.append("(This photo is CC BY-SA: an image based on it must also be credited and shared under CC BY-SA.)")
     return " ".join(lines)
 
 

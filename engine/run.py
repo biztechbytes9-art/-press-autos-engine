@@ -7,6 +7,7 @@ Usage:
 import argparse
 import logging
 import os
+import re
 from collections import Counter
 
 from . import blocks, checks, cluster, extract, images, sources, writer
@@ -95,10 +96,11 @@ def choose(cfg: dict, store: Store, items: list[dict]) -> list[dict]:
     clusters = cluster.cluster_items(items)
     done = store.drafted_keys()
     recent_titles = store.recent_draft_titles()
+    same_model = store.recent_draft_titles(days=2)
     eds = enabled_editions(cfg)
     fresh, local = [], {}
     for c in clusters:
-        if c["key"] in done or cluster.is_repeat(c, recent_titles):
+        if c["key"] in done or cluster.is_repeat(c, recent_titles, same_model_titles=same_model):
             continue
         c["score"] = cluster.score_cluster(c, cfg)
         ed = next((it.get("edition") for it in c["items"] if it.get("edition") in eds), None)
@@ -265,7 +267,13 @@ def attach_images(cfg: dict, wp: WordPress, srcs: list[dict], facts: dict, draft
         pick = images.choose_images(cfg, srcs, facts, draft, edition, ed_key, notes)
         feat = pick.get("featured")
         if not feat:
-            return html, None, notes + ["Add a featured image: the maker's official press/media site or your own photo."]
+            notes.append("No featured image yet: the assistant keeps looking for an official press photo every hour. "
+                         "Or add one yourself from the maker's press/media page (caption it \"Image: <maker>\").")
+            if (cfg.get("images") or {}).get("infographic_brief", True):
+                brief = images.infographic_brief(draft, facts, edition, ed_key)
+                if brief:
+                    notes.append(brief)
+            return html, None, notes
         data, mime, name, alt, caption, kind = feat
         media = upload_media(wp, data, mime, name, alt, caption)
         if kind == "official":
@@ -418,6 +426,9 @@ def main() -> None:
                                   "Stories for it are kept and retried next run.")
                     continue
                 draft, notes = write_story(ai, cfg, facts, srcs, eds[ed_key])
+                if ed_key != "global":
+                    # Country editions never carry the country in brackets ("... (India)"): the model sometimes adds it anyway.
+                    draft["title"] = re.sub(r"\s*\((?:[A-Z]{2}|[A-Z][a-z]+(?: [A-Z][a-z]+)?)\)\s*$", "", draft["title"]).strip()
                 html = blocks.key_facts(draft.get("key_facts") or []) + blocks.to_blocks(draft["body_markdown"])
                 html, media_id, img_notes = attach_images(cfg, wp, srcs, facts, draft, eds[ed_key], ed_key, html)
                 notes += img_notes
