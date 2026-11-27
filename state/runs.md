@@ -1,4 +1,14 @@
 <!-- run -->
+# Run 2026-11-27 13:27 UTC
+
+Discovered 163 recent items, 17 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
+Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+Daily limits reached; nothing to do.
+
+<!-- run -->
 # Run 2026-11-27 11:06 UTC
 
 Discovered 144 recent items, 11 candidate stories above score 0.45.
@@ -679,34 +689,6 @@ By category: ev 2, trends 1, motorcycles 1
 - skipped (no readable source): Luxury carmakers charged up for electric push
 
 Source pages that couldn't be read: auto.economictimes.indiatimes.com (too little text (paywall or bot check?) x1), gaadiwaadi.com (too little text (paywall or bot check?) x1).
-
-Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-25 01:34 UTC
-
-Discovered 186 recent items, 5 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
-GDELT: 7 items (1 searches ok, 4 failed, 2 skipped: time limit).
-Room left today: press.autos 10, press.autos India 6. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.62 | ev | global | press.autos (main) | BYD launches the new Tang EV, a luxury 5-seat SUV with two +30″ screens for under $30,000 |
-| 0.50 | motorcycles | IN | press.autos India | TVS Jupiter Fastest To Reach 1 Crore Production Milestone – New Record |
-| 0.58 | ev | US | press.autos (main) | Cadillac’s luxury 3-row EV just got more expensive, now starting at over $80,000 |
-| 0.47 | ev | IN | press.autos India | JSW Motors Signs MoU With ARAI For New Energy Vehicle Development |
-
-By site: press.autos (main) 2, press.autos India 2
-By category: ev 3, motorcycles 1
-- drafted for **press.autos**: BYD Tang price and specs revealed as third‑generation SUV launches in China (WordPress ID 3799, 2 review notes)
-- failed: TVS Jupiter Fastest To Reach 1 Crore Production Milestone – New Record: Unterminated string starting at: line 23 column 1 (char 4997)
-- drafted for **press.autos India**: JSW Motors signs MoU with ARAI ahead of Combat SUV launch (WordPress ID 1095, 2 review notes)
-
-Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x2).
 
 Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
 
