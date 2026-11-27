@@ -901,3 +901,57 @@ def test_same_model_story_updates_model_page(monkeypatch, tmp_path):
     assert sent[0]["model"] == "Toyota Innova Hycross" and sent[0]["facts"][0]["value"] == "Rs 19.59 lakh"
     assert "k1" in st.drafted_keys()
     assert r.model_key("Toyota Innova Hycross") == "toyota-innova-hycross"
+
+
+def test_guides_flow(monkeypatch, tmp_path):
+    import engine.guides as g
+    from engine.store import Store
+    cfg = g.load_config()
+    st = Store(tmp_path / "e.db")
+    g.ensure_table(st)
+    topics = cfg["guides"]["IN"]
+    assert g.next_topic(st, "IN", topics)["topic"].startswith("FASTag")
+    st.db.execute("INSERT INTO guides VALUES (?, ?, ?, ?)", ("IN", g.topic_id(topics[0]), "x", 1))
+    assert g.next_topic(st, "IN", topics)["topic"].startswith("BH series")
+
+    pages = {"https://ihmcl.co.in/wp-content/uploads/2025/08/FAQ-Annual-Pass_12.08.25.pdf":
+             {"url": "https://ihmcl.co.in/x.pdf", "text": "The Annual Pass costs Rs 3,000 for 200 trips or one year. " * 30}}
+    monkeypatch.setattr(g.extract, "fetch_article", lambda url, ua: pages.get(url))
+    monkeypatch.setattr(g.extract, "wikipedia_text", lambda t, ua: {"url": "https://en.wikipedia.org/wiki/FASTag", "text": "FASTag background. " * 50})
+    srcs = g.collect_sources(cfg, topics[0])
+    assert len(srcs) == 2 and any("ihmcl" in s["url"] for s in srcs)
+
+    # full run on fakes: one guide drafted for India, then the topic is marked done
+    monkeypatch.setattr(g, "Store", lambda path: st)
+    monkeypatch.setattr(g, "ROOT", tmp_path)
+    monkeypatch.setattr(g, "load_secrets", lambda require=True: type("S", (), {"wp_url": "https://press.autos", "wp_user": "p", "wp_app_password": "x"})())
+    monkeypatch.setattr(g, "enabled_editions", lambda cfg: {"IN": {"name": "press.autos India", "style": "India style."}})
+    monkeypatch.setattr(g, "build_facts", lambda ai, cfg, c, s: {"headline_fact": "x", "facts": [], "category": "trends"})
+    seen = {}
+
+    def fake_write(ai, cfg, facts, srcs, ed):
+        seen["style"] = ed["style"]
+        return {"title": "BH series registration: eligibility, road tax and how to apply", "body_markdown": "Text.", "key_facts": []}, []
+    monkeypatch.setattr(g, "write_story", fake_write)
+    posted = []
+
+    class WP:
+        def __init__(self, *a): self.base = a[0]
+        def check(self): return {"id": 3}
+        def create_post(self, payload):
+            posted.append((self.base, payload))
+            return {"id": 77}
+    monkeypatch.setattr(g, "WordPress", WP)
+    monkeypatch.setattr(g, "build_payload", lambda *a, **k: ({"meta": {}, "title": a[1]["title"]}, []))
+    monkeypatch.setattr(g, "summary", lambda text: seen.setdefault("report", text))
+    monkeypatch.setattr(g, "Router", lambda *a, **k: object())
+    monkeypatch.setattr(sys, "argv", ["engine.guides"])
+    pages["https://pib.gov.in/PressReleasePage.aspx?PRID=1883738"] = {"url": "https://pib.gov.in/x", "text": "BH series rules. " * 120}
+    st.db.execute("DELETE FROM guides")
+    st.db.execute("INSERT INTO guides VALUES (?, ?, ?, ?)", ("IN", g.topic_id(topics[0]), "x", 1))  # FASTag done
+    g.main = g.main  # noqa
+    st.close = lambda: None
+    g.main()
+    assert posted and "india.press.autos" in posted[0][0] and posted[0][1]["meta"]["pa_edition"] == "IN"
+    assert "EVERGREEN GUIDE" in seen["style"] and "drafted guide" in seen["report"]
+    assert g.next_topic(st, "IN", topics)["topic"].startswith("PM E-DRIVE")
