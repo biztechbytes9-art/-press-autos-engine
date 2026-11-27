@@ -1,4 +1,34 @@
 <!-- run -->
+# Run 2026-11-27 01:35 UTC
+
+Discovered 170 recent items, 7 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
+Room left today: press.autos 10, press.autos India 6. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.57 | motorcycles | IN | press.autos India | BMW M 1000 RR India Launch Price Rs 59.90 Lakh – 218 Hp, 300 kmph |
+| 0.51 | ev | global | press.autos (main) | Suzuki Ignis EV Revealed With 310 Km Range, 91 HP Motor |
+| 0.51 | ev | IN | press.autos India | All-New Mahindra BE 07 Electric SUV Arriving Next Year – Key Info |
+| 0.49 | ev | IN | press.autos India | VinFast VF5 Facelift Spied Again Ahead Of India Launch – Interiors Revealed |
+| 0.45 | motorcycles | IN | press.autos India | Bajaj Pulsar 125 Old Model Updated For 2027 – Neon Edition Launched |
+| 0.44 | suvs | IN | press.autos India | JSW Jaecoo J5 Hybrid SUV Spied Undisguised – Debut With Combat On Dec 3? |
+
+By site: press.autos India 5, press.autos (main) 1
+By category: ev 3, motorcycles 2, suvs 1
+- drafted for **press.autos India**: BMW M 1000 RR price announced at Rs 59.90 lakh in India (WordPress ID 1199, 3 review notes)
+- drafted for **press.autos**: Suzuki Ignis EV unveiled with 310 km range and 91 hp motor (WordPress ID 3910, 3 review notes)
+- drafted for **press.autos India**: Mahindra BE 07 electric SUV to launch in India by June 2027 (India) (WordPress ID 1201, 3 review notes)
+
+Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1).
+
+Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-26 23:08 UTC
 
 Discovered 183 recent items, 12 candidate stories above score 0.45.
@@ -592,43 +622,4 @@ By category: ev 4, motorsport 2, motorcycles 2, trends 2
 Source pages that couldn't be read: motorsport.com (HTTP 403 x1).
 
 Drafted this run: 1. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-24 13:28 UTC
-
-Discovered 177 recent items, 18 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
-GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
-Room left today: press.autos 1, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.62 | ev | global | press.autos (main) | Lucid Gravity Robotaxis Just Took A Major Step Toward Commercial Launch |
-| 0.54 | trends | IN | press.autos India | December 2026 Brings 0.5 Percent Price Increase for Tata Cars |
-| 0.62 | commercial | US | press.autos (main) | Chrysler Recalls 82,843 Ram 1500 Trucks Over Brake Software Bug That Could Disable Safety Features |
-| 0.54 | motorcycles | IN | press.autos India | TVS Jupiter Gets Past A Monumental One Crore Production Milestone In India |
-| 0.61 | ev | global | press.autos (main) | Zero Just Made Its Electric Dirt Bike Street-Legal And That Changes Almost Everything |
-| 0.53 | ev | IN | press.autos India | JSW Motors Signs MoU With ARAI For New Energy Vehicle Development |
-| 0.56 | motorsport | global | press.autos (main) | Slater to replace Camara for rest of F2 season as Tsolov becomes title favourite |
-| 0.51 | trends | IN | press.autos India | Audi India Price Update, Cars to Cost More From January 1, 2027 |
-| 0.55 | suvs | US | press.autos (main) | The 2027 Cadillac Vistiq Gets A Price Bump And More Options |
-| 0.49 | reviews | IN | press.autos India | Honda CB500 Retro Roadster – All Key Specs & Features Revealed |
-| 0.48 | motorsport | global | press.autos (main) | Yamaha Is Putting Its R9 Sportbikes On A Racetrack. Who Will Win Will Come Down To Skill |
-| 0.48 | ev | IN | press.autos India | Royal Enfield Flying Flea Further Expands Its Presence, Lands In Goa |
-
-By site: press.autos (main) 6, press.autos India 6
-By category: ev 4, trends 2, motorsport 2, commercial 1, motorcycles 1, suvs 1, reviews 1
-- skipped (no readable source): Lucid Gravity Robotaxis Just Took A Major Step Toward Commercial Launch
-- skipped (no readable source): Chrysler Recalls 82,843 Ram 1500 Trucks Over Brake Software Bug That Could Disable Safety Features
-- skipped (no readable source): Zero Just Made Its Electric Dirt Bike Street-Legal And That Changes Almost Everything
-- skipped (no readable source): Slater to replace Camara for rest of F2 season as Tsolov becomes title favourite
-- skipped (no readable source): The 2027 Cadillac Vistiq Gets A Price Bump And More Options
-- skipped (no readable source): Yamaha Is Putting Its R9 Sportbikes On A Racetrack. Who Will Win Will Come Down To Skill
-
-Source pages that couldn't be read: autosport.com (HTTP 403 x1), insideevs.com (HTTP 403 x2), motor1.com (HTTP 403 x1), motorsport.com (HTTP 403 x1), rideapart.com (HTTP 403 x2).
-
-Drafted this run: 0. Paid AI spend today: $0.00 (free models cost $0).
 
