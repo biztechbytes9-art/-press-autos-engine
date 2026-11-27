@@ -1,4 +1,14 @@
 <!-- run -->
+# Run 2026-11-27 17:19 UTC
+
+Discovered 182 recent items, 13 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
+Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+Daily limits reached; nothing to do.
+
+<!-- run -->
 # Run 2026-11-27 15:07 UTC
 
 Discovered 160 recent items, 14 candidate stories above score 0.45.
@@ -646,32 +656,6 @@ By category: suvs 2, ev 1, tech 1, trends 1, motorcycles 1
 - skipped (no readable source): Porsche Launches New Dashcam With Interior Recording And Radar Detection
 
 Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1), motor1.com (HTTP 403 x2).
-
-Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-25 05:24 UTC
-
-Discovered 152 recent items, 4 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
-GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
-Room left today: press.autos 8, press.autos India 4. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.55 | suvs | IN | press.autos India | Next Gen Rexton SUV Teased With Jeep & Range Rover Design Cues |
-| 0.52 | suvs | IN | press.autos India | New Hyundai Creta N Line Spied Testing For The First Time – Details |
-| 0.48 | motorcycles | IN | press.autos India | Suzuki Access Rejigged – 1 Variant, 1 Colour Discontinued; 1 New Colour |
-
-By site: press.autos India 3
-By category: suvs 2, motorcycles 1
-- drafted for **press.autos**: Mahindra Rexton Plug-in Hybrid to debut in South Korea in January 2027 (South Korea) (WordPress ID 3874, 3 review notes)
-- drafted for **press.autos**: Hyundai Creta N Line spotted in Korea for 2027 model cycle (WordPress ID 3876, 3 review notes)
-
-Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1).
 
 Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
 
