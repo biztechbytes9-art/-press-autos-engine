@@ -1,4 +1,14 @@
 <!-- run -->
+# Run 2026-11-27 23:07 UTC
+
+Discovered 186 recent items, 14 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 2 items (1 searches ok, 3 failed, 3 skipped: time limit).
+Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+Daily limits reached; nothing to do.
+
+<!-- run -->
 # Run 2026-11-27 21:07 UTC
 
 Discovered 194 recent items, 17 candidate stories above score 0.45.
@@ -778,36 +788,4 @@ GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
 Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
 AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
 Daily limits reached; nothing to do.
-
-<!-- run -->
-# Run 2026-11-25 13:36 UTC
-
-Discovered 151 recent items, 13 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
-Room left today: press.autos 2, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.71 | commercial | US | press.autos (main) | The 2027 Toyota Tacoma: Legendary Off-Road Prowess Enhanced by Streamlined Technology |
-| 0.68 | ev | IN | press.autos India | Suzuki Ignis Returns As Small Electric Car – 26 kWh, 90 hp, 3.6m, 1080 Kg |
-| 0.68 | suvs | global | press.autos (main) | All-New Hyundai Tucson Is Bigger, Bolder, And More Rugged With XRT Pro |
-| 0.66 | suvs | IN | press.autos India | 2026 Toyota Innova Hycross Facelift Launched At Rs. 19.59 Lakh |
-| 0.64 | motorsport | global | press.autos (main) | Zak Brown rules out McLaren engine programme for F1 2030 |
-| 0.53 | trends | IN | press.autos India | Maruti Suzuki Increases Car Prices For The 4th Time Due To Rising Costs |
-| 0.58 | ev | global | press.autos (main) | Winter Weather Hits EV Range Hard. One Automaker Handles It Better Than Tesla |
-| 0.53 | ev | MY | press.autos (main) | Xpeng G9L, L03, L05 launching in Malaysia 2027 – NGP autonomous driving rollout planned for Q4 2027 |
-
-By site: press.autos (main) 5, press.autos India 3
-By category: ev 3, suvs 2, commercial 1, motorsport 1, trends 1
-- drafted for **press.autos**: 2027 Toyota Tacoma unveiled with i-FORCE MAX hybrid and new tech packages (WordPress ID 3886, 3 review notes)
-- skipped (no readable source): All-New Hyundai Tucson Is Bigger, Bolder, And More Rugged With XRT Pro
-- drafted for **press.autos**: McLaren engine programme 2030 ruled out by Zak Brown (WordPress ID 3888, 4 review notes)
-
-Source pages that couldn't be read: motor1.com (HTTP 403 x1), motorsport.com (HTTP 403 x1), pressroom.toyota.com (too little text (paywall or bot check?) x1).
-
-Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
 
