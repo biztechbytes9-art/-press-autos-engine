@@ -31,6 +31,34 @@ images:
   commons_photos: true    # the assistant adds 1-2 Wikimedia Commons photos (free licences, credited) to drafts without photos
   infographic_brief: true # when no official photo is found, add a ready-to-paste Gemini prompt (verified facts only) to the notes
 
+# Weekly evergreen guides (python -m engine.guides). Each topic needs official sources the engine can read;
+# Wikipedia is background only. Add new topics at the end; each is written once per edition.
+guides:
+  IN:
+    - topic: "FASTag Annual Pass: price, validity, where it works and how to buy it"
+      category: trends
+      sources:
+        - "https://ihmcl.co.in/wp-content/uploads/2025/08/FAQ-Annual-Pass_12.08.25.pdf"
+        - "https://nhai.gov.in/nhai/sites/default/files/mix_file/FAQ_20_jun_25_Hindi.pdf"
+      wikipedia: ["FASTag"]
+    - topic: "BH series registration: eligibility, road tax and how to apply"
+      category: trends
+      sources:
+        - "https://pib.gov.in/PressReleasePage.aspx?PRID=1883738"
+        - "https://morth.gov.in/sites/default/files/comprehensive_compendium_circular/44-Advisory%20to%20TC%20and%20Principal%20Secretaries%20dt.%2018.03.2024%20reg%20BH%20Series%20implementation.pdf"
+      wikipedia: ["Vehicle registration plates of India"]
+    - topic: "PM E-DRIVE subsidy for electric two-wheelers: how much you get and until when"
+      category: ev
+      sources:
+        - "https://heavyindustries.gov.in/sites/default/files/2026-02/lsauq_1680.pdf"
+        - "https://www.autocarpro.in/news/govt-extends-pm-e-drive-subsidy-for-e2ws-till-fy28-increases-allocation-134036"
+    - topic: "Transferring car or bike ownership in India: Form 29, Form 30 and the online process"
+      category: used-cars
+      sources:
+        - "https://transport.py.gov.in/node/135"
+        - "https://www.autocarindia.com/auto-features/how-to-transfer-rc-from-one-state-to-another-process-documents-fees-explained-441168"
+      wikipedia: ["Vehicle registration plates of India"]
+
 # Official launch videos (needs the free YOUTUBE_API_KEY secret; skipped without it)
 youtube:
   enabled: true
