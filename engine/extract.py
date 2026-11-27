@@ -65,7 +65,14 @@ def fetch_article(url: str, user_agent: str, timeout: int = 25) -> dict | None:
         if r.status_code >= 400:
             _fail(url, f"HTTP {r.status_code}")
             return None
-        if "html" not in r.headers.get("Content-Type", "html"):
+        ctype = r.headers.get("Content-Type", "html").lower()
+        if "pdf" in ctype or url.lower().split("?")[0].endswith(".pdf"):
+            text = pdf_text(r.content)
+            if len(text) < 400:
+                _fail(url, "unreadable PDF")
+                return None
+            return {"url": url, "title": url.rsplit("/", 1)[-1], "text": text[:20000], "image": "", "images": [], "site_name": ""}
+        if "html" not in ctype:
             _fail(url, "not a web page")
             return None
         data = extract_text(r.text)
@@ -79,3 +86,36 @@ def fetch_article(url: str, user_agent: str, timeout: int = 25) -> dict | None:
         return None
     data["url"] = url
     return data
+
+
+def pdf_text(data: bytes) -> str:
+    """Text of a PDF (official notifications and FAQs are often PDFs)."""
+    try:
+        import io
+        from pypdf import PdfReader
+        reader = PdfReader(io.BytesIO(data))
+        parts = [(pg.extract_text() or "") for pg in reader.pages[:25]]
+        return " ".join(" ".join(parts).split())
+    except Exception as exc:  # noqa: BLE001
+        log.info("pdf read failed: %s", exc)
+        return ""
+
+
+def wikipedia_text(title: str, user_agent: str, lang: str = "en", timeout: int = 20) -> dict | None:
+    """Plain text of a Wikipedia article (useful background; never the only source for rules or prices)."""
+    try:
+        r = requests.get(f"https://{lang}.wikipedia.org/w/api.php", timeout=timeout, headers={"User-Agent": user_agent},
+                         params={"action": "query", "format": "json", "prop": "extracts", "explaintext": 1,
+                                 "redirects": 1, "titles": title})
+        r.raise_for_status()
+        pages = (r.json().get("query") or {}).get("pages") or {}
+        page = next(iter(pages.values()), {})
+        text = page.get("extract") or ""
+        if len(text) < 400:
+            return None
+        url = f"https://{lang}.wikipedia.org/wiki/" + page.get("title", title).replace(" ", "_")
+        return {"url": url, "title": page.get("title", title) + " (Wikipedia)", "text": text[:20000], "image": "",
+                "images": [], "site_name": "Wikipedia"}
+    except Exception as exc:  # noqa: BLE001
+        log.info("wikipedia failed for %s: %s", title, exc)
+        return None
