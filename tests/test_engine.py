@@ -876,3 +876,28 @@ def test_official_video_filter(monkeypatch):
     assert v["id"] == "a2" and v["channel"] == "Toyota India"
     assert video.find_official_video("Toyota", "toyota innova hycross", {}, env={}) is None
     assert "wp-block-embed-youtube" in video.embed_block(v) and "Video: Toyota India" in video.embed_block(v)
+
+
+def test_same_model_story_updates_model_page(monkeypatch, tmp_path):
+    import engine.run as r
+    from engine.store import Store
+    st = Store(tmp_path / "e.db")
+    sent = []
+
+    class WP:
+        def has_hubs(self): return True
+        def hub_update(self, data):
+            sent.append(data)
+            return {"created": False, "queued": 2}
+    facts = {"model": "Toyota Innova Hycross", "headline_fact": "Innova Hycross facelift launched from Rs 19.59 lakh",
+             "facts": [{"fact": "Starting price", "value": "Rs 19.59 lakh", "source": "https://toyota/x"}],
+             "primary_source": "https://toyota/x", "country": "IN", "is_confirmed": True, "brands": ["Toyota"]}
+    monkeypatch.setattr(r, "gather_sources", lambda cfg, c: [{"url": "https://toyota/x", "text": "x" * 500}])
+    monkeypatch.setattr(r, "build_facts", lambda ai, cfg, c, s: facts)
+    cfg = r.load_config()
+    c = {"key": "k1", "title": "Toyota Innova Hycross facelift launches in India", "hub_only": True}
+    line = r.queue_hub_update(cfg, None, st, c, lambda ed: WP(), r.enabled_editions(cfg), set())
+    assert "model page update queued for **Toyota Innova Hycross**" in line
+    assert sent[0]["model"] == "Toyota Innova Hycross" and sent[0]["facts"][0]["value"] == "Rs 19.59 lakh"
+    assert "k1" in st.drafted_keys()
+    assert r.model_key("Toyota Innova Hycross") == "toyota-innova-hycross"
