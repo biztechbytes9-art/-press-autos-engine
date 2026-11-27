@@ -1,4 +1,31 @@
 <!-- run -->
+# Run 2026-11-27 05:24 UTC
+
+Discovered 151 recent items, 9 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
+Room left today: press.autos 7, press.autos India 3. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.64 | ev | global | press.autos (main) | Suzuki Ignis returns as brand’s 1st compact EV for global markets – related to e Sky but larger and more powerful |
+| 0.57 | suvs | IN | press.autos India | Upcoming Nissan Terrano SUV First Photos Leak Before Launch |
+| 0.61 | motorcycles | global | press.autos (main) | Triumph Street Triple 798 Moto2 Edition revealed – limited to 1,000 units worldwide, priced from RM88,500 |
+| 0.47 | suvs | IN | press.autos India | JSW Jaecoo J5 Hybrid SUV Spied Undisguised – Debut With Combat On Dec 3? |
+| 0.59 | reviews | MY | press.autos (main) | Proton S70 RS launch, price reveal on Dec 1 at Sepang |
+| 0.52 | suvs | CN | press.autos (main) | New Honda Accord Gets A Radical Fascia For China – Gets Hybrid Engine |
+
+By site: press.autos (main) 4, press.autos India 2
+By category: suvs 3, ev 1, motorcycles 1, reviews 1
+- drafted for **press.autos**: Suzuki Ignis EV to debut in Europe and select markets from summer 2027 (WordPress ID 3916, 3 review notes)
+- drafted for **press.autos**: Nissan Terrano dimensions and powertrain details confirmed (WordPress ID 3918, 3 review notes)
+
+Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-27 03:11 UTC
 
 Discovered 160 recent items, 6 candidate stories above score 0.45.
@@ -607,16 +634,6 @@ Daily limits reached; nothing to do.
 Discovered 198 recent items, 16 candidate stories above score 0.45.
 Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
 GDELT: 2 items (1 searches ok, 4 failed, 2 skipped: time limit).
-Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-Daily limits reached; nothing to do.
-
-<!-- run -->
-# Run 2026-11-24 17:13 UTC
-
-Discovered 195 recent items, 17 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
-GDELT: 4 items (1 searches ok, 2 failed, 4 skipped: time limit).
 Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
 AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
 Daily limits reached; nothing to do.
