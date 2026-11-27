@@ -1,4 +1,13 @@
 <!-- run -->
+# Assistant 2026-11-27 21:40 UTC
+
+**press.autos**: 4 pending engine drafts
+**press.autos India**: 1 pending engine drafts
+- FASTag Annual Pass: eligibility, cost and how to activate: SEO 67/100
+
+Drafts checked this run: 1.
+
+<!-- run -->
 # Assistant 2026-11-27 20:41 UTC
 
 **press.autos**: 4 pending engine drafts
