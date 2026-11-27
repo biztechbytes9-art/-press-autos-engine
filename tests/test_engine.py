@@ -943,7 +943,7 @@ def test_guides_flow(monkeypatch, tmp_path):
             return {"id": 77}
     monkeypatch.setattr(g, "WordPress", WP)
     monkeypatch.setattr(g, "build_payload", lambda *a, **k: ({"meta": {}, "title": a[1]["title"]}, []))
-    monkeypatch.setattr(g, "summary", lambda text: seen.setdefault("report", text))
+    monkeypatch.setattr(g, "summary", lambda lines: seen.setdefault("report", "\n".join(lines)))
     monkeypatch.setattr(g, "Router", lambda *a, **k: object())
     monkeypatch.setattr(sys, "argv", ["engine.guides"])
     pages["https://pib.gov.in/PressReleasePage.aspx?PRID=1883738"] = {"url": "https://pib.gov.in/x", "text": "BH series rules. " * 120}
