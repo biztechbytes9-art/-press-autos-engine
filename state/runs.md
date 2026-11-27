@@ -1,4 +1,34 @@
 <!-- run -->
+# Run 2026-11-27 03:11 UTC
+
+Discovered 160 recent items, 6 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 3 items (1 searches ok, 2 failed, 4 skipped: time limit).
+Sources not working: RushLane (failed (415)).
+Room left today: press.autos 9, press.autos India 4. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.69 | ev | global | press.autos (main) | Xpeng to launch 5 models in 2027: L05 in ASEAN Dec 2026, 1 MW X-Energy DCFC to rival BYD Flash Charging |
+| 0.68 | ev | IN | press.autos India | New Hyundai Compact EV Launch Nears – Range, Features & Expected Price |
+| 0.64 | motorcycles | global | press.autos (main) | Triumph Street Triple 798 Moto2 Edition revealed – limited to 1,000 units worldwide, priced from RM88,500 |
+| 0.62 | reviews | MY | press.autos (main) | Proton S70 RS launch, price reveal on Dec 1 at Sepang |
+| 0.56 | ev | CN | press.autos (main) | The Hyundai Mercury Is The Brand's Next China-Only EV |
+
+By site: press.autos (main) 4, press.autos India 1
+By category: ev 3, motorcycles 1, reviews 1
+- drafted for **press.autos**: Xpeng to launch five new EV models and 1 MW charging network in 2027 (WordPress ID 3912, 2 review notes)
+- drafted for **press.autos India**: Hyundai to launch compact electric SUV in India at Rs 10 lakh (India) (WordPress ID 1203, 3 review notes)
+- drafted for **press.autos**: Hyundai Mercury Concept unveiled in China, Ioniq M slated for 2025 (WordPress ID 3914, 3 review notes)
+
+Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1).
+
+Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-27 01:35 UTC
 
 Discovered 170 recent items, 7 candidate stories above score 0.45.
@@ -590,36 +620,4 @@ GDELT: 4 items (1 searches ok, 2 failed, 4 skipped: time limit).
 Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
 AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
 Daily limits reached; nothing to do.
-
-<!-- run -->
-# Run 2026-11-24 15:14 UTC
-
-Discovered 205 recent items, 13 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
-GDELT: 24 items (2 searches ok, 2 failed, 3 skipped: time limit).
-Room left today: press.autos 1, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.58 | motorsport | global | press.autos (main) | Maverick Vinales ruled out of Valencia GP, can’t bid farewell to MotoGP |
-| 0.57 | ev | IN | press.autos India | JSW Motors Signs MoU With ARAI For New Energy Vehicle Development |
-| 0.57 | ev | global | press.autos (main) | This Electric Motorcycle Company Is Worth Over $1 Billion. It's Just Getting Started |
-| 0.54 | motorcycles | IN | press.autos India | TVS Jupiter Fastest To Reach 1 Crore Production Milestone – New Record |
-| 0.54 | motorsport | GB | press.autos (main) | Richards set to step down as Motorsport UK chairman |
-| 0.53 | motorcycles | IN | press.autos India | Honda CB500 Retro Roadster – All Key Specs & Features Revealed |
-| 0.52 | ev | IN | press.autos India | Honda Alpha Midsize e-SUV To Debut Next Week – What We Know So Far |
-| 0.47 | trends | IN | press.autos India | December 2026 Brings 0.5 Percent Price Increase for Tata Cars |
-| 0.46 | ev | IN | press.autos India | Royal Enfield Flying Flea Further Expands Its Presence, Lands In Goa |
-| 0.44 | trends | IN | press.autos India | Audi India Price Update, Cars to Cost More From January 1, 2027 |
-
-By site: press.autos India 7, press.autos (main) 3
-By category: ev 4, motorsport 2, motorcycles 2, trends 2
-- drafted for **press.autos**: Maverick Vinales misses Valencia MotoGP finale due to shoulder injury (WordPress ID 3797, 2 review notes)
-
-Source pages that couldn't be read: motorsport.com (HTTP 403 x1).
-
-Drafted this run: 1. Paid AI spend today: $0.00 (free models cost $0).
 
