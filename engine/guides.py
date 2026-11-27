@@ -81,6 +81,8 @@ def main() -> None:
         month = datetime.now(timezone.utc).strftime("%B %Y")
         for ed_key, ed in enabled_editions(cfg).items():
             topics = ((cfg.get("guides") or {}).get(ed_key)) or []
+            if not topics:
+                continue  # no guide topics configured for this edition
             for _ in range(args.topics):
                 t = next_topic(store, ed_key, topics)
                 if not t:
@@ -126,7 +128,7 @@ def main() -> None:
     finally:
         store.commit()
         store.close()
-        summary("\n".join(report))
+        summary(report)
 
 
 def store_now() -> str:
