@@ -1,4 +1,39 @@
 <!-- run -->
+# Run 2026-11-27 07:37 UTC
+
+Discovered 145 recent items, 12 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 5 items (1 searches ok, 2 failed, 4 skipped: time limit).
+Sources not working: RushLane (failed (415)).
+Room left today: press.autos 5, press.autos India 3. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.76 | motorsport | global | press.autos (main) | Ford GT41 revealed – Le Mans racer to compete in FIA World Endurance Championship Hypercar class fr 2027 |
+| 0.63 | trends | IN | press.autos India | 2026 Festive Sales: Car Volumes Decline 7.16% To 7.48 Lakh Units |
+| 0.64 | motorcycles | global | press.autos (main) | Triumph Street Triple 798 Moto2 Edition revealed – limited to 1,000 units worldwide, priced from RM88,500 |
+| 0.58 | ev | IN | press.autos India | JSW Motors Inches Closer To Solo Debut With Combat PHEV – Key Details |
+| 0.61 | ev | global | press.autos (main) | VW's Smallest Electric SUV Gains R-Line Version With GTI-Matching Power |
+| 0.55 | suvs | IN | press.autos India | Toyota Just Updated Its $21k Three-Row SUV-Minivan Mashup In India |
+| 0.58 | tech | global | press.autos (main) | BMW Expands Over-the-Air Updates To 16 Million Vehicles Across 88 Countries |
+| 0.57 | motorsport | global | press.autos (main) | 2026 MotoGP Valencia Grand Prix – How to watch, session times & more |
+| 0.57 | suvs | MY | press.autos (main) | Proton S70 RS launch, price reveal on Dec 1 at Sepang |
+| 0.57 | suvs | global | press.autos (main) | Second-gen Mazda CX-3 spotted testing in Japan ahead of 2027 debut – new B-SUV to be built in Thailand |
+
+By site: press.autos (main) 7, press.autos India 3
+By category: suvs 3, motorsport 2, ev 2, trends 1, motorcycles 1, tech 1
+- drafted for **press.autos**: Ford GT41 Hypercar unveiled for 2027 FIA WEC season (WordPress ID 4077, 3 review notes)
+- drafted for **press.autos India**: India festive season car sales drop 7.16% to 748,616 units (WordPress ID 1260, 5 review notes)
+- drafted for **press.autos**: Volkswagen ID. Cross R-Line adds GTI‑matching 223 hp power (WordPress ID 4079, 2 review notes)
+
+Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1), motor1.com (HTTP 403 x1).
+
+Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-27 05:24 UTC
 
 Discovered 151 recent items, 9 candidate stories above score 0.45.
@@ -624,16 +659,6 @@ Daily limits reached; nothing to do.
 Discovered 200 recent items, 15 candidate stories above score 0.45.
 Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
 GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
-Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-Daily limits reached; nothing to do.
-
-<!-- run -->
-# Run 2026-11-24 19:10 UTC
-
-Discovered 198 recent items, 16 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 8.
-GDELT: 2 items (1 searches ok, 4 failed, 2 skipped: time limit).
 Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
 AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
 Daily limits reached; nothing to do.
