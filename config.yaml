@@ -30,6 +30,12 @@ images:
   commons_photos: true    # the assistant adds 1-2 Wikimedia Commons photos (free licences, credited) to drafts without photos
   infographic_brief: true # when no official photo is found, add a ready-to-paste Gemini prompt (verified facts only) to the notes
 
+# Official launch videos (needs the free YOUTUBE_API_KEY secret; skipped without it)
+youtube:
+  enabled: true
+  max_age_days: 60
+  min_subscribers: 50000
+
 # Makers' press-release pages (photos there are published for the media). If a page can't be read,
 # the review notes say so; replace the URL with the right page from that maker's website.
 press_rooms:
