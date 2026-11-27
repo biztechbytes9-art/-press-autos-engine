@@ -836,7 +836,7 @@ def test_featured_kit_note():
     from engine import images, assistant
     kit = images.featured_kit("Suzuki Access gets new colours", ["Two new colours", "Prices unchanged"],
                               "https://commons.wikimedia.org/wiki/File:x.jpg", "Photo: Jane Doe, CC BY-SA 4.0, via Wikimedia Commons", "India")
-    assert kit.startswith(assistant.KIT_MARK) and "press.autos India" in kit and "without changing its design" in kit
+    assert kit.startswith(assistant.KIT_MARK) and "keeping its exact design" in kit and "Do NOT add any text" in kit
     assert "CC BY-SA" in kit and "Based on: Photo: Jane Doe" in kit
     n = assistant.merge_notes("Fact-check: ok.", 70, [], kit)
     n2 = assistant.merge_notes(n, 80, [])
