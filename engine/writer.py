@@ -63,6 +63,7 @@ Build a fact table for this story. Return JSON:
   "is_confirmed": true/false,
   "country": "global" if the news matters to readers in many countries (global launches, global sales data, major tech), else the ONE ISO country code it concerns (e.g. IN for an India-only launch, price or recall),
   "category": one of {list(cfg['categories'].keys())},
+  "model": "the ONE vehicle model the story is mainly about, with brand, as people call it (e.g. \"Toyota Innova Hycross\", \"Bajaj Pulsar RS200\"), without year or variant words like facelift; empty string if the story is about a company, sales totals or several models",
   "brands": subset of {cfg['brands']} (exact spelling, empty if none),
   "powertrain": subset of {cfg['powertrains']},
   "body": subset of {cfg['bodies']},

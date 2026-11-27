@@ -7,6 +7,7 @@ Usage:
 import argparse
 import logging
 import os
+from datetime import datetime, timezone
 import re
 from collections import Counter
 
@@ -100,8 +101,11 @@ def choose(cfg: dict, store: Store, items: list[dict]) -> list[dict]:
     eds = enabled_editions(cfg)
     fresh, local = [], {}
     for c in clusters:
-        if c["key"] in done or cluster.is_repeat(c, recent_titles, same_model_titles=same_model):
+        if c["key"] in done or cluster.is_repeat(c, recent_titles):
             continue
+        # A new story about a model we covered in the last 48 hours updates that model's page instead of
+        # becoming a second article.
+        c["hub_only"] = cluster.is_repeat(c, [], same_model_titles=same_model)
         c["score"] = cluster.score_cluster(c, cfg)
         ed = next((it.get("edition") for it in c["items"] if it.get("edition") in eds), None)
         c["edition_hint"] = ed
@@ -142,6 +146,44 @@ def interleave_editions(cfg: dict, picked: list[dict]) -> list[dict]:
             if groups[k]:
                 out.append(groups[k].pop(0))
     return out
+
+
+def model_key(model: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", model.lower()).strip("-")
+
+
+def hub_payload(c: dict, facts: dict, srcs: list[dict], article: str = "") -> dict:
+    return {"model": facts.get("model", ""), "headline": facts.get("headline_fact") or c["title"],
+            "facts": [f for f in (facts.get("facts") or []) if isinstance(f, dict)][:20],
+            "source": facts.get("primary_source") or (srcs[0]["url"] if srcs else ""), "article": article,
+            "brands": facts.get("brands") or [], "cluster_key": c["key"], "confirmed": bool(facts.get("is_confirmed")),
+            "date": datetime.now(timezone.utc).strftime("%Y-%m-%d")}
+
+
+def queue_hub_update(cfg: dict, ai, store: Store, c: dict, wp_for, eds: dict, not_ready: set) -> str:
+    """Send a same-model story to its model page as a proposed update (no new article)."""
+    srcs = gather_sources(cfg, c)
+    if not srcs:
+        store.reject(c["key"], "no readable source")
+        return ""
+    facts = build_facts(ai, cfg, c, srcs)
+    if not facts or not (facts.get("model") or "").strip():
+        store.reject(c["key"], "same model as a recent story")
+        return f"- skipped (same model as a story in the last 48 hours): {c['title']}"
+    ed_key = route(cfg, facts.get("country"))
+    if ed_key is None or ed_key in not_ready:
+        return ""
+    try:
+        wp = wp_for(ed_key)
+        if not wp.has_hubs():
+            store.reject(c["key"], "same model as a recent story")
+            return f"- skipped (same model as a story in the last 48 hours; model pages need Core 0.6): {c['title']}"
+        res = wp.hub_update(hub_payload(c, facts, srcs))
+    except Exception as exc:  # noqa: BLE001
+        return f"- model page update failed for {facts.get('model')}: {str(exc)[:150]}"
+    store.reject(c["key"], "model page update")
+    return (f"- model page update queued for **{facts['model']}** ({eds[ed_key].get('name', ed_key)})"
+            + (" (new page created, pending)" if res.get("created") else "") + f": {c['title']}")
 
 
 def lead_domain(c: dict) -> str:
@@ -380,6 +422,7 @@ def main() -> None:
 
         cat_count = {k: Counter(r["category"] for r in store.drafts_today(k)) for k in eds}
         made = 0
+        hub_done = 0
         not_ready: set[str] = set()
         used_sources: set[str] = set()
         for c in picked:
@@ -388,6 +431,13 @@ def main() -> None:
             guess = route(cfg, c["triage"].get("audience"))
             if guess is None:
                 store.reject(c["key"], "local story without an edition")
+                continue
+            if c.get("hub_only"):
+                if hub_done < int(lim.get("per_run_max_hub_updates", 4)) and guess not in not_ready:
+                    line = queue_hub_update(cfg, ai, store, c, wp_for, eds, not_ready)
+                    if line:
+                        report.append(line)
+                        hub_done += 1
                 continue
             if room.get(guess, 0) <= 0 or guess in not_ready:
                 continue  # that edition is full today (or not set up); the story may be picked up later if fresh
@@ -443,7 +493,17 @@ def main() -> None:
                 if media_id:
                     payload["featured_media"] = media_id
                 payload["meta"]["pa_edition"] = "global" if ed_key == "global" else ed_key
+                model = (facts.get("model") or "").strip()
+                if model and wp.has_hubs():
+                    payload["meta"]["pa_model_key"] = model_key(model)
                 post = wp.create_post(payload)
+                if model and wp.has_hubs():
+                    try:
+                        res = wp.hub_update(hub_payload(c, facts, srcs, post.get("link", "")))
+                        notes.append(f"Model page: this story was also queued as an update for the {model} page "
+                                     + ("(new page created, pending)." if res.get("created") else "."))
+                    except Exception as exc:  # noqa: BLE001
+                        log.warning("model page update failed: %s", exc)
             except (BudgetExceeded, NoModelAvailable):
                 raise
             except Exception as exc:

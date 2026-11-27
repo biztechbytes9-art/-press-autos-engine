@@ -55,6 +55,26 @@ class WordPress:
         self._term_cache[key] = found
         return found
 
+    @property
+    def root(self) -> str:
+        return self.base[: -len("/wp/v2")]
+
+    def has_hubs(self) -> bool:
+        """True if the site's press.autos Core (0.6+) accepts model-page updates."""
+        if not hasattr(self, "_hubs"):
+            try:
+                r = self.s.get(self.root + "/pa/v1", timeout=20, allow_redirects=False)
+                self._hubs = r.status_code == 200
+            except Exception:  # noqa: BLE001
+                self._hubs = False
+        return self._hubs
+
+    def hub_update(self, data: dict) -> dict:
+        r = self.s.post(self.root + "/pa/v1/hub-update", json=data, timeout=60, allow_redirects=False)
+        if r.status_code >= 300:
+            raise RuntimeError(f"model page update {r.status_code}: {r.text[:200]}")
+        return r.json()
+
     def related(self, category_id: int | None, exclude_words: set[str] | None = None, n: int = 3) -> list[dict]:
         """Recent published posts in the same category, for "Also read" internal links."""
         if not category_id:
