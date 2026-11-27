@@ -851,3 +851,28 @@ def test_same_model_within_48h_is_repeat():
     assert rep("Royal Enfield Himalayan 450 price hike")
     assert not rep("Royal Enfield invests Rs 1,000 crore in EVs")
     assert not rep("Toyota Urban Cruiser Hyryder sales rise")
+
+
+def test_official_video_filter(monkeypatch):
+    from engine import video
+
+    def item(vid, title, channel, cid):
+        return {"id": {"videoId": vid}, "snippet": {"title": title, "channelTitle": channel, "channelId": cid}}
+
+    class R:
+        def __init__(self, js): self._js = js
+        def raise_for_status(self): pass
+        def json(self): return self._js
+
+    def get(url, timeout=None, params=None):
+        if url.endswith("/search"):
+            return R({"items": [item("a1", "Innova Hycross facelift walkaround", "Toyota Fans Club", "c1"),
+                                item("a2", "New Innova Hycross | Launch film", "Toyota India", "c2"),
+                                item("a3", "Fortuner review", "Toyota India", "c2")]})
+        return R({"items": [{"id": "c1", "statistics": {"subscriberCount": "900000"}},
+                            {"id": "c2", "statistics": {"subscriberCount": "1200000"}}]})
+    monkeypatch.setattr(video.requests, "get", get)
+    v = video.find_official_video("Toyota", "toyota innova hycross", {}, env={"YOUTUBE_API_KEY": "k"})
+    assert v["id"] == "a2" and v["channel"] == "Toyota India"
+    assert video.find_official_video("Toyota", "toyota innova hycross", {}, env={}) is None
+    assert "wp-block-embed-youtube" in video.embed_block(v) and "Video: Toyota India" in video.embed_block(v)
