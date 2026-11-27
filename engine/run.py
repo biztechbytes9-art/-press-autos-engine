@@ -236,6 +236,8 @@ def write_story(ai: Router, cfg: dict, facts: dict, srcs: list[dict], edition: d
     ver = ai.ask_json("verify", s, u, max_tokens=1500)
     issues = list(ver.get("issues") or [])
     issues += checks.headline_mismatch(draft.get("title", ""), draft.get("excerpt", ""), draft["body_markdown"])
+    issues += [i.replace("The title", "The social headline") for i in
+               checks.headline_mismatch(draft.get("social_title", ""), "", draft["body_markdown"])]
     if overlap > 0.06:
         issues.append(f"About {overlap:.0%} of the wording matches a source; rewrite those passages in fresh words.")
     if issues:
@@ -249,6 +251,8 @@ def write_story(ai: Router, cfg: dict, facts: dict, srcs: list[dict], edition: d
             notes.append(f"Wording overlap with a source is {overlap:.0%}; rephrase before publishing.")
     notes += ["Headline: " + p for p in checks.headline_mismatch(draft.get("title", ""), draft.get("excerpt", ""),
                                                                    draft["body_markdown"])]
+    notes += ["Social headline: " + p.replace("The title", "It") for p in
+              checks.headline_mismatch(draft.get("social_title", ""), "", draft["body_markdown"])]
     odd = checks.unsupported_numbers(draft["body_markdown"], src_text + "\n" + str(facts))
     if odd:
         notes.append("Numbers not found in sources (may be calculations): " + ", ".join(odd[:10]))

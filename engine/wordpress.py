@@ -148,6 +148,9 @@ def build_payload(wp: WordPress, draft: dict, facts: dict, content_html: str, so
             "pa_image_hint": draft.get("image_hint") or "",
             "rank_math_focus_keyword": keywords,
             "rank_math_description": (draft.get("excerpt") or "")[:160],
+            "rank_math_facebook_title": (draft.get("social_title") or "")[:95],
+            "rank_math_facebook_description": (draft.get("excerpt") or "")[:200],
+            "rank_math_twitter_use_facebook": "on",
         },
         **tax,
     }

@@ -17,7 +17,7 @@ import logging
 import re
 from datetime import datetime, timedelta, timezone
 
-from . import blocks, extract, images
+from . import blocks, extract, images, video
 from .config import ROOT, load_config, load_secrets
 from .llm import NoModelAvailable, Router
 from .run import edition_url, enabled_editions
@@ -81,6 +81,20 @@ def merge_notes(old: str, score: int, missing: list[str], kit: str = "") -> str:
     return "\n\n".join(x for x in (keep, kit, line) if x).strip()
 
 
+_BRANDS: dict = {}
+
+
+def brands_for_video(wp: WordPress, p: dict) -> list[str]:
+    ids = tuple(p.get("pa_brand") or [])
+    if not ids:
+        return []
+    if ids not in _BRANDS:
+        r = wp.s.get(wp.base + "/pa_brand", params={"include": ",".join(map(str, ids)), "_fields": "id,name"},
+                     timeout=30, allow_redirects=False)
+        _BRANDS[ids] = [b["name"] for b in r.json()] if r.status_code == 200 else []
+    return _BRANDS[ids]
+
+
 def key_facts_from(content: str) -> list[str]:
     box = re.search(r'pa-keyfacts.*?<ul[^>]*>(.*?)</ul>', content or "", re.S | re.I)
     return [plain(li) for li in re.findall(r"<li[^>]*>(.*?)</li>", box.group(1), re.S)] if box else []
@@ -91,6 +105,19 @@ def ensure_table(store: Store) -> None:
     store.db.execute("""CREATE TABLE IF NOT EXISTS assistant (
         site TEXT, post_id INTEGER, checked_at TEXT, photo_done INTEGER DEFAULT 0, tries INTEGER DEFAULT 0,
         PRIMARY KEY (site, post_id))""")
+    try:
+        store.db.execute("ALTER TABLE assistant ADD COLUMN video_checked INTEGER DEFAULT 0")
+    except Exception:  # noqa: BLE001  (column exists)
+        pass
+
+
+def video_checked(store: Store, site: str, pid: int) -> bool:
+    row = store.db.execute("SELECT video_checked FROM assistant WHERE site=? AND post_id=?", (site, pid)).fetchone()
+    return bool(row and row["video_checked"])
+
+
+def mark_video(store: Store, site: str, pid: int) -> None:
+    store.db.execute("UPDATE assistant SET video_checked=1 WHERE site=? AND post_id=?", (site, pid))
 
 
 def due(store: Store, site: str, pid: int, now: datetime) -> bool:
@@ -121,7 +148,8 @@ def suggest_keywords(ai: Router, title: str, excerpt: str, text: str) -> dict:
 
 
 # ------------------------------------------------------------------ one draft
-def assist(cfg: dict, wp: WordPress, ai: Router | None, p: dict, site_host: str, edition: dict, ed_key: str) -> tuple[dict, list[str], bool]:
+def assist(cfg: dict, wp: WordPress, ai: Router | None, p: dict, site_host: str, edition: dict, ed_key: str,
+           check_video: bool = True) -> tuple[dict, list[str], bool]:
     """Returns (fields to update, report lines, photo_done)."""
     title = htmlmod.unescape((p.get("title") or {}).get("raw") or (p.get("title") or {}).get("rendered") or "")
     content = (p.get("content") or {}).get("raw") or (p.get("content") or {}).get("rendered") or ""
@@ -225,6 +253,15 @@ def assist(cfg: dict, wp: WordPress, ai: Router | None, p: dict, site_host: str,
             upd["content"] = content
             did.append(f"{placed} Wikimedia Commons photo(s) added with credits")
 
+    # --- the maker's official launch video (YouTube embed), once per draft
+    if check_video and "wp-block-embed-youtube" not in content and brands_for_video(wp, p):
+        model = main_kw or title
+        vid = video.find_official_video(brands_for_video(wp, p)[0], model, cfg)
+        if vid and vid.get("id"):
+            content = images.insert_after_paragraph(content, video.embed_block(vid), 4)
+            upd["content"] = content
+            did.append(f"official video embedded ({vid['channel']})")
+
     # --- featured image kit for Gemini (option A: made by Karim in the Gemini app)
     kit = ""
     engine_made = not media or media.get("author") == p.get("author")
@@ -304,13 +341,16 @@ def main() -> None:
                 if not due(store, base, p["id"], now):
                     continue
                 try:
-                    upd, lines, photo = assist(cfg, wp, ai, p, host, ed, ed_key)
+                    vid_ok = not video_checked(store, base, p["id"])
+                    upd, lines, photo = assist(cfg, wp, ai, p, host, ed, ed_key, check_video=vid_ok)
                     if upd:
                         u = wp.s.post(f"{wp.base}/posts/{p['id']}", json=upd, timeout=60, allow_redirects=False)
                         if u.status_code >= 300:
                             lines = [f"- update failed for post {p['id']}: HTTP {u.status_code} {u.text[:150]}"]
                     report += lines
                     mark(store, base, p["id"], now, photo)
+                    if vid_ok:
+                        mark_video(store, base, p["id"])  # one YouTube search per draft (free daily quota)
                     done += 1
                 except Exception as exc:  # noqa: BLE001  (one draft must never stop the others)
                     log.exception("assistant failed on %s", p.get("id"))

@@ -14,6 +14,7 @@ Rules you must never break:
 - State dates explicitly ("on 21 November 2026", "from January 2027"), never only "today" or "last week".
 - On first mention use full names: maker + model + variant ("Bajaj Pulsar RS200"), and spell out an abbreviation once.
 - Every paragraph must make sense on its own (search and AI engines quote single paragraphs).
+- Keep paragraphs to 1-3 sentences, and put a "## " subheading roughly every 150-200 words.
 - The title and meta description may only contain numbers, prices and claims that are in the article body.
   No superlatives ("cheapest", "fastest", "first") unless a source states it, and then the body must say who claims it.
 - On the global edition: if the story is only about one country, say so in the first sentence and add the country in brackets at the end of the title, e.g. "(US)", "(India)", "(UK)". On a country edition, never add the country to the title.
@@ -107,6 +108,7 @@ Return JSON:
 {{"title": "accurate headline, max 65 characters so it is not cut off in search results, no clickbait",
   "excerpt": "meta description, 140-160 characters",
   "focus_keyword": "2-5 word search phrase, lowercase, that appears in the title, excerpt, first sentence and one heading",
+  "social_title": "headline for WhatsApp/X/Facebook shares, max 90 characters: a hook (contrast, stakes or what it means for the reader) that is still completely true and supported by the article; no all-caps, no emoji, no question you don't answer",
   "secondary_keywords": ["2-4 other phrases people would search for this story, lowercase, e.g. model + price, brand + sales"],
   "slug": "short URL slug, 3-7 lowercase words joined by hyphens, starting with the focus keyword, no dates or filler words",
   "body_markdown": "the article",
