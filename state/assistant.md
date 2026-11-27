@@ -1,4 +1,13 @@
 <!-- run -->
+# Assistant 2026-11-27 23:38 UTC
+
+**press.autos**: 4 pending engine drafts
+- Volkswagen ID. Cross R-Line adds GTI‑matching 223 hp power: SEO 42/100
+**press.autos India**: 1 pending engine drafts
+
+Drafts checked this run: 1.
+
+<!-- run -->
 # Assistant 2026-11-27 22:42 UTC
 
 **press.autos**: 4 pending engine drafts
