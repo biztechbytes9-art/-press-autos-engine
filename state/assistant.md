@@ -1,4 +1,12 @@
 <!-- run -->
+# Assistant 2026-11-27 20:41 UTC
+
+**press.autos**: 4 pending engine drafts
+**press.autos India**: 1 pending engine drafts
+
+Drafts checked this run: 0.
+
+<!-- run -->
 # Assistant 2026-11-27 19:45 UTC
 
 **press.autos**: 4 pending engine drafts
