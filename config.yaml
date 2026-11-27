@@ -17,6 +17,7 @@ limits:
   min_score: 0.45             # skip weak stories rather than publish filler
   lookback_hours: 36          # only consider items this recent
   max_category_share: 0.5     # within an edition, no category gets more than half of its daily drafts
+  per_run_max_hub_updates: 4   # same-model stories sent to model pages as proposed updates (no new article)
   max_candidates_per_source: 4  # at most this many candidate stories led by one website per run (stops one blog dominating)
 
 # Images: only pictures we may publish. Official press photos (sites with source_authority 1.0), credited;
