@@ -1,4 +1,36 @@
 <!-- run -->
+# Run 2026-11-28 13:17 UTC
+
+Discovered 162 recent items, 13 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 4 items (1 searches ok, 3 failed, 3 skipped: time limit).
+Room left today: press.autos 3, press.autos India 0. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.64 | motorsport | global | press.autos (main) | MotoGP Valencia GP: Bezzecchi takes stunning pole, Marquez second |
+| 0.53 | motorcycles | IN | press.autos India | New TVS Jupiter 125 ABS Variant Spied At Dealer – Launch Soon |
+| 0.60 | motorsport | global | press.autos (main) | FIA explores DRS return alongside push-to-pass system for F1’s V8 engines |
+| 0.49 | motorcycles | IN | press.autos India | TVS’ Norton Atlas Adv For India – Top 10 Highlights You Should Know |
+| 0.56 | ev | global | press.autos (main) | Volvo celebrates a half century of electric cars as Elbil turns 50 |
+| 0.48 | motorcycles | IN | press.autos India | New Bajaj Dominar 400 TFT Variant Spied Testing For The First Time |
+| 0.55 | motorsport | AU | press.autos (main) | Supercars Adelaide: Title fight goes down to Sunday after Feeney win in Race 2 |
+| 0.47 | suvs | IN | press.autos India | Upcoming Hyundai 7-Seater SUV Spied Again – XUV7XO, Safari Rival |
+
+By site: press.autos (main) 4, press.autos India 4
+By category: motorsport 3, motorcycles 3, ev 1, suvs 1
+- drafted for **press.autos**: Marco Bezzecchi takes pole at Valencia MotoGP, beats Marc Marquez by 0.5s (WordPress ID 4137, 3 review notes)
+- drafted for **press.autos**: FIA studies DRS return with push‑to‑pass for new 2.1‑L V8 power units (WordPress ID 4138, 2 review notes)
+- drafted for **press.autos**: Volvo EX60 electric SUV unveiled on 50th anniversary of Elbil (WordPress ID 4139, 4 review notes)
+
+Source pages that couldn't be read: autosport.com (HTTP 403 x2), motorsport.com (HTTP 403 x2).
+
+Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-28 11:02 UTC
 
 Discovered 148 recent items, 10 candidate stories above score 0.45.
@@ -860,30 +892,4 @@ By category: ev 1, suvs 1, trends 1, commercial 1, motorcycles 1
 Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1).
 
 Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-26 03:13 UTC
-
-Discovered 169 recent items, 5 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 5 items (1 searches ok, 2 failed, 4 skipped: time limit).
-Room left today: press.autos 8, press.autos India 5. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.56 | suvs | IN | press.autos India | New Honda Avancier SUV Production Starts In Thailand |
-| 0.54 | ev | CN | press.autos (main) | Chinese brands , cross - border trade and EV demand seen reshaping Macau car market |
-| 0.51 | suvs | IN | press.autos India | Toyota Innova Hycross Facelift Brochure, Variants Wise Features – G, GX, VX And ZX |
-
-By site: press.autos India 2, press.autos (main) 1
-By category: suvs 2, ev 1
-- drafted for **press.autos**: Honda Avancier SUV enters series production in Thailand ahead of December launch (WordPress ID 3894, 2 review notes)
-- drafted for **press.autos**: Macau car market reshaped by Chinese brands, cross‑border buying and EV demand (WordPress ID 3896, 8 review notes)
-
-Source pages that couldn't be read: pressroom.toyota.com (too little text (paywall or bot check?) x1).
-
-Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
 
