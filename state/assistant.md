@@ -1,4 +1,17 @@
 <!-- run -->
+# Assistant 2026-11-28 11:35 UTC
+
+**press.autos**: 11 pending engine drafts
+- Williams cost cap breach of £627,000 confirmed: SEO 58/100
+- Suzuki Ignis EV confirmed for Europe from summer 2027: SEO 67/100
+**press.autos India**: 7 pending engine drafts
+- Honda Alpha EV launch set for 2 December 2026 with four charging partners: SEO 42/100
+- Toyota may unveil new Fortuner in India on 1 December 2026: SEO 17/100
+- FASTag Annual Pass: eligibility, cost and how to activate: SEO 67/100
+
+Drafts checked this run: 5.
+
+<!-- run -->
 # Assistant 2026-11-28 10:38 UTC
 
 **press.autos**: 10 pending engine drafts
