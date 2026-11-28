@@ -1,4 +1,16 @@
 <!-- run -->
+# Assistant 2026-11-28 06:47 UTC
+
+**press.autos**: 8 pending engine drafts
+- Suzuki Ignis EV confirmed for Europe from summer 2027: SEO 67/100
+**press.autos India**: 4 pending engine drafts
+- Hyundai Ioniq P electric SUV to debut in India on 16 January 2027: SEO 25/100
+- Toyota may unveil new Fortuner in India on 1 December 2026: SEO 17/100
+- FASTag Annual Pass: eligibility, cost and how to activate: SEO 67/100
+
+Drafts checked this run: 4.
+
+<!-- run -->
 # Assistant 2026-11-28 05:44 UTC
 
 **press.autos**: 8 pending engine drafts
