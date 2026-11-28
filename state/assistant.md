@@ -1,4 +1,16 @@
 <!-- run -->
+# Assistant 2026-11-28 02:04 UTC
+
+**press.autos**: 6 pending engine drafts
+- Prevost H3-45 Electric coach unveiled with 600 hp and 250‑mile range: SEO 67/100; did: 2 Wikimedia Commons photo(s) added with credits
+- Kimi Antonelli tops Qatar GP practice, 0.83s ahead of Verstappen: SEO 25/100
+**press.autos India**: 2 pending engine drafts
+- Royal Enfield Himalayan 750 launches in India at Rs 4.89 lakh: SEO 42/100; did: 2 Wikimedia Commons photo(s) added with credits
+- FASTag Annual Pass: eligibility, cost and how to activate: SEO 67/100
+
+Drafts checked this run: 4.
+
+<!-- run -->
 # Assistant 2026-11-28 00:38 UTC
 
 **press.autos**: 4 pending engine drafts
