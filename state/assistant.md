@@ -1,4 +1,15 @@
 <!-- run -->
+# Assistant 2026-11-28 05:44 UTC
+
+**press.autos**: 8 pending engine drafts
+- Volkswagen Golf GTI 1976 limited edition unveiled with 325 hp: SEO 75/100; did: 2 Wikimedia Commons photo(s) added with credits
+- Volkswagen ID. Cross R-Line adds GTI‑matching 223 hp power: SEO 42/100
+**press.autos India**: 4 pending engine drafts
+- Hyundai Ioniq P electric SUV to debut in India on 16 January 2027: SEO 25/100; did: 2 Wikimedia Commons photo(s) added with credits
+
+Drafts checked this run: 3.
+
+<!-- run -->
 # Assistant 2026-11-28 04:45 UTC
 
 **press.autos**: 7 pending engine drafts
