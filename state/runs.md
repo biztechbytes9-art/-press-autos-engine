@@ -1,4 +1,34 @@
 <!-- run -->
+# Run 2026-11-28 11:02 UTC
+
+Discovered 148 recent items, 10 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 7 items (1 searches ok, 4 failed, 2 skipped: time limit).
+Sources not working: RushLane (failed (415)).
+Room left today: press.autos 4, press.autos India 1. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.66 | motorsport | global | press.autos (main) | Why Williams breached the 2025 F1 cost cap |
+| 0.60 | ev | IN | press.autos India | Honda Cars partners with 4 charging firms ahead of Alpha EV launch |
+| 0.64 | motorsport | global | press.autos (main) | 100% wear in 15 laps – F1’s tyre challenges in Qatar far more extreme than Pirelli expected |
+| 0.57 | motorcycles | IN | press.autos India | TVS’ Norton Atlas Adv For India – Top 10 Highlights You Should Know |
+| 0.59 | motorsport | global | press.autos (main) | MotoGP and Liberty bosses to hold summit with teams to explain series' future |
+| 0.53 | suvs | IN | press.autos India | Upcoming Hyundai 7 - Seater SUV Spied Again - XUV7XO , Safari Rival |
+
+By site: press.autos (main) 3, press.autos India 3
+By category: motorsport 3, ev 1, motorcycles 1, suvs 1
+- drafted for **press.autos**: Williams cost cap breach of £627,000 confirmed (WordPress ID 4135, 2 review notes)
+- drafted for **press.autos India**: Honda Alpha EV launch set for 2 December 2026 with four charging partners (WordPress ID 1304, 3 review notes)
+
+Source pages that couldn't be read: autosport.com (HTTP 403 x1), motorsport.com (HTTP 403 x1).
+
+Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-28 09:05 UTC
 
 Discovered 144 recent items, 7 candidate stories above score 0.45.
@@ -856,32 +886,4 @@ By category: suvs 2, ev 1
 Source pages that couldn't be read: pressroom.toyota.com (too little text (paywall or bot check?) x1).
 
 Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
-
-<!-- run -->
-# Run 2026-11-26 01:33 UTC
-
-Discovered 169 recent items, 5 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 0 items (1 searches ok, 2 failed, 4 skipped: time limit).
-Room left today: press.autos 10, press.autos India 6. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-
-### Chosen by triage
-
-| Score | Category | Country | Would go to | Story |
-| --- | --- | --- | --- | --- |
-| 0.65 | ev | global | press.autos (main) | Toyota is about to unveil its first extended-range EV, and it looks like the Highlander |
-| 0.55 | suvs | IN | press.autos India | 2026 Toyota Innova Hycross Facelift Launched At Rs. 19.59 Lakh |
-| 0.48 | reviews | CN | press.autos (main) | Honda Accord Gains A Wild New Face In China, But Keeps The Old Hybrid |
-| 0.47 | suvs | IN | press.autos India | Toyota Innova Hycross Facelift Brochure, Variants Wise Features – G, GX, VX And ZX |
-
-By site: press.autos (main) 2, press.autos India 2
-By category: suvs 2, ev 1, reviews 1
-- drafted for **press.autos**: Toyota EREV debut at Guangzhou Motor Show on 27 November 2026 (China) (WordPress ID 3890, 5 review notes)
-- drafted for **press.autos India**: Toyota Innova Hycross facelift price and specs revealed (India) (WordPress ID 1187, 3 review notes)
-- drafted for **press.autos**: GAC Honda Accord 2027 facelift unveiled in China (WordPress ID 3892, 2 review notes)
-
-Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1), pressroom.toyota.com (too little text (paywall or bot check?) x1).
-
-Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
 
