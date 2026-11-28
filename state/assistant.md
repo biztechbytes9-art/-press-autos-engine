@@ -1,4 +1,16 @@
 <!-- run -->
+# Assistant 2026-11-28 10:38 UTC
+
+**press.autos**: 10 pending engine drafts
+- Bajaj Pulsar leads 150‑200 cc segment with 65,292 units in Oct 2026: SEO 17/100
+- Hankook eyes F1 tyre supply contract as Pirelli’s reign continues: SEO 25/100
+**press.autos India**: 6 pending engine drafts
+- Mahindra Vision S SUV set for June 2027 launch on NU_IQ platform: SEO 58/100
+- Festive 2026 EV registrations cross 5.09 lakh in India: SEO 58/100
+
+Drafts checked this run: 4.
+
+<!-- run -->
 # Assistant 2026-11-28 09:38 UTC
 
 **press.autos**: 10 pending engine drafts
