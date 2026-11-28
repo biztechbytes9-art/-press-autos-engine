@@ -1,4 +1,15 @@
 <!-- run -->
+# Assistant 2026-11-28 00:38 UTC
+
+**press.autos**: 4 pending engine drafts
+- Brodie Kostecki wins inaugural Friday race at Adelaide 500: SEO 33/100
+- Proton S70 RS launch set for 1 December 2026 at Sepang (Malaysia): SEO 58/100
+- Marc Marquez retirement announced ahead of Valencia Grand Prix: SEO 58/100
+**press.autos India**: 1 pending engine drafts
+
+Drafts checked this run: 3.
+
+<!-- run -->
 # Assistant 2026-11-27 23:38 UTC
 
 **press.autos**: 4 pending engine drafts
