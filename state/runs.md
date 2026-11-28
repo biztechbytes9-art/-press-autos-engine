@@ -1,4 +1,39 @@
 <!-- run -->
+# Run 2026-11-28 01:34 UTC
+
+Discovered 173 recent items, 11 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 1 items (1 searches ok, 4 failed, 2 skipped: time limit).
+Room left today: press.autos 10, press.autos India 6. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.66 | motorcycles | IN | press.autos India | Royal Enfield Himalayan 750 India Launch Price Rs 4.89 Lakh – Bookings Open Dec 1 |
+| 0.64 | ev | global | press.autos (main) | Hyundai’s new Mercury EV Concept will launch as the IONIQ M in 2027 [Images] |
+| 0.62 | ev | IN | press.autos India | MINI Cooper Electric Launched In India At Rs. 53.9 Lakhs |
+| 0.58 | motorsport | global | press.autos (main) | F1 Qatar GP practice analysis: Kimi Antonelli nearly a second clear of Max Verstappen on long runs |
+| 0.50 | suvs | IN | press.autos India | New Nissan Terrano Leaked: Design, Engines & India Launch Details |
+| 0.58 | commercial | global | press.autos (main) | Prevost unveils Electric coach bus: 600 hp, 540 kWh, 250-mile range |
+| 0.46 | trends | IN | press.autos India | Festive 2026: Tractor Sales Cross 1 Lakh Units As Mahindra Dominates |
+| 0.45 | trends | IN | press.autos India | 350cc To 500cc Motorcycle Sales Oct 2026 – RE, Honda, Triumph, KTM, Bajaj, Aprilia, Hero, Kawasaki |
+
+By site: press.autos India 5, press.autos (main) 3
+By category: ev 2, trends 2, motorcycles 1, motorsport 1, suvs 1, commercial 1
+- drafted for **press.autos India**: Royal Enfield Himalayan 750 launches in India at Rs 4.89 lakh (WordPress ID 1283, 6 review notes)
+- model page update queued for **Hyundai IONIQ M** (press.autos) (new page created, pending): Hyundai’s new Mercury EV Concept will launch as the IONIQ M in 2027 [Images]
+- model page update queued for **MINI Cooper SE** (press.autos India) (new page created, pending): MINI Cooper Electric Launched In India At Rs. 53.9 Lakhs
+- drafted for **press.autos**: Kimi Antonelli tops Qatar GP practice, 0.83s ahead of Verstappen (WordPress ID 4111, 4 review notes)
+- model page update queued for **Nissan Terrano** (press.autos India) (new page created, pending): New Nissan Terrano Leaked: Design, Engines & India Launch Details
+- drafted for **press.autos**: Prevost H3-45 Electric coach unveiled with 600 hp and 250‑mile range (WordPress ID 4112, 4 review notes)
+
+Source pages that couldn't be read: autosport.com (HTTP 403 x1), gaadiwaadi.com (too little text (paywall or bot check?) x2), motor1.com (HTTP 403 x1), motorsport.com (HTTP 403 x1).
+
+Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-27 23:07 UTC
 
 Discovered 186 recent items, 14 candidate stories above score 0.45.
@@ -773,16 +808,6 @@ Daily limits reached; nothing to do.
 # Run 2026-11-25 17:14 UTC
 
 Discovered 172 recent items, 17 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
-Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-Daily limits reached; nothing to do.
-
-<!-- run -->
-# Run 2026-11-25 15:19 UTC
-
-Discovered 161 recent items, 11 candidate stories above score 0.45.
 Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
 GDELT: 0 items (0 searches ok, 4 failed, 3 skipped: time limit).
 Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
