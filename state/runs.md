@@ -1,4 +1,28 @@
 <!-- run -->
+# Run 2026-11-28 07:27 UTC
+
+Discovered 143 recent items, 3 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
+GDELT: 6 items (1 searches ok, 2 failed, 4 skipped: time limit).
+Sources not working: RushLane (failed (415)).
+Room left today: press.autos 6, press.autos India 3. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.63 | trends | IN | press.autos India | Festive 2026 EV Sales Get Past 5 Lakh Units For The 1st Time, Up 52.62% |
+
+By site: press.autos India 1
+By category: trends 1
+- drafted for **press.autos India**: Festive 2026 EV registrations cross 5.09 lakh in India (WordPress ID 1299, 2 review notes)
+
+Source pages that couldn't be read: gaadiwaadi.com (too little text (paywall or bot check?) x1).
+
+Drafted this run: 1. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-28 05:16 UTC
 
 Discovered 158 recent items, 6 candidate stories above score 0.45.
@@ -836,16 +860,6 @@ Drafted this run: 3. Paid AI spend today: $0.00 (free models cost $0).
 Discovered 187 recent items, 8 candidate stories above score 0.45.
 Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
 GDELT: 0 items (1 searches ok, 2 failed, 4 skipped: time limit).
-Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-Daily limits reached; nothing to do.
-
-<!-- run -->
-# Run 2026-11-25 21:06 UTC
-
-Discovered 186 recent items, 17 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
 Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
 AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
 Daily limits reached; nothing to do.
