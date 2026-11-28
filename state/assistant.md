@@ -1,4 +1,14 @@
 <!-- run -->
+# Assistant 2026-11-28 08:38 UTC
+
+**press.autos**: 8 pending engine drafts
+**press.autos India**: 5 pending engine drafts
+- Festive 2026 EV registrations cross 5.09 lakh in India: SEO 58/100
+- Hyundai Ioniq P electric SUV to debut in India on 16 January 2027: SEO 25/100
+
+Drafts checked this run: 2.
+
+<!-- run -->
 # Assistant 2026-11-28 06:47 UTC
 
 **press.autos**: 8 pending engine drafts
