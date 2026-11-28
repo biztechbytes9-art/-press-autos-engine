@@ -1,4 +1,20 @@
 <!-- run -->
+# Assistant 2026-11-28 12:37 UTC
+
+**press.autos**: 11 pending engine drafts
+- Williams cost cap breach of £627,000 confirmed: SEO 58/100
+- Bajaj Pulsar leads 150‑200 cc segment with 65,292 units in Oct 2026: SEO 17/100
+- Hankook eyes F1 tyre supply contract as Pirelli’s reign continues: SEO 25/100
+- Volkswagen Golf GTI 1976 limited edition unveiled with 325 hp: SEO 75/100
+- Volkswagen ID. Cross R-Line adds GTI‑matching 223 hp power: SEO 42/100
+**press.autos India**: 7 pending engine drafts
+- Honda Alpha EV launch set for 2 December 2026 with four charging partners: SEO 42/100
+- Mahindra Vision S SUV set for June 2027 launch on NU_IQ platform: SEO 58/100
+- Festive 2026 EV registrations cross 5.09 lakh in India: SEO 58/100
+
+Drafts checked this run: 8.
+
+<!-- run -->
 # Assistant 2026-11-28 11:35 UTC
 
 **press.autos**: 11 pending engine drafts
