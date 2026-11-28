@@ -1,4 +1,34 @@
 <!-- run -->
+# Run 2026-11-28 05:16 UTC
+
+Discovered 158 recent items, 6 candidate stories above score 0.45.
+Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 10.
+GDELT: 1 items (1 searches ok, 3 failed, 3 skipped: time limit).
+Room left today: press.autos 7, press.autos India 4. Spend today: $0.00.
+AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
+
+### Chosen by triage
+
+| Score | Category | Country | Would go to | Story |
+| --- | --- | --- | --- | --- |
+| 0.64 | ev | IN | press.autos India | Hyundai Ioniq P Sub 4m Electric SUV Will Debut On Jan 16 |
+| 0.59 | reviews | global | press.autos (main) | Volkswagen Golf GTI 1976 Revealed With 325hp Engine and Manual Gearbox |
+| 0.60 | ev | IN | press.autos India | Greaves Electric expects to break even ahead of FY28 target; readies &#039;Icebreaker&#039; EV launch |
+| 0.54 | compare | IN | press.autos India | New Toyota Innova Hycross vs Old: What’s Changed In The 2026 Facelift? |
+| 0.49 | suvs | IN | press.autos India | Upcoming Hyundai 7-Seater SUV Spied Again – XUV7XO, Safari Rival |
+
+By site: press.autos India 4, press.autos (main) 1
+By category: ev 2, reviews 1, compare 1, suvs 1
+- drafted for **press.autos India**: Hyundai Ioniq P electric SUV to debut in India on 16 January 2027 (WordPress ID 1293, 6 review notes)
+- drafted for **press.autos**: Volkswagen Golf GTI 1976 limited edition unveiled with 325 hp (WordPress ID 4123, 4 review notes)
+- skipped (no readable source): Greaves Electric expects to break even ahead of FY28 target; readies &#039;Icebreaker&#039; EV launch
+- model page update queued for **Toyota Innova Hycross** (press.autos India) (new page created, pending): New Toyota Innova Hycross vs Old: What’s Changed In The 2026 Facelift?
+
+Source pages that couldn't be read: auto.economictimes.indiatimes.com (too little text (paywall or bot check?) x1), gaadiwaadi.com (too little text (paywall or bot check?) x1).
+
+Drafted this run: 2. Paid AI spend today: $0.00 (free models cost $0).
+
+<!-- run -->
 # Run 2026-11-28 03:05 UTC
 
 Discovered 169 recent items, 4 candidate stories above score 0.45.
@@ -814,16 +844,6 @@ Daily limits reached; nothing to do.
 # Run 2026-11-25 21:06 UTC
 
 Discovered 186 recent items, 17 candidate stories above score 0.45.
-Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
-GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
-Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
-AI models available: gemini-flash-lite, groq-qwen, groq-gpt-oss, gemini-flash.
-Daily limits reached; nothing to do.
-
-<!-- run -->
-# Run 2026-11-25 19:03 UTC
-
-Discovered 177 recent items, 15 candidate stories above score 0.45.
 Sources working: Toyota USA pressroom 20, Toyota product news 20, Electrek 150, InsideEVs 20, Motor1 20, Carscoops 20, Paul Tan Malaysia 20, RideApart 20, Asphalt & Rubber 25, Motorsport.com 50, Autosport 50, RushLane 8, GaadiWaadi 8, MotorBeam 15, Motoroids 10, ET Auto 9.
 GDELT: 0 items (0 searches ok, 3 failed, 4 skipped: time limit).
 Room left today: press.autos 0, press.autos India 0. Spend today: $0.00.
