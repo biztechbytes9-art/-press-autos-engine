@@ -1,4 +1,21 @@
 <!-- run -->
+# Assistant 2026-11-28 09:38 UTC
+
+**press.autos**: 10 pending engine drafts
+- Hankook eyes F1 tyre supply contract as Pirelli’s reign continues: SEO 25/100
+- Bajaj Pulsar leads 150‑200 cc segment with 65,292 units in Oct 2026: SEO 17/100
+- Prevost H3-45 Electric coach unveiled with 600 hp and 250‑mile range: SEO 67/100
+- Kimi Antonelli tops Qatar GP practice, 0.83s ahead of Verstappen: SEO 25/100
+- Brodie Kostecki wins inaugural Friday race at Adelaide 500: SEO 33/100
+- Proton S70 RS launch set for 1 December 2026 at Sepang (Malaysia): SEO 58/100
+- Marc Marquez retirement announced ahead of Valencia Grand Prix: SEO 58/100
+**press.autos India**: 6 pending engine drafts
+- Mahindra Vision S SUV set for June 2027 launch on NU_IQ platform: SEO 58/100
+- Royal Enfield Himalayan 750 launches in India at Rs 4.89 lakh: SEO 42/100
+
+Drafts checked this run: 9.
+
+<!-- run -->
 # Assistant 2026-11-28 08:38 UTC
 
 **press.autos**: 8 pending engine drafts
